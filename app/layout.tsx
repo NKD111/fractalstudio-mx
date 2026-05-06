@@ -6,7 +6,7 @@ import "./globals.css";
 /* ─── Analytics IDs ─────────────────────────────────────────────────────────
    Reemplaza estos placeholders con tus IDs reales.
    Ver README.md → sección "Analytics" para instrucciones.           ────── */
-const GA_ID        = "G-XXXXXXXXXX";
+const GA_ID        = "G-YHBC00E9WE";
 const GTM_ID       = "GTM-XXXXXXX";
 const META_PIXEL   = "XXXXXXXXXXXXXXXXXX";
 
@@ -98,8 +98,7 @@ export const metadata: Metadata = {
   },
 
   other: {
-    /* Reemplaza con el token real de Google Search Console */
-    "google-site-verification": "REEMPLAZAR_CON_TOKEN_SEARCH_CONSOLE",
+    "google-site-verification": "MCvery0HSnp_JoELgRpKZW_MeMBj-HFjc8quS3Ey33k",
   },
 };
 
