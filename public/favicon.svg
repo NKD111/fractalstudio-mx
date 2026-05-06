@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" fill="#080808"/>
+  <rect x="4" y="4" width="24" height="24" stroke="#3BEA3B" stroke-width="1.5" fill="none"/>
+  <!-- Corner brackets -->
+  <path d="M4 10 L4 4 L10 4" stroke="#3BEA3B" stroke-width="1.5" fill="none"/>
+  <path d="M22 4 L28 4 L28 10" stroke="#3BEA3B" stroke-width="1.5" fill="none"/>
+  <path d="M4 22 L4 28 L10 28" stroke="#3BEA3B" stroke-width="1.5" fill="none"/>
+  <path d="M22 28 L28 28 L28 22" stroke="#3BEA3B" stroke-width="1.5" fill="none"/>
+  <!-- Inner F mark -->
+  <rect x="10" y="10" width="12" height="12" fill="#3BEA3B" opacity="0.15"/>
+  <path d="M11 11 L11 21 M11 11 L19 11 M11 16 L17 16" stroke="#3BEA3B" stroke-width="1.8" stroke-linecap="square"/>
+</svg>
