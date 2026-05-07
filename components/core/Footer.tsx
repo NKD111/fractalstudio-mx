@@ -14,11 +14,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div
-                className="w-6 h-6 flex items-center justify-center flex-shrink-0"
-                style={{ border: "1px solid rgba(59,234,59,0.4)" }}
-              >
-                <div className="w-2.5 h-2.5 bg-[#3BEA3B]" aria-hidden />
+              <div className="w-6 h-6 flex-shrink-0" aria-hidden>
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                  <rect x="1.5" y="1.5" width="29" height="29" stroke="#3BEA3B" strokeWidth="0.75" strokeOpacity="0.3" fill="none"/>
+                  <polygon points="16,2 30,16 16,30 2,16" stroke="#3BEA3B" strokeWidth="1.2" strokeOpacity="0.7" fill="none"/>
+                  <rect x="9" y="9" width="14" height="14" stroke="#3BEA3B" strokeWidth="1" strokeOpacity="0.55" fill="none"/>
+                  <rect x="13.5" y="13.5" width="5" height="5" fill="#3BEA3B"/>
+                </svg>
               </div>
               <span
                 className="font-headline font-bold text-[#F5F5F5]"

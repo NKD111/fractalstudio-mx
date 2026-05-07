@@ -186,7 +186,7 @@ export default function Hero() {
     >
       {/* Grid bg */}
       <div aria-hidden className="absolute inset-0 pointer-events-none" style={{
-        opacity:         0.025,
+        opacity:         0.042,
         backgroundImage: "linear-gradient(rgba(59,234,59,1) 1px,transparent 1px),linear-gradient(90deg,rgba(59,234,59,1) 1px,transparent 1px)",
         backgroundSize:  "64px 64px",
       }} />
@@ -243,7 +243,29 @@ export default function Hero() {
 
         {/* Subtitle */}
         <div ref={subtitleRef} style={{ willChange: "transform" }}>
-          <div style={fade(520)}>
+
+          {/* Motto */}
+          <div style={{ ...fade(450), marginBottom: "1.5rem" }}>
+            <p className="font-body" style={{
+              borderLeft:  "2px solid rgba(59,234,59,0.45)",
+              paddingLeft: 14,
+            }}>
+              <em style={{ fontSize: "clamp(0.95rem,1.2vw,1.1rem)", color: "rgba(245,245,245,0.52)", fontStyle: "italic" }}>
+                "Nacimos para crear"
+              </em>
+              <span className="font-mono" style={{
+                display:       "block",
+                fontSize:      "0.62rem",
+                letterSpacing: "0.16em",
+                color:         "rgba(59,234,59,0.65)",
+                marginTop:     5,
+              }}>
+                — Fractal Studio
+              </span>
+            </p>
+          </div>
+
+          <div style={fade(580)}>
             <p className="font-mono uppercase mb-5" style={{ fontSize: "0.68rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
               Diseño&nbsp;&nbsp;·&nbsp;&nbsp;Fotografía&nbsp;&nbsp;·&nbsp;&nbsp;Video&nbsp;&nbsp;·&nbsp;&nbsp;Branding
             </p>

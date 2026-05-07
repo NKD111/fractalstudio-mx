@@ -96,7 +96,7 @@ export default function Process() {
               right:     40,
               height:    1,
               background: visible
-                ? "linear-gradient(90deg, transparent, rgba(59,234,59,0.12) 20%, rgba(59,234,59,0.12) 80%, transparent)"
+                ? "linear-gradient(90deg, transparent, rgba(59,234,59,0.22) 20%, rgba(59,234,59,0.22) 80%, transparent)"
                 : "transparent",
               transition: "background 0.8s ease 0.4s",
             }}

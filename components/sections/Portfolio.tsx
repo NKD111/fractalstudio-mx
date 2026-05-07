@@ -82,7 +82,7 @@ function PortfolioCell({ item, index, visible }: {
       className={`relative overflow-hidden group ${item.col} ${item.row}`}
       style={{
         background:  FALLBACKS[index],
-        border:      "1px solid rgba(255,255,255,0.04)",
+        border:      "1px solid rgba(255,255,255,0.07)",
         minHeight:   220,
         cursor:      "pointer",
         opacity:     visible ? 1 : 0,

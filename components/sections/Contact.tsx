@@ -239,7 +239,7 @@ export default function Contact() {
                   <div className="font-mono uppercase mb-1" style={{ fontSize: "0.56rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.28)" }}>
                     {label}
                   </div>
-                  <div className="font-body text-sm transition-colors duration-200 group-hover:text-[#F5F5F5]" style={{ color: "rgba(245,245,245,0.55)" }}>
+                  <div className="font-body text-sm transition-colors duration-200 group-hover:text-[#F5F5F5]" style={{ color: "rgba(245,245,245,0.72)" }}>
                     {value}
                   </div>
                 </div>

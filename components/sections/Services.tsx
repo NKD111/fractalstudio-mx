@@ -193,7 +193,7 @@ export default function Services() {
         </div>
 
         {/* 2×2 grid with gap-px effect */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(255,255,255,0.04)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(255,255,255,0.07)]">
           {SERVICES.map((service, i) => (
             <div key={service.num} className="bg-[#080808]">
               <ServiceCard service={service} index={i} />
