@@ -68,7 +68,7 @@ export default function Testimonials() {
             transition: "opacity 0.65s ease, transform 0.65s ease",
           }}
         >
-          <div className="flex items-center gap-3 mb-5">
+          <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
             <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
               CLIENTES // 04

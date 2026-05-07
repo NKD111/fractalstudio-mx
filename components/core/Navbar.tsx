@@ -65,7 +65,7 @@ export default function Navbar() {
           <a
             href={PHONE_HREF}
             className="hidden lg:flex items-center gap-2 transition-colors duration-200 hover:text-[#3BEA3B]"
-            style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.35)" }}
+            style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.65)" }}
             aria-label={`Llamar al ${PHONE}`}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
@@ -81,7 +81,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 className="transition-colors duration-200 hover:text-[#F5F5F5]"
-                style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.68rem", letterSpacing: "0.13em", color: "rgba(245,245,245,0.45)" }}
+                style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.68rem", letterSpacing: "0.13em", color: "rgba(245,245,245,0.65)" }}
               >
                 {item.label}
               </a>
@@ -193,7 +193,7 @@ export default function Navbar() {
 
         <a
           href={PHONE_HREF}
-          style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.25)" }}
+          style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.62rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.65)" }}
         >
           {PHONE}
         </a>

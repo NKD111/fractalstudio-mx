@@ -221,7 +221,7 @@ export default function Hero() {
       <div className="relative z-1 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24">
 
         {/* HUD label */}
-        <div className="flex items-center gap-3 mb-8" style={fade(0)}>
+        <div className="flex items-center gap-3 mb-8" aria-hidden="true" style={fade(0)}>
           <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
           <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.45)" }}>
             CDMX // ESTUDIO CREATIVO
