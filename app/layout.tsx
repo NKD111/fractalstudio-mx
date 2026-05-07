@@ -157,7 +157,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <head>
         {/* Favicon */}
-        <link rel="icon" href="/logo.png" type="image/png" sizes="96x96" />
+        <link rel="icon" href="/logo.png" type="image/png" sizes="512x512" />
         <link rel="alternate icon" href="/favicon.svg" type="image/svg+xml" />
 
         {/* Preconnects — next/font ya sirve fuentes desde /_next/static, solo necesitamos analytics */}
