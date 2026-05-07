@@ -251,7 +251,7 @@ export default function Hero() {
               paddingLeft: 14,
             }}>
               <em style={{ fontSize: "clamp(1.2rem,1.5vw,1.4rem)", color: "rgba(245,245,245,0.52)", fontStyle: "italic" }}>
-                "Nacimos para crear"
+                &ldquo;Nacimos para crear&rdquo;
               </em>
               <span className="font-mono" style={{
                 display:       "block",
