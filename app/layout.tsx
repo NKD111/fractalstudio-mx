@@ -8,7 +8,7 @@ import "./globals.css";
    Ver README.md → sección "Analytics" para instrucciones.           ────── */
 const GA_ID        = "G-YHBC00E9WE";
 const GTM_ID       = "GTM-XXXXXXX";
-const META_PIXEL   = "XXXXXXXXXXXXXXXXXX";
+const META_PIXEL   = "1948542752447075";
 
 /* ─── Fonts ─────────────────────────────────────────────────────────────── */
 const syne = Syne({
