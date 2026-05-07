@@ -15,6 +15,7 @@
   body {
     background-color: #080808;
     color: #F5F5F5;
+    overflow-x: hidden;
   }
 
   /* Hide native cursor when custom cursor is active (desktop) */

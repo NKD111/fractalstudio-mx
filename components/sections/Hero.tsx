@@ -62,7 +62,7 @@ function SplitWord({
   return (
     <span
       className="block"
-      style={{ color: color || "#F5F5F5", overflow: "hidden" }}
+      style={{ color: color || "#F5F5F5", overflow: "hidden", whiteSpace: "nowrap" }}
       aria-hidden
     >
       {word.split("").map((ch, i) => (
@@ -230,7 +230,7 @@ export default function Hero() {
         <div ref={headlineRef} style={{ willChange: "transform" }}>
           <h1
             className="font-headline font-extrabold leading-[0.87] tracking-[-0.04em] mb-8"
-            style={{ fontSize: "clamp(3.8rem,13vw,11rem)" }}
+            style={{ fontSize: "clamp(2rem,9vw,8.5rem)" }}
           >
             <span className="sr-only">Fractal Studio MX</span>
             <SplitWord word="FRACTAL" baseDelay={80}  />

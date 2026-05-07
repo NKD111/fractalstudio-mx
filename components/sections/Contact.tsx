@@ -87,7 +87,7 @@ export default function Contact() {
           <div className="flex items-center gap-3 mb-4">
             <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
             <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
-              CONTACTO // 03
+              CONTACTO // 05
             </span>
           </div>
           <h2
