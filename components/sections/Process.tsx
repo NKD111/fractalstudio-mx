@@ -167,7 +167,7 @@ export default function Process() {
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono transition-colors duration-200 hover:text-[#3BEA3B]"
-            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.5)" }}
+            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
           >
             ¿LISTO PARA EMPEZAR? HABLEMOS →
           </a>

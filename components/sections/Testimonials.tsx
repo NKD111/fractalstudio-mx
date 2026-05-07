@@ -164,6 +164,7 @@ export default function Testimonials() {
 
         {/* Marquee */}
         <div
+          aria-hidden="true"
           style={{
             opacity:    visible ? 1 : 0,
             transition: "opacity 0.65s ease 700ms",

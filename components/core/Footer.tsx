@@ -27,7 +27,7 @@ export default function Footer() {
                 FRACTAL STUDIO MX
               </span>
             </div>
-            <p className="font-body text-sm leading-relaxed max-w-[240px]" style={{ color: "#666" }}>
+            <p className="font-body text-sm leading-relaxed max-w-[240px]" style={{ color: "#888" }}>
               Agencia creativa en CDMX. Diseño, fotografía, video y branding para marcas que quieren destacar.
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h3
               className="font-mono uppercase mb-5"
-              style={{ fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.25)" }}
+              style={{ fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.5)" }}
             >
               Navegación
             </h3>
@@ -50,7 +50,7 @@ export default function Footer() {
                   key={link.href}
                   href={link.href}
                   className="font-body text-sm transition-colors duration-200 hover:text-[#3BEA3B]"
-                  style={{ color: "#666" }}
+                  style={{ color: "#888" }}
                 >
                   {link.label}
                 </a>
@@ -62,7 +62,7 @@ export default function Footer() {
           <div>
             <h3
               className="font-mono uppercase mb-5"
-              style={{ fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.25)" }}
+              style={{ fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.5)" }}
             >
               Contacto
             </h3>
@@ -70,7 +70,7 @@ export default function Footer() {
               <a
                 href={`tel:${PHONE.replace(/\s/g, "")}`}
                 className="font-body text-sm transition-colors duration-200 hover:text-[#F5F5F5]"
-                style={{ color: "#666" }}
+                style={{ color: "#888" }}
                 aria-label={`Llamar al ${PHONE}`}
               >
                 {PHONE}
@@ -78,11 +78,11 @@ export default function Footer() {
               <a
                 href={`mailto:${EMAIL}`}
                 className="font-body text-sm transition-colors duration-200 hover:text-[#F5F5F5]"
-                style={{ color: "#666" }}
+                style={{ color: "#888" }}
               >
                 {EMAIL}
               </a>
-              <span className="font-body text-sm" style={{ color: "#666" }}>
+              <span className="font-body text-sm" style={{ color: "#888" }}>
                 Ciudad de México, CDMX
               </span>
             </div>
@@ -95,8 +95,9 @@ export default function Footer() {
           style={{ borderColor: "rgba(255,255,255,0.04)" }}
         >
           <p
+            aria-hidden="true"
             className="font-mono"
-            style={{ fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.18)" }}
+            style={{ fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.35)" }}
           >
             © {new Date().getFullYear()} Fractal Studio MX. Todos los derechos reservados.
           </p>
@@ -112,7 +113,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={`${label} de Fractal Studio MX`}
                 className="font-mono uppercase transition-colors duration-200 hover:text-[#3BEA3B]"
-                style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.18)" }}
+                style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "#888" }}
               >
                 {label}
               </a>

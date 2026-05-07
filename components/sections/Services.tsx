@@ -208,7 +208,7 @@ export default function Services() {
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono transition-colors duration-200 hover:text-[#3BEA3B] inline-flex items-center gap-2"
-            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.5)" }}
+            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
           >
             SOLICITAR COTIZACIÓN →
           </a>
