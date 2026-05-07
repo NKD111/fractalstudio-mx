@@ -53,21 +53,30 @@ export default function LoadingScreen() {
     >
       {/* Logo mark */}
       <div style={{
-        width:       64,
-        height:      64,
-        display:     "flex",
-        alignItems:  "center",
+        width:        96,
+        height:       96,
+        display:      "flex",
+        alignItems:   "center",
         justifyContent: "center",
         marginBottom: 28,
-        boxShadow:   `0 0 ${Math.round(progress * 0.5)}px rgba(59,234,59,0.22)`,
-        transition:  "box-shadow 100ms",
+        filter:       `drop-shadow(0 0 ${Math.round(progress * 0.18)}px rgba(59,234,59,0.7))`,
+        transition:   "filter 100ms",
       }}>
-        <svg width="64" height="64" viewBox="0 0 32 32" fill="none" aria-hidden>
-          <rect x="1.5" y="1.5" width="29" height="29" stroke="#3BEA3B" strokeWidth="0.75" strokeOpacity="0.3" fill="none"/>
-          <polygon points="16,2 30,16 16,30 2,16" stroke="#3BEA3B" strokeWidth="1.2" strokeOpacity="0.7" fill="none"/>
-          <rect x="9" y="9" width="14" height="14" stroke="#3BEA3B" strokeWidth="1" strokeOpacity="0.55" fill="none"/>
-          <rect x="13.5" y="13.5" width="5" height="5" fill="#3BEA3B"/>
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo.png"
+          alt=""
+          aria-hidden
+          width={96}
+          height={96}
+          style={{
+            display:      "block",
+            width:        96,
+            height:       96,
+            objectFit:    "contain",
+            mixBlendMode: "screen",
+          }}
+        />
       </div>
 
       {/* Progress bar */}
