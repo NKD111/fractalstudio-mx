@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <filter id="grainEd" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <linearGradient id="bgEd" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <linearGradient id="imgPlaceholder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111"/>
+      <stop offset="50%" stop-color="#0d1a0d"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="pullQuoteAccent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0.2"/>
+    </linearGradient>
+    <filter id="softEd" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="1200" fill="url(#bgEd)"/>
+
+  <!-- Subtle vertical columns guide -->
+  <g stroke="#ffffff" stroke-width="0.3" opacity="0.025">
+    <line x1="60" y1="0" x2="60" y2="1200"/>
+    <line x1="180" y1="0" x2="180" y2="1200"/>
+    <line x1="300" y1="0" x2="300" y2="1200"/>
+    <line x1="420" y1="0" x2="420" y2="1200"/>
+    <line x1="540" y1="0" x2="540" y2="1200"/>
+    <line x1="660" y1="0" x2="660" y2="1200"/>
+    <line x1="780" y1="0" x2="780" y2="1200"/>
+    <line x1="840" y1="0" x2="840" y2="1200"/>
+  </g>
+
+  <!-- ====== HEADER AREA ====== -->
+  <!-- Top ruling lines -->
+  <line x1="60" y1="50" x2="840" y2="50" stroke="#3BEA3B" stroke-width="0.8" opacity="0.5"/>
+  <line x1="60" y1="54" x2="840" y2="54" stroke="#3BEA3B" stroke-width="0.3" opacity="0.2"/>
+
+  <!-- Magazine identifier -->
+  <text x="60" y="42" font-family="monospace" font-size="9" fill="#555" letter-spacing="3">FRACTAL QUARTERLY</text>
+  <text x="840" y="42" font-family="monospace" font-size="9" fill="#555" letter-spacing="2" text-anchor="end">EST. 2019</text>
+
+  <!-- Large VOL text -->
+  <text x="60" y="175" font-family="sans-serif" font-size="120" font-weight="900" fill="#ffffff" opacity="0.95" letter-spacing="-4">VOL.</text>
+  <!-- 03 number (green accent) -->
+  <text x="540" y="175" font-family="sans-serif" font-size="120" font-weight="900" fill="#3BEA3B" opacity="0.9" letter-spacing="-4">03</text>
+
+  <!-- Sub-header ruling lines -->
+  <line x1="60" y1="195" x2="840" y2="195" stroke="#333" stroke-width="0.6"/>
+  <line x1="60" y1="199" x2="840" y2="199" stroke="#1e1e1e" stroke-width="0.4"/>
+
+  <!-- Issue info bar -->
+  <text x="60" y="218" font-family="monospace" font-size="10" fill="#555" letter-spacing="4">PRIMAVERA — VERANO 2025</text>
+  <text x="840" y="218" font-family="monospace" font-size="10" fill="#555" letter-spacing="2" text-anchor="end">Nº 03  ·  MXN $180</text>
+  <line x1="60" y1="228" x2="840" y2="228" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <!-- Cover line blurbs -->
+  <text x="60" y="250" font-family="sans-serif" font-size="28" font-weight="700" fill="#ffffff" opacity="0.9" letter-spacing="-0.5">Diseño Radical:</text>
+  <text x="60" y="282" font-family="sans-serif" font-size="28" font-weight="700" fill="#ffffff" opacity="0.9" letter-spacing="-0.5">La Estética del</text>
+  <text x="60" y="314" font-family="sans-serif" font-size="28" font-weight="700" fill="#3BEA3B" opacity="0.9" letter-spacing="-0.5">Futuro Inmediato</text>
+
+  <text x="60" y="346" font-family="sans-serif" font-size="13" font-weight="300" fill="#777" letter-spacing="1">Cómo los estudios de diseño más atrevidos</text>
+  <text x="60" y="362" font-family="sans-serif" font-size="13" font-weight="300" fill="#777" letter-spacing="1">están redefiniendo la identidad visual.</text>
+
+  <!-- Section separator -->
+  <line x1="60" y1="380" x2="840" y2="380" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <!-- ====== MAIN IMAGE PLACEHOLDER ====== -->
+  <rect x="60" y="390" width="780" height="280" fill="url(#imgPlaceholder)" rx="1"/>
+  <!-- Image frame details -->
+  <rect x="60" y="390" width="780" height="280" fill="none" stroke="#1e1e1e" stroke-width="1" rx="1"/>
+  <!-- Image crop marks (corners) -->
+  <g stroke="#3BEA3B" stroke-width="0.8" opacity="0.3" fill="none">
+    <polyline points="60,390 80,390"/>
+    <polyline points="60,390 60,410"/>
+    <polyline points="840,390 820,390"/>
+    <polyline points="840,390 840,410"/>
+    <polyline points="60,670 80,670"/>
+    <polyline points="60,670 60,650"/>
+    <polyline points="840,670 820,670"/>
+    <polyline points="840,670 840,650"/>
+  </g>
+  <!-- Image placeholder text -->
+  <text x="450" y="522" font-family="monospace" font-size="11" fill="#222" text-anchor="middle" letter-spacing="4">IMAGEN PRINCIPAL</text>
+  <text x="450" y="542" font-family="monospace" font-size="9" fill="#1e1e1e" text-anchor="middle" letter-spacing="2">780 × 280 px  ·  BLEED</text>
+  <!-- Subtle image suggestion: geometric shapes inside -->
+  <polygon points="320,430 450,530 200,590" fill="#0d1a0d" opacity="0.6"/>
+  <polygon points="600,420 750,480 680,620 530,590" fill="#0a140a" opacity="0.4"/>
+  <ellipse cx="640" cy="530" rx="90" ry="70" fill="none" stroke="#1a1a1a" stroke-width="1"/>
+  <line x1="60" y1="530" x2="840" y2="530" stroke="#0d0d0d" stroke-width="0.4"/>
+
+  <!-- Caption under image -->
+  <line x1="60" y1="678" x2="840" y2="678" stroke="#1e1e1e" stroke-width="0.6"/>
+  <text x="60" y="693" font-family="monospace" font-size="8" fill="#444" letter-spacing="1">FIG. 1 — Instalación visual para la exhibición "Bordes del Sistema", Centro Cultural CDMX. Colección 2024.</text>
+  <line x1="60" y1="702" x2="840" y2="702" stroke="#1e1e1e" stroke-width="0.4"/>
+
+  <!-- ====== TWO-COLUMN TEXT AREA ====== -->
+  <!-- Column 1 text lines (placeholder horizontal rules) -->
+  <!-- Column separator -->
+  <line x1="449" y1="715" x2="449" y2="1000" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <!-- Column 1: text lines -->
+  <g fill="#333" opacity="0.9">
+    <rect x="60" y="720" width="360" height="1.5" rx="0.5"/>
+    <rect x="60" y="730" width="370" height="1.5" rx="0.5"/>
+    <rect x="60" y="740" width="345" height="1.5" rx="0.5"/>
+    <rect x="60" y="750" width="372" height="1.5" rx="0.5"/>
+    <rect x="60" y="760" width="350" height="1.5" rx="0.5"/>
+    <rect x="60" y="770" width="365" height="1.5" rx="0.5"/>
+    <rect x="60" y="780" width="330" height="1.5" rx="0.5"/>
+    <rect x="60" y="790" width="370" height="1.5" rx="0.5"/>
+    <rect x="60" y="800" width="355" height="1.5" rx="0.5"/>
+    <rect x="60" y="810" width="368" height="1.5" rx="0.5"/>
+    <rect x="60" y="820" width="340" height="1.5" rx="0.5"/>
+    <rect x="60" y="830" width="372" height="1.5" rx="0.5"/>
+    <rect x="60" y="840" width="350" height="1.5" rx="0.5"/>
+    <rect x="60" y="850" width="366" height="1.5" rx="0.5"/>
+    <rect x="60" y="860" width="325" height="1.5" rx="0.5"/>
+    <rect x="60" y="870" width="370" height="1.5" rx="0.5"/>
+    <rect x="60" y="880" width="358" height="1.5" rx="0.5"/>
+    <rect x="60" y="890" width="372" height="1.5" rx="0.5"/>
+    <rect x="60" y="900" width="345" height="1.5" rx="0.5"/>
+    <rect x="60" y="910" width="365" height="1.5" rx="0.5"/>
+    <rect x="60" y="920" width="370" height="1.5" rx="0.5"/>
+    <rect x="60" y="930" width="180" height="1.5" rx="0.5"/>
+  </g>
+
+  <!-- Pull quote in column 1 -->
+  <!-- Big quote mark -->
+  <text x="55" y="985" font-family="sans-serif" font-size="90" font-weight="900" fill="#3BEA3B" opacity="0.7">"</text>
+  <rect x="60" y="960" width="3" height="65" fill="url(#pullQuoteAccent)" rx="1"/>
+  <text x="72" y="978" font-family="sans-serif" font-size="14" font-weight="600" fill="#aaa" letter-spacing="0.3">El diseño no es</text>
+  <text x="72" y="996" font-family="sans-serif" font-size="14" font-weight="600" fill="#aaa" letter-spacing="0.3">decoración. Es</text>
+  <text x="72" y="1014" font-family="sans-serif" font-size="14" font-weight="600" fill="#ffffff" letter-spacing="0.3">arquitectura de sentido.</text>
+
+  <!-- Column 2: text lines -->
+  <g fill="#333" opacity="0.9">
+    <rect x="469" y="720" width="371" height="1.5" rx="0.5"/>
+    <rect x="469" y="730" width="360" height="1.5" rx="0.5"/>
+    <rect x="469" y="740" width="375" height="1.5" rx="0.5"/>
+    <rect x="469" y="750" width="350" height="1.5" rx="0.5"/>
+    <rect x="469" y="760" width="368" height="1.5" rx="0.5"/>
+    <rect x="469" y="770" width="371" height="1.5" rx="0.5"/>
+    <rect x="469" y="780" width="345" height="1.5" rx="0.5"/>
+    <rect x="469" y="790" width="370" height="1.5" rx="0.5"/>
+    <rect x="469" y="800" width="360" height="1.5" rx="0.5"/>
+    <rect x="469" y="810" width="372" height="1.5" rx="0.5"/>
+    <!-- Sub-image in col 2 -->
+    <rect x="469" y="825" width="371" height="80" fill="none"/>
+  </g>
+  <!-- Small image in col 2 -->
+  <rect x="469" y="825" width="371" height="90" fill="#0e0e0e" rx="1"/>
+  <rect x="469" y="825" width="371" height="90" fill="none" stroke="#1a1a1a" stroke-width="0.8" rx="1"/>
+  <polygon points="520,840 600,890 490,910" fill="#111" opacity="0.8"/>
+  <text x="654" y="877" font-family="monospace" font-size="8" fill="#333" text-anchor="middle" letter-spacing="2">FIG. 2</text>
+
+  <g fill="#333" opacity="0.9">
+    <rect x="469" y="926" width="370" height="1.5" rx="0.5"/>
+    <rect x="469" y="936" width="358" height="1.5" rx="0.5"/>
+    <rect x="469" y="946" width="371" height="1.5" rx="0.5"/>
+    <rect x="469" y="956" width="345" height="1.5" rx="0.5"/>
+    <rect x="469" y="966" width="369" height="1.5" rx="0.5"/>
+    <rect x="469" y="976" width="372" height="1.5" rx="0.5"/>
+    <rect x="469" y="986" width="350" height="1.5" rx="0.5"/>
+    <rect x="469" y="996" width="365" height="1.5" rx="0.5"/>
+    <rect x="469" y="1006" width="220" height="1.5" rx="0.5"/>
+  </g>
+
+  <!-- ====== FOOTER ====== -->
+  <line x1="60" y1="1040" x2="840" y2="1040" stroke="#333" stroke-width="0.6"/>
+  <line x1="60" y1="1044" x2="840" y2="1044" stroke="#1e1e1e" stroke-width="0.4"/>
+
+  <!-- Author credit -->
+  <text x="60" y="1063" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">TEXTO: ANA MORALES VEGA  ·  FOTOGRAFÍA: FRACTAL STUDIO MX</text>
+  <text x="840" y="1063" font-family="monospace" font-size="8" fill="#555" letter-spacing="1" text-anchor="end">CONTINUARÁ EN P. 84</text>
+
+  <!-- Page number -->
+  <line x1="60" y1="1100" x2="840" y2="1100" stroke="#1e1e1e" stroke-width="0.6"/>
+  <text x="60" y="1120" font-family="sans-serif" font-size="11" font-weight="300" fill="#444" letter-spacing="2">FRACTAL QUARTERLY</text>
+  <text x="450" y="1120" font-family="monospace" font-size="13" fill="#555" text-anchor="middle">62</text>
+  <text x="840" y="1120" font-family="sans-serif" font-size="11" font-weight="300" fill="#444" letter-spacing="2" text-anchor="end">DISEÑO &amp; CULTURA</text>
+
+  <!-- Bottom line -->
+  <line x1="60" y1="1140" x2="840" y2="1140" stroke="#3BEA3B" stroke-width="0.6" opacity="0.3"/>
+  <line x1="60" y1="1144" x2="840" y2="1144" stroke="#3BEA3B" stroke-width="0.3" opacity="0.1"/>
+
+  <!-- Grain overlay -->
+  <rect width="900" height="1200" fill="#000" opacity="0.05" filter="url(#grainEd)"/>
+</svg>

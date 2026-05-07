@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <filter id="grainVideo" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <filter id="anamorphic" x="-200%" y="-5%" width="500%" height="110%">
+      <feGaussianBlur stdDeviation="2 20"/>
+    </filter>
+    <filter id="glowGreen" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="dotglow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+    <filter id="sceneBlur" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+    <radialGradient id="bgVid" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0d1208"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+    <linearGradient id="filmSideGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f0f0f"/>
+      <stop offset="100%" stop-color="#111"/>
+    </linearGradient>
+    <linearGradient id="sceneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a1a0a"/>
+      <stop offset="50%" stop-color="#050d05"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+    <linearGradient id="flareStreak" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#3BEA3B" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#8fff8f" stop-opacity="0.9"/>
+      <stop offset="70%" stop-color="#3BEA3B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="groundGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0d1a0d" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="recGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgVid)"/>
+
+  <!-- Film strip outer area (left) -->
+  <rect x="0" y="0" width="155" height="800" fill="url(#filmSideGrad)"/>
+  <!-- Film strip outer area (right) -->
+  <rect x="1045" y="0" width="155" height="800" fill="url(#filmSideGrad)"/>
+
+  <!-- Film perforations LEFT -->
+  <g fill="#000" opacity="0.9">
+    <!-- top set -->
+    <rect x="18" y="30" width="30" height="22" rx="4"/>
+    <rect x="18" y="70" width="30" height="22" rx="4"/>
+    <rect x="18" y="110" width="30" height="22" rx="4"/>
+    <rect x="18" y="150" width="30" height="22" rx="4"/>
+    <rect x="18" y="190" width="30" height="22" rx="4"/>
+    <rect x="18" y="230" width="30" height="22" rx="4"/>
+    <rect x="18" y="270" width="30" height="22" rx="4"/>
+    <rect x="18" y="310" width="30" height="22" rx="4"/>
+    <rect x="18" y="350" width="30" height="22" rx="4"/>
+    <rect x="18" y="390" width="30" height="22" rx="4"/>
+    <rect x="18" y="430" width="30" height="22" rx="4"/>
+    <rect x="18" y="470" width="30" height="22" rx="4"/>
+    <rect x="18" y="510" width="30" height="22" rx="4"/>
+    <rect x="18" y="550" width="30" height="22" rx="4"/>
+    <rect x="18" y="590" width="30" height="22" rx="4"/>
+    <rect x="18" y="630" width="30" height="22" rx="4"/>
+    <rect x="18" y="670" width="30" height="22" rx="4"/>
+    <rect x="18" y="710" width="30" height="22" rx="4"/>
+    <rect x="18" y="750" width="30" height="22" rx="4"/>
+
+    <rect x="108" y="30" width="30" height="22" rx="4"/>
+    <rect x="108" y="70" width="30" height="22" rx="4"/>
+    <rect x="108" y="110" width="30" height="22" rx="4"/>
+    <rect x="108" y="150" width="30" height="22" rx="4"/>
+    <rect x="108" y="190" width="30" height="22" rx="4"/>
+    <rect x="108" y="230" width="30" height="22" rx="4"/>
+    <rect x="108" y="270" width="30" height="22" rx="4"/>
+    <rect x="108" y="310" width="30" height="22" rx="4"/>
+    <rect x="108" y="350" width="30" height="22" rx="4"/>
+    <rect x="108" y="390" width="30" height="22" rx="4"/>
+    <rect x="108" y="430" width="30" height="22" rx="4"/>
+    <rect x="108" y="470" width="30" height="22" rx="4"/>
+    <rect x="108" y="510" width="30" height="22" rx="4"/>
+    <rect x="108" y="550" width="30" height="22" rx="4"/>
+    <rect x="108" y="590" width="30" height="22" rx="4"/>
+    <rect x="108" y="630" width="30" height="22" rx="4"/>
+    <rect x="108" y="670" width="30" height="22" rx="4"/>
+    <rect x="108" y="710" width="30" height="22" rx="4"/>
+    <rect x="108" y="750" width="30" height="22" rx="4"/>
+  </g>
+
+  <!-- Film perforations RIGHT -->
+  <g fill="#000" opacity="0.9">
+    <rect x="1062" y="30" width="30" height="22" rx="4"/>
+    <rect x="1062" y="70" width="30" height="22" rx="4"/>
+    <rect x="1062" y="110" width="30" height="22" rx="4"/>
+    <rect x="1062" y="150" width="30" height="22" rx="4"/>
+    <rect x="1062" y="190" width="30" height="22" rx="4"/>
+    <rect x="1062" y="230" width="30" height="22" rx="4"/>
+    <rect x="1062" y="270" width="30" height="22" rx="4"/>
+    <rect x="1062" y="310" width="30" height="22" rx="4"/>
+    <rect x="1062" y="350" width="30" height="22" rx="4"/>
+    <rect x="1062" y="390" width="30" height="22" rx="4"/>
+    <rect x="1062" y="430" width="30" height="22" rx="4"/>
+    <rect x="1062" y="470" width="30" height="22" rx="4"/>
+    <rect x="1062" y="510" width="30" height="22" rx="4"/>
+    <rect x="1062" y="550" width="30" height="22" rx="4"/>
+    <rect x="1062" y="590" width="30" height="22" rx="4"/>
+    <rect x="1062" y="630" width="30" height="22" rx="4"/>
+    <rect x="1062" y="670" width="30" height="22" rx="4"/>
+    <rect x="1062" y="710" width="30" height="22" rx="4"/>
+    <rect x="1062" y="750" width="30" height="22" rx="4"/>
+
+    <rect x="1152" y="30" width="30" height="22" rx="4"/>
+    <rect x="1152" y="70" width="30" height="22" rx="4"/>
+    <rect x="1152" y="110" width="30" height="22" rx="4"/>
+    <rect x="1152" y="150" width="30" height="22" rx="4"/>
+    <rect x="1152" y="190" width="30" height="22" rx="4"/>
+    <rect x="1152" y="230" width="30" height="22" rx="4"/>
+    <rect x="1152" y="270" width="30" height="22" rx="4"/>
+    <rect x="1152" y="310" width="30" height="22" rx="4"/>
+    <rect x="1152" y="350" width="30" height="22" rx="4"/>
+    <rect x="1152" y="390" width="30" height="22" rx="4"/>
+    <rect x="1152" y="430" width="30" height="22" rx="4"/>
+    <rect x="1152" y="470" width="30" height="22" rx="4"/>
+    <rect x="1152" y="510" width="30" height="22" rx="4"/>
+    <rect x="1152" y="550" width="30" height="22" rx="4"/>
+    <rect x="1152" y="590" width="30" height="22" rx="4"/>
+    <rect x="1152" y="630" width="30" height="22" rx="4"/>
+    <rect x="1152" y="670" width="30" height="22" rx="4"/>
+    <rect x="1152" y="710" width="30" height="22" rx="4"/>
+    <rect x="1152" y="750" width="30" height="22" rx="4"/>
+  </g>
+
+  <!-- Film frame (main image area) with rounded corners -->
+  <rect x="155" y="60" width="890" height="620" fill="url(#sceneGrad)" rx="6"/>
+  <!-- Film frame border -->
+  <rect x="155" y="60" width="890" height="620" fill="none" stroke="#222" stroke-width="1.5" rx="6"/>
+
+  <!-- === SCENE CONTENT inside film frame === -->
+  <!-- Sky / background gradient -->
+  <clipPath id="frameClip">
+    <rect x="155" y="60" width="890" height="620" rx="6"/>
+  </clipPath>
+  <g clip-path="url(#frameClip)">
+    <!-- Dark cityscape background -->
+    <rect x="155" y="60" width="890" height="620" fill="#050d05"/>
+
+    <!-- Building silhouettes background -->
+    <g fill="#030a03" opacity="0.9">
+      <rect x="175" y="250" width="60" height="430"/>
+      <rect x="220" y="310" width="40" height="370"/>
+      <rect x="270" y="200" width="80" height="480"/>
+      <rect x="330" y="280" width="50" height="400"/>
+      <rect x="380" y="230" width="70" height="450"/>
+      <!-- Right buildings -->
+      <rect x="900" y="260" width="55" height="420"/>
+      <rect x="940" y="190" width="75" height="490"/>
+      <rect x="990" y="300" width="45" height="380"/>
+    </g>
+
+    <!-- Horizon glow (green city ambient) -->
+    <ellipse cx="600" cy="550" rx="400" ry="80" fill="#3BEA3B" opacity="0.04"/>
+
+    <!-- Ground plane -->
+    <rect x="155" y="540" width="890" height="140" fill="url(#groundGrad)"/>
+
+    <!-- Foreground silhouette: dramatic scene suggestion -->
+    <!-- Left figure silhouette -->
+    <g fill="#010801" opacity="0.95">
+      <ellipse cx="290" cy="520" rx="18" ry="22"/>
+      <rect x="278" y="520" width="24" height="70" rx="4"/>
+      <rect x="272" y="570" width="10" height="50" rx="3"/>
+      <rect x="296" y="570" width="10" height="50" rx="3"/>
+    </g>
+
+    <!-- Right figure silhouette -->
+    <g fill="#010801" opacity="0.95">
+      <ellipse cx="910" cy="510" rx="20" ry="24"/>
+      <rect x="897" y="508" width="26" height="80" rx="4"/>
+      <rect x="892" y="560" width="11" height="58" rx="3"/>
+      <rect x="916" y="560" width="11" height="58" rx="3"/>
+    </g>
+
+    <!-- Central dramatic beam from above (spotlight) -->
+    <polygon points="580,60 620,60 660,542 540,542" fill="#3BEA3B" opacity="0.04"/>
+
+    <!-- Neon green color grade (subtle) -->
+    <rect x="155" y="60" width="890" height="620" fill="#3BEA3B" opacity="0.03"/>
+
+    <!-- Anamorphic lens flare streaks -->
+    <rect x="155" y="348" width="890" height="2" fill="url(#flareStreak)" opacity="0.8" filter="url(#anamorphic)"/>
+    <rect x="155" y="352" width="890" height="1" fill="url(#flareStreak)" opacity="0.5"/>
+    <rect x="155" y="355" width="890" height="0.8" fill="url(#flareStreak)" opacity="0.3"/>
+    <rect x="155" y="345" width="890" height="0.8" fill="url(#flareStreak)" opacity="0.3"/>
+
+    <!-- Secondary small anamorphic flare -->
+    <rect x="155" y="420" width="890" height="1" fill="url(#flareStreak)" opacity="0.2"/>
+    <rect x="155" y="290" width="890" height="1" fill="url(#flareStreak)" opacity="0.15"/>
+
+    <!-- Central flare bloom -->
+    <ellipse cx="600" cy="350" rx="60" ry="12" fill="#3BEA3B" opacity="0.12" filter="url(#glowGreen)"/>
+    <ellipse cx="600" cy="350" rx="10" ry="10" fill="#ffffff" opacity="0.15"/>
+  </g>
+
+  <!-- Letterbox bars (cinematic) -->
+  <rect x="155" y="60" width="890" height="55" fill="#000" opacity="0.75"/>
+  <rect x="155" y="625" width="890" height="55" fill="#000" opacity="0.75"/>
+
+  <!-- Timecode text -->
+  <text x="172" y="95" font-family="monospace" font-size="10" fill="#3BEA3B" opacity="0.7" letter-spacing="1">01:22:44:18</text>
+  <text x="172" y="109" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">24.00 FPS</text>
+
+  <!-- Right letterbox info -->
+  <text x="910" y="95" font-family="monospace" font-size="10" fill="#3BEA3B" opacity="0.7" letter-spacing="1" text-anchor="end">2.39:1 SCOPE</text>
+  <text x="910" y="109" font-family="monospace" font-size="8" fill="#555" letter-spacing="1" text-anchor="end">4K DCI</text>
+
+  <!-- Bottom letterbox -->
+  <text x="172" y="648" font-family="monospace" font-size="9" fill="#555" letter-spacing="2">FRACTAL STUDIO MX · DIR. FX</text>
+  <text x="910" y="648" font-family="monospace" font-size="9" fill="#555" letter-spacing="1" text-anchor="end">SPOT / :30s</text>
+  <text x="600" y="648" font-family="monospace" font-size="9" fill="#444" letter-spacing="3" text-anchor="middle">PROYECTO XENO — MARCA XYZ</text>
+
+  <!-- REC indicator circle (top right of frame) -->
+  <g transform="translate(870, 100)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="22" fill="none" stroke="#3BEA3B" stroke-width="1" opacity="0.5"/>
+    <circle cx="0" cy="0" r="16" fill="#0d1a0d"/>
+    <!-- REC dot -->
+    <circle cx="-8" cy="0" r="5" fill="#3BEA3B" opacity="0.9" filter="url(#dotglow)"/>
+    <text x="0" y="4" font-family="monospace" font-size="9" fill="#3BEA3B" font-weight="bold" letter-spacing="0">REC</text>
+  </g>
+
+  <!-- Outside frame top label -->
+  <text x="600" y="38" font-family="monospace" font-size="9" fill="#555" text-anchor="middle" letter-spacing="4">PRODUCCIÓN DE VIDEO · SPOT PUBLICITARIO</text>
+  <text x="175" y="38" font-family="monospace" font-size="8" fill="#333" letter-spacing="1">35MM SCAN</text>
+  <text x="1030" y="38" font-family="monospace" font-size="8" fill="#333" letter-spacing="1" text-anchor="end">S-LOG3</text>
+
+  <!-- Bottom info outside frame -->
+  <line x1="155" y1="700" x2="1045" y2="700" stroke="#1e1e1e" stroke-width="0.8"/>
+  <text x="155" y="720" font-family="monospace" font-size="8" fill="#444" letter-spacing="2">FORMATO: ProRes 4444  ·  CODEC: H.265 MASTER  ·  COLOR: Rec.709  ·  AUDIO: 48kHz 24bit</text>
+  <text x="155" y="738" font-family="monospace" font-size="8" fill="#333" letter-spacing="2">CÁMARA: ARRI ALEXA 35  ·  LENTE: ZEISS Supreme 50mm T1.5  ·  POST: DaVinci Resolve</text>
+
+  <!-- Grain overlay -->
+  <rect width="1200" height="800" fill="#000" opacity="0.05" filter="url(#grainVideo)"/>
+</svg>

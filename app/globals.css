@@ -8,17 +8,19 @@
     --foreground: 0 0% 96.1%;
   }
 
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     background-color: #080808;
     color: #F5F5F5;
+  }
+
+  /* Hide native cursor when custom cursor is active (desktop) */
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none !important;
   }
 
   ::selection {
@@ -26,7 +28,6 @@
     color: #F5F5F5;
   }
 
-  /* Focus visible global */
   :focus-visible {
     outline: 1px solid rgba(59, 234, 59, 0.6);
     outline-offset: 2px;
@@ -34,7 +35,8 @@
 }
 
 @layer utilities {
-  /* Scan line animation para hero */
+
+  /* ── Hero scan line ───────────────────────────────────────────── */
   @keyframes scanLine {
     0%   { left: -4px;              opacity: 0; }
     5%   {                          opacity: 1; }
@@ -42,14 +44,55 @@
     100% { left: calc(100% + 4px); opacity: 0; }
   }
 
-  /* Ping para el botón de WhatsApp */
+  /* ── WhatsApp button ping ─────────────────────────────────────── */
   @keyframes wa-ping {
     75%, 100% { transform: scale(2); opacity: 0; }
   }
 
-  /* Fade up entry */
+  /* ── Fade up entry ────────────────────────────────────────────── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
+
+  /* ── Marquee (testimonials + client logos) ────────────────────── */
+  @keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-33.333%); }
+  }
+
+  .marquee-track {
+    animation: marquee 22s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* ── Subtle float animation for decorative elements ───────────── */
+  @keyframes floatY {
+    0%, 100% { transform: translateY(0px);   }
+    50%       { transform: translateY(-6px); }
+  }
+
+  /* ── Green glow pulse ─────────────────────────────────────────── */
+  @keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 0px rgba(59,234,59,0);    }
+    50%       { box-shadow: 0 0 20px rgba(59,234,59,0.18); }
+  }
+
+  /* ── Scroll indicator line breathe ───────────────────────────── */
+  @keyframes scrollBreathe {
+    0%, 100% { opacity: 0.3; }
+    50%       { opacity: 0.8; }
+  }
+
+  .scroll-line-indicator {
+    animation: scrollBreathe 2s ease-in-out infinite;
+  }
+
+  /* ── Font utilities ───────────────────────────────────────────── */
+  .font-headline { font-family: var(--font-syne, sans-serif); }
+  .font-mono     { font-family: var(--font-jetbrains-mono, monospace); }
+  .font-body     { font-family: var(--font-dm-sans, sans-serif); }
 }

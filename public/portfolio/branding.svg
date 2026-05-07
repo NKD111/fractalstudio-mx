@@ -1,0 +1,287 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <filter id="grain2" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0c0c"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111111"/>
+      <stop offset="100%" stop-color="#0d0d0d"/>
+    </linearGradient>
+    <linearGradient id="swatchGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3BEA3B"/>
+      <stop offset="100%" stop-color="#28c228"/>
+    </linearGradient>
+    <linearGradient id="swatchWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F5"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgGrad2)"/>
+
+  <!-- Subtle global grid -->
+  <g stroke="#ffffff" stroke-width="0.4" opacity="0.03">
+    <line x1="0" y1="80" x2="1200" y2="80"/>
+    <line x1="0" y1="160" x2="1200" y2="160"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="0" y1="320" x2="1200" y2="320"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="480" x2="1200" y2="480"/>
+    <line x1="0" y1="560" x2="1200" y2="560"/>
+    <line x1="0" y1="640" x2="1200" y2="640"/>
+    <line x1="0" y1="720" x2="1200" y2="720"/>
+    <line x1="80" y1="0" x2="80" y2="800"/>
+    <line x1="160" y1="0" x2="160" y2="800"/>
+    <line x1="240" y1="0" x2="240" y2="800"/>
+    <line x1="320" y1="0" x2="320" y2="800"/>
+    <line x1="400" y1="0" x2="400" y2="800"/>
+    <line x1="480" y1="0" x2="480" y2="800"/>
+    <line x1="560" y1="0" x2="560" y2="800"/>
+    <line x1="640" y1="0" x2="640" y2="800"/>
+    <line x1="720" y1="0" x2="720" y2="800"/>
+    <line x1="800" y1="0" x2="800" y2="800"/>
+    <line x1="880" y1="0" x2="880" y2="800"/>
+    <line x1="960" y1="0" x2="960" y2="800"/>
+    <line x1="1040" y1="0" x2="1040" y2="800"/>
+    <line x1="1120" y1="0" x2="1120" y2="800"/>
+  </g>
+
+  <!-- Top header line -->
+  <line x1="60" y1="55" x2="1140" y2="55" stroke="#3BEA3B" stroke-width="0.7" opacity="0.5"/>
+  <text x="60" y="44" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.6" letter-spacing="4">FRACTAL STUDIO MX — BRAND IDENTITY SYSTEM</text>
+  <text x="1050" y="44" font-family="monospace" font-size="9" fill="#555" opacity="0.8" letter-spacing="1">v2.1</text>
+
+  <!-- ===== LEFT PANEL: Logo Mark ===== -->
+  <!-- Panel bg -->
+  <rect x="60" y="70" width="280" height="340" fill="url(#cardGrad)" rx="2"/>
+  <rect x="60" y="70" width="280" height="340" fill="none" stroke="#1e1e1e" stroke-width="1" rx="2"/>
+
+  <!-- Section label -->
+  <text x="75" y="95" font-family="monospace" font-size="8" fill="#555" letter-spacing="3">LOGO MARK</text>
+  <line x1="75" y1="100" x2="320" y2="100" stroke="#222" stroke-width="0.6"/>
+
+  <!-- F logo constructed from geometric squares -->
+  <!-- Big F: constructed from 5 rectangles -->
+  <!-- Vertical bar -->
+  <rect x="120" y="120" width="32" height="130" fill="#3BEA3B" opacity="0.95"/>
+  <!-- Top horizontal bar -->
+  <rect x="120" y="120" width="100" height="32" fill="#3BEA3B" opacity="0.95"/>
+  <!-- Middle horizontal bar -->
+  <rect x="120" y="184" width="75" height="28" fill="#3BEA3B" opacity="0.95"/>
+  <!-- Construction grid overlay (ghost) -->
+  <rect x="120" y="120" width="32" height="130" fill="none" stroke="#3BEA3B" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+  <rect x="120" y="120" width="100" height="32" fill="none" stroke="#3BEA3B" stroke-width="0.5" opacity="0.3" stroke-dasharray="4,4"/>
+  <rect x="152" y="120" width="68" height="32" fill="none" stroke="#3BEA3B" stroke-width="0.5" opacity="0.2" stroke-dasharray="4,4"/>
+
+  <!-- Measurement lines -->
+  <g stroke="#3BEA3B" stroke-width="0.5" opacity="0.25">
+    <line x1="113" y1="120" x2="113" y2="250"/>
+    <line x1="109" y1="120" x2="117" y2="120"/>
+    <line x1="109" y1="250" x2="117" y2="250"/>
+    <line x1="120" y1="113" x2="220" y2="113"/>
+    <line x1="120" y1="109" x2="120" y2="117"/>
+    <line x1="220" y1="109" x2="220" y2="117"/>
+  </g>
+  <text x="90" y="192" font-family="monospace" font-size="7" fill="#3BEA3B" opacity="0.35" transform="rotate(-90,90,192)">130px</text>
+  <text x="155" y="109" font-family="monospace" font-size="7" fill="#3BEA3B" opacity="0.35">100px</text>
+
+  <!-- Logo text under -->
+  <text x="120" y="278" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff" letter-spacing="4" opacity="0.9">FRACTAL</text>
+  <text x="120" y="296" font-family="sans-serif" font-size="10" font-weight="300" fill="#555" letter-spacing="8">STUDIO MX</text>
+
+  <!-- Tagline -->
+  <line x1="120" y1="308" x2="310" y2="308" stroke="#222" stroke-width="0.6"/>
+  <text x="120" y="325" font-family="monospace" font-size="8" fill="#3BEA3B" opacity="0.5" letter-spacing="2">IDENTIDAD · VISUAL · ESTRATEGIA</text>
+  <line x1="120" y1="332" x2="310" y2="332" stroke="#222" stroke-width="0.6"/>
+
+  <!-- ===== CENTER: Typography Specimen ===== -->
+  <rect x="360" y="70" width="320" height="340" fill="url(#cardGrad)" rx="2"/>
+  <rect x="360" y="70" width="320" height="340" fill="none" stroke="#1e1e1e" stroke-width="1" rx="2"/>
+  <text x="375" y="95" font-family="monospace" font-size="8" fill="#555" letter-spacing="3">TYPOGRAPHY</text>
+  <line x1="375" y1="100" x2="665" y2="100" stroke="#222" stroke-width="0.6"/>
+
+  <!-- Type scale -->
+  <text x="375" y="148" font-family="sans-serif" font-size="38" font-weight="800" fill="#ffffff" letter-spacing="-1" opacity="0.95">Aa</text>
+  <text x="500" y="140" font-family="monospace" font-size="8" fill="#555">DISPLAY / 800</text>
+  <text x="500" y="152" font-family="monospace" font-size="8" fill="#555">38px / -1ls</text>
+
+  <line x1="375" y1="162" x2="665" y2="162" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <text x="375" y="188" font-family="sans-serif" font-size="24" font-weight="700" fill="#ffffff" opacity="0.9">Bb Cc Dd</text>
+  <text x="590" y="182" font-family="monospace" font-size="8" fill="#555">HEADING / 700</text>
+  <text x="590" y="194" font-family="monospace" font-size="8" fill="#555">24px</text>
+
+  <line x1="375" y1="200" x2="665" y2="200" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <text x="375" y="222" font-family="sans-serif" font-size="16" font-weight="400" fill="#aaa" opacity="0.9">Ee Ff Gg Hh Ii</text>
+  <text x="590" y="216" font-family="monospace" font-size="8" fill="#555">BODY / 400</text>
+  <text x="590" y="228" font-family="monospace" font-size="8" fill="#555">16px / 1.6lh</text>
+
+  <line x1="375" y1="234" x2="665" y2="234" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <text x="375" y="252" font-family="monospace" font-size="11" fill="#666" letter-spacing="3">MONO CAPTION</text>
+  <text x="590" y="246" font-family="monospace" font-size="8" fill="#555">CAPTION / MONO</text>
+  <text x="590" y="258" font-family="monospace" font-size="8" fill="#555">11px / +3ls</text>
+
+  <line x1="375" y1="262" x2="665" y2="262" stroke="#1e1e1e" stroke-width="0.6"/>
+
+  <!-- Full alphabet -->
+  <text x="375" y="278" font-family="sans-serif" font-size="10" fill="#444" letter-spacing="2">A B C D E F G H I J K L M</text>
+  <text x="375" y="292" font-family="sans-serif" font-size="10" fill="#444" letter-spacing="2">N O P Q R S T U V W X Y Z</text>
+  <text x="375" y="308" font-family="monospace" font-size="10" fill="#333" letter-spacing="2">0 1 2 3 4 5 6 7 8 9 ! @ # $</text>
+
+  <line x1="375" y1="318" x2="665" y2="318" stroke="#1e1e1e" stroke-width="0.6"/>
+  <text x="375" y="336" font-family="monospace" font-size="8" fill="#3BEA3B" opacity="0.5" letter-spacing="2">PRIMARY FONT: INTER / SYSTEM-UI</text>
+  <text x="375" y="350" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">MONO: JET BRAINS MONO</text>
+  <text x="375" y="364" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">FALLBACK: HELVETICA NEUE</text>
+  <text x="375" y="395" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">RATIO: 1 / 1.250 MAJOR THIRD</text>
+
+  <!-- ===== RIGHT: Color Swatches ===== -->
+  <rect x="700" y="70" width="240" height="340" fill="url(#cardGrad)" rx="2"/>
+  <rect x="700" y="70" width="240" height="340" fill="none" stroke="#1e1e1e" stroke-width="1" rx="2"/>
+  <text x="715" y="95" font-family="monospace" font-size="8" fill="#555" letter-spacing="3">COLOR PALETTE</text>
+  <line x1="715" y1="100" x2="925" y2="100" stroke="#222" stroke-width="0.6"/>
+
+  <!-- Swatch 1: Black primary -->
+  <rect x="715" y="110" width="200" height="56" fill="#080808" rx="1"/>
+  <rect x="715" y="110" width="200" height="56" fill="none" stroke="#222" stroke-width="0.8" rx="1"/>
+  <text x="725" y="130" font-family="monospace" font-size="9" fill="#555">OBSIDIAN BLACK</text>
+  <text x="725" y="143" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.7">#080808</text>
+  <text x="725" y="156" font-family="monospace" font-size="8" fill="#333">RGB 8, 8, 8 · CMYK 0,0,0,97</text>
+
+  <!-- Swatch 2: Green accent -->
+  <rect x="715" y="176" width="200" height="56" fill="url(#swatchGreen)" rx="1"/>
+  <text x="725" y="196" font-family="monospace" font-size="9" fill="#080808" opacity="0.8">SIGNAL GREEN</text>
+  <text x="725" y="209" font-family="monospace" font-size="9" fill="#080808" opacity="0.7">#3BEA3B</text>
+  <text x="725" y="222" font-family="monospace" font-size="8" fill="#080808" opacity="0.5">RGB 59, 234, 59 · ACCENT</text>
+
+  <!-- Swatch 3: White -->
+  <rect x="715" y="242" width="200" height="56" fill="url(#swatchWhite)" rx="1"/>
+  <text x="725" y="262" font-family="monospace" font-size="9" fill="#111">OFF-WHITE</text>
+  <text x="725" y="275" font-family="monospace" font-size="9" fill="#555">#F5F5F5</text>
+  <text x="725" y="288" font-family="monospace" font-size="8" fill="#888">RGB 245, 245, 245 · TYPE</text>
+
+  <!-- Swatch 4: Gray -->
+  <rect x="715" y="308" width="200" height="56" fill="#1c1c1c" rx="1"/>
+  <rect x="715" y="308" width="200" height="56" fill="none" stroke="#333" stroke-width="0.8" rx="1"/>
+  <text x="725" y="328" font-family="monospace" font-size="9" fill="#777">GRAPHITE</text>
+  <text x="725" y="341" font-family="monospace" font-size="9" fill="#555">#1C1C1C</text>
+  <text x="725" y="354" font-family="monospace" font-size="8" fill="#444">RGB 28, 28, 28 · SURFACE</text>
+
+  <!-- ===== BOTTOM ROW ===== -->
+
+  <!-- Bottom left: Grid System -->
+  <rect x="60" y="430" width="380" height="200" fill="url(#cardGrad)" rx="2"/>
+  <rect x="60" y="430" width="380" height="200" fill="none" stroke="#1e1e1e" stroke-width="1" rx="2"/>
+  <text x="75" y="454" font-family="monospace" font-size="8" fill="#555" letter-spacing="3">GRID SYSTEM</text>
+  <line x1="75" y1="460" x2="422" y2="460" stroke="#222" stroke-width="0.6"/>
+
+  <!-- Grid visualization -->
+  <g opacity="0.15" stroke="#3BEA3B" stroke-width="0.5">
+    <line x1="75" y1="470" x2="75" y2="620"/>
+    <line x1="114" y1="470" x2="114" y2="620"/>
+    <line x1="153" y1="470" x2="153" y2="620"/>
+    <line x1="192" y1="470" x2="192" y2="620"/>
+    <line x1="231" y1="470" x2="231" y2="620"/>
+    <line x1="270" y1="470" x2="270" y2="620"/>
+    <line x1="309" y1="470" x2="309" y2="620"/>
+    <line x1="348" y1="470" x2="348" y2="620"/>
+    <line x1="387" y1="470" x2="387" y2="620"/>
+    <line x1="426" y1="470" x2="426" y2="620"/>
+  </g>
+  <!-- Column highlights -->
+  <rect x="75" y="470" width="39" height="130" fill="#3BEA3B" opacity="0.05" rx="1"/>
+  <rect x="153" y="470" width="39" height="130" fill="#3BEA3B" opacity="0.05" rx="1"/>
+  <rect x="231" y="470" width="39" height="130" fill="#3BEA3B" opacity="0.05" rx="1"/>
+  <rect x="309" y="470" width="39" height="130" fill="#3BEA3B" opacity="0.05" rx="1"/>
+  <rect x="387" y="470" width="39" height="130" fill="#3BEA3B" opacity="0.05" rx="1"/>
+
+  <!-- Content blocks on grid -->
+  <rect x="75" y="480" width="118" height="60" fill="#1a1a1a" rx="1" opacity="0.8"/>
+  <rect x="201" y="480" width="78" height="60" fill="#1a1a1a" rx="1" opacity="0.8"/>
+  <rect x="287" y="480" width="138" height="60" fill="#1a1a1a" rx="1" opacity="0.8"/>
+  <rect x="75" y="548" width="39" height="40" fill="#3BEA3B" opacity="0.15" rx="1"/>
+  <rect x="122" y="548" width="78" height="40" fill="#1a1a1a" rx="1" opacity="0.8"/>
+  <rect x="209" y="548" width="217" height="40" fill="#1a1a1a" rx="1" opacity="0.8"/>
+
+  <text x="75" y="615" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">12 COL · 16PX GUTTER · 80PX MARGIN</text>
+
+  <!-- Bottom center: Logo variations -->
+  <rect x="460" y="430" width="280" height="200" fill="url(#cardGrad)" rx="2"/>
+  <rect x="460" y="430" width="280" height="200" fill="none" stroke="#1e1e1e" stroke-width="1" rx="2"/>
+  <text x="475" y="454" font-family="monospace" font-size="8" fill="#555" letter-spacing="3">LOGO VARIATIONS</text>
+  <line x1="475" y1="460" x2="725" y2="460" stroke="#222" stroke-width="0.6"/>
+
+  <!-- Primary logo on dark -->
+  <rect x="475" y="470" width="120" height="80" fill="#111" rx="1"/>
+  <rect x="497" y="486" width="14" height="50" fill="#3BEA3B" opacity="0.9"/>
+  <rect x="497" y="486" width="38" height="12" fill="#3BEA3B" opacity="0.9"/>
+  <rect x="497" y="510" width="28" height="10" fill="#3BEA3B" opacity="0.9"/>
+  <text x="537" y="520" font-family="sans-serif" font-size="11" font-weight="700" fill="#fff" letter-spacing="1">FX</text>
+  <text x="475" y="564" font-family="monospace" font-size="7" fill="#555" letter-spacing="1">PRIMARY DARK</text>
+
+  <!-- Inverted logo on white -->
+  <rect x="605" y="470" width="120" height="80" fill="#F5F5F5" rx="1"/>
+  <rect x="625" y="486" width="14" height="50" fill="#080808" opacity="0.9"/>
+  <rect x="625" y="486" width="38" height="12" fill="#080808" opacity="0.9"/>
+  <rect x="625" y="510" width="28" height="10" fill="#080808" opacity="0.9"/>
+  <text x="665" y="520" font-family="sans-serif" font-size="11" font-weight="700" fill="#080808" letter-spacing="1">FX</text>
+  <text x="605" y="564" font-family="monospace" font-size="7" fill="#555" letter-spacing="1">INVERTED LIGHT</text>
+
+  <!-- Monochrome -->
+  <rect x="475" y="574" width="80" height="44" fill="#000" rx="1"/>
+  <rect x="487" y="582" width="10" height="28" fill="#555"/>
+  <rect x="487" y="582" width="22" height="7" fill="#555"/>
+  <rect x="487" y="596" width="16" height="6" fill="#555"/>
+  <text x="475" y="625" font-family="monospace" font-size="7" fill="#555" letter-spacing="1">MONO</text>
+
+  <!-- Outline only -->
+  <rect x="575" y="574" width="80" height="44" fill="none" stroke="#333" stroke-width="0.6" rx="1"/>
+  <rect x="587" y="582" width="10" height="28" fill="none" stroke="#3BEA3B" stroke-width="1" opacity="0.5"/>
+  <rect x="587" y="582" width="22" height="7" fill="none" stroke="#3BEA3B" stroke-width="1" opacity="0.5"/>
+  <rect x="587" y="596" width="16" height="6" fill="none" stroke="#3BEA3B" stroke-width="1" opacity="0.5"/>
+  <text x="575" y="625" font-family="monospace" font-size="7" fill="#555" letter-spacing="1">OUTLINE</text>
+
+  <!-- Bottom right: Usage rules -->
+  <rect x="760" y="430" width="380" height="200" fill="url(#cardGrad)" rx="2"/>
+  <rect x="760" y="430" width="380" height="200" fill="none" stroke="#1e1e1e" stroke-width="1" rx="2"/>
+  <text x="775" y="454" font-family="monospace" font-size="8" fill="#555" letter-spacing="3">USAGE RULES</text>
+  <line x1="775" y1="460" x2="1125" y2="460" stroke="#222" stroke-width="0.6"/>
+
+  <!-- Do / Don't -->
+  <text x="775" y="480" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.7" letter-spacing="2">DO</text>
+  <line x1="775" y1="484" x2="820" y2="484" stroke="#3BEA3B" stroke-width="0.5" opacity="0.4"/>
+  <text x="775" y="499" font-family="monospace" font-size="8" fill="#555">Use on dark backgrounds</text>
+  <text x="775" y="514" font-family="monospace" font-size="8" fill="#555">Minimum size 24px height</text>
+  <text x="775" y="529" font-family="monospace" font-size="8" fill="#555">Maintain clear space = 1x height</text>
+  <text x="775" y="544" font-family="monospace" font-size="8" fill="#555">Use approved color combinations</text>
+
+  <text x="975" y="480" font-family="monospace" font-size="9" fill="#ea3b3b" opacity="0.7" letter-spacing="2">DON'T</text>
+  <line x1="975" y1="484" x2="1030" y2="484" stroke="#ea3b3b" stroke-width="0.5" opacity="0.4"/>
+  <text x="975" y="499" font-family="monospace" font-size="8" fill="#555">Rotate or skew the logo</text>
+  <text x="975" y="514" font-family="monospace" font-size="8" fill="#555">Use on busy backgrounds</text>
+  <text x="975" y="529" font-family="monospace" font-size="8" fill="#555">Alter the proportions</text>
+  <text x="975" y="544" font-family="monospace" font-size="8" fill="#555">Use unapproved colors</text>
+
+  <line x1="775" y1="556" x2="1125" y2="556" stroke="#1e1e1e" stroke-width="0.6"/>
+  <text x="775" y="572" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">EXCLUSION ZONE: 1× LOGO HEIGHT ON ALL SIDES</text>
+  <text x="775" y="586" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">FORMATS AVAILABLE: SVG · PNG · EPS · PDF</text>
+  <text x="775" y="600" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">MASTER FILE: fractal-brand-v2.1.ai</text>
+  <text x="775" y="614" font-family="monospace" font-size="8" fill="#3BEA3B" opacity="0.4" letter-spacing="1">QUESTIONS: brand@fractalstudio.mx</text>
+
+  <!-- Bottom bar -->
+  <line x1="60" y1="652" x2="1140" y2="652" stroke="#3BEA3B" stroke-width="0.5" opacity="0.25"/>
+  <text x="60" y="666" font-family="monospace" font-size="8" fill="#555" letter-spacing="2">BRANDING &amp; IDENTIDAD VISUAL</text>
+  <text x="1050" y="666" font-family="monospace" font-size="8" fill="#555" letter-spacing="1">FRACTAL STUDIO MX</text>
+
+  <!-- Grain overlay -->
+  <rect width="1200" height="800" fill="#000" opacity="0.04" filter="url(#grain2)"/>
+</svg>

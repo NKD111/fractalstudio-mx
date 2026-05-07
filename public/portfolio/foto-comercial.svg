@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Noise texture -->
+    <filter id="grain" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feBlend in="SourceGraphic" in2="grayNoise" mode="overlay" result="blended"/>
+      <feComposite in="blended" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <!-- Glow filter for light beam -->
+    <filter id="glow" x="-50%" y="-10%" width="200%" height="120%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Soft glow for lens -->
+    <filter id="softglow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Flare blur -->
+    <filter id="flareblur" x="-100%" y="-10%" width="300%" height="120%">
+      <feGaussianBlur stdDeviation="3 18"/>
+    </filter>
+    <!-- Radial gradient: deep background -->
+    <radialGradient id="bgRadial" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0d1a0d"/>
+      <stop offset="60%" stop-color="#060d06"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </radialGradient>
+    <!-- Bottle gradient -->
+    <linearGradient id="bottleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="30%" stop-color="#1a1a1a"/>
+      <stop offset="50%" stop-color="#2a3d2a"/>
+      <stop offset="70%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#080808"/>
+    </linearGradient>
+    <!-- Light beam gradient -->
+    <linearGradient id="beamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#3BEA3B" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#3BEA3B" stop-opacity="0.3"/>
+      <stop offset="80%" stop-color="#3BEA3B" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Lens radial gradient -->
+    <radialGradient id="lensGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a3d1a" stop-opacity="0.4"/>
+      <stop offset="70%" stop-color="#0d1a0d" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0.05"/>
+    </radialGradient>
+    <!-- Surface reflection gradient -->
+    <linearGradient id="surfaceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#080808" stop-opacity="0"/>
+    </linearGradient>
+    <!-- Flare radial -->
+    <radialGradient id="flareGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0.9"/>
+      <stop offset="40%" stop-color="#3BEA3B" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Lens flare streak gradient -->
+    <linearGradient id="streakGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3BEA3B" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#3BEA3B" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#3BEA3B" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="url(#bgRadial)"/>
+
+  <!-- Subtle grid lines -->
+  <g opacity="0.04" stroke="#3BEA3B" stroke-width="0.5">
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+    <line x1="900" y1="0" x2="900" y2="800"/>
+  </g>
+
+  <!-- Concentric circles (camera lens) -->
+  <g opacity="0.06" stroke="#3BEA3B" stroke-width="0.8" fill="none">
+    <circle cx="600" cy="400" r="380"/>
+    <circle cx="600" cy="400" r="320"/>
+    <circle cx="600" cy="400" r="260"/>
+    <circle cx="600" cy="400" r="200"/>
+    <circle cx="600" cy="400" r="140"/>
+    <circle cx="600" cy="400" r="80"/>
+  </g>
+  <!-- Lens fill -->
+  <circle cx="600" cy="400" r="380" fill="url(#lensGrad)" opacity="0.6"/>
+
+  <!-- Camera lens octagon blades -->
+  <g opacity="0.05" stroke="#3BEA3B" stroke-width="0.6" fill="none">
+    <polygon points="600,20 780,220 780,580 600,780 420,580 420,220" />
+    <polygon points="600,60 750,240 750,560 600,740 450,560 450,240" />
+  </g>
+
+  <!-- Ground surface (reflective floor) -->
+  <rect x="0" y="620" width="1200" height="180" fill="url(#surfaceGrad)" opacity="0.3"/>
+  <line x1="0" y1="620" x2="1200" y2="620" stroke="#3BEA3B" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- Bottle silhouette shadow -->
+  <ellipse cx="600" cy="635" rx="55" ry="12" fill="#000" opacity="0.8"/>
+
+  <!-- Bottle silhouette -->
+  <!-- Main body -->
+  <path d="M 540 620 L 530 280 Q 530 200 600 190 Q 670 200 670 280 L 660 620 Z" fill="url(#bottleGrad)" opacity="0.95"/>
+  <!-- Neck -->
+  <rect x="575" y="150" width="50" height="55" rx="5" fill="#111" opacity="0.9"/>
+  <!-- Cap -->
+  <rect x="571" y="138" width="58" height="18" rx="3" fill="#1a1a1a"/>
+  <!-- Bottle highlight left edge -->
+  <path d="M 540 620 L 532 300 Q 533 220 545 210" stroke="#2a4a2a" stroke-width="2" fill="none" opacity="0.6"/>
+  <!-- Bottle highlight vertical streak -->
+  <rect x="596" y="200" width="4" height="390" fill="#3BEA3B" opacity="0.12" rx="2"/>
+
+  <!-- Light beam from top -->
+  <polygon points="580,0 620,0 645,620 555,620" fill="url(#beamGrad)" opacity="0.35" filter="url(#glow)"/>
+
+  <!-- Lens flare hotspot on bottle -->
+  <ellipse cx="600" cy="290" rx="18" ry="18" fill="url(#flareGrad)" filter="url(#softglow)" opacity="0.9"/>
+  <ellipse cx="600" cy="290" rx="6" ry="6" fill="#ffffff" opacity="0.7"/>
+
+  <!-- Anamorphic horizontal flare streaks -->
+  <rect x="0" y="288" width="1200" height="1.5" fill="url(#streakGrad)" opacity="0.7" filter="url(#flareblur)"/>
+  <rect x="0" y="292" width="1200" height="0.8" fill="url(#streakGrad)" opacity="0.4"/>
+  <rect x="0" y="284" width="1200" height="0.8" fill="url(#streakGrad)" opacity="0.25"/>
+
+  <!-- Secondary flare orb (offset) -->
+  <ellipse cx="430" cy="350" rx="22" ry="22" fill="#3BEA3B" opacity="0.07" filter="url(#softglow)"/>
+  <ellipse cx="770" cy="250" rx="14" ry="14" fill="#3BEA3B" opacity="0.07" filter="url(#softglow)"/>
+
+  <!-- Bottle reflection on floor -->
+  <path d="M 555 620 L 640 620 L 648 700 L 552 700 Z" fill="url(#bottleGrad)" opacity="0.12"/>
+  <rect x="555" y="620" width="88" height="2" fill="#3BEA3B" opacity="0.08"/>
+
+  <!-- Geometric depth elements -->
+  <!-- Left dark planes -->
+  <polygon points="0,0 200,0 350,800 0,800" fill="#000" opacity="0.45"/>
+  <!-- Right dark planes -->
+  <polygon points="1200,0 1000,0 850,800 1200,800" fill="#000" opacity="0.45"/>
+
+  <!-- Corner brackets (camera viewfinder) -->
+  <g stroke="#3BEA3B" stroke-width="1.5" fill="none" opacity="0.7">
+    <!-- Top-left -->
+    <polyline points="60,40 40,40 40,80"/>
+    <polyline points="40,40 80,40"/>
+    <!-- Top-right -->
+    <polyline points="1140,40 1160,40 1160,80"/>
+    <polyline points="1120,40 1160,40"/>
+    <!-- Bottom-left -->
+    <polyline points="60,760 40,760 40,720"/>
+    <polyline points="40,760 80,760"/>
+    <!-- Bottom-right -->
+    <polyline points="1140,760 1160,760 1160,720"/>
+    <polyline points="1120,760 1160,760"/>
+  </g>
+
+  <!-- Center-cross reticle (camera AF) -->
+  <g stroke="#3BEA3B" stroke-width="0.7" fill="none" opacity="0.3">
+    <line x1="585" y1="390" x2="585" y2="410"/>
+    <line x1="615" y1="390" x2="615" y2="410"/>
+    <line x1="590" y1="398" x2="610" y2="398"/>
+    <rect x="582" y="387" width="36" height="26" rx="2"/>
+  </g>
+
+  <!-- Technical data overlays -->
+  <text x="40" y="62" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.55" letter-spacing="2">ISO 100</text>
+  <text x="40" y="76" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.55" letter-spacing="2">f/2.8  1/250s</text>
+  <text x="1060" y="62" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.55" letter-spacing="2">RAW+JPG</text>
+  <text x="1090" y="76" font-family="monospace" font-size="9" fill="#3BEA3B" opacity="0.55" letter-spacing="2">6400px</text>
+
+  <!-- Bottom label -->
+  <line x1="200" y1="760" x2="500" y2="760" stroke="#3BEA3B" stroke-width="0.5" opacity="0.3"/>
+  <text x="600" y="756" font-family="monospace" font-size="11" fill="#3BEA3B" opacity="0.8" text-anchor="middle" letter-spacing="5">FOTOGRAFÍA COMERCIAL</text>
+  <line x1="700" y1="760" x2="1000" y2="760" stroke="#3BEA3B" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Fractal Studio watermark -->
+  <text x="600" y="775" font-family="monospace" font-size="8" fill="#ffffff" opacity="0.15" text-anchor="middle" letter-spacing="3">FRACTAL STUDIO MX</text>
+
+  <!-- Grain overlay -->
+  <rect width="1200" height="800" fill="url(#bgRadial)" opacity="0.05" filter="url(#grain)"/>
+</svg>
