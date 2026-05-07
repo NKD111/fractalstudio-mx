@@ -89,7 +89,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0]; index: n
       <div className="flex items-center justify-between mb-7">
         <span
           className="font-mono transition-colors duration-200 group-hover:text-[rgba(59,234,59,0.6)]"
-          style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "rgba(59,234,59,0.3)" }}
+          style={{ fontSize: "0.75rem", letterSpacing: "0.2em", color: "rgba(59,234,59,0.3)" }}
         >
           {service.num}
         </span>
@@ -126,7 +126,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0]; index: n
             key={tag}
             className="font-mono uppercase"
             style={{
-              fontSize:      "0.56rem",
+              fontSize:      "0.7rem",
               letterSpacing: "0.1em",
               color:         "rgba(245,245,245,0.22)",
               border:        "1px solid rgba(255,255,255,0.06)",
@@ -179,7 +179,7 @@ export default function Services() {
         >
           <div className="flex items-center gap-3 mb-4" aria-hidden="true">
             <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
               SERVICIOS // 01
             </span>
           </div>
@@ -208,7 +208,7 @@ export default function Services() {
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono transition-colors duration-200 hover:text-[#3BEA3B] inline-flex items-center gap-2"
-            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
+            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
           >
             SOLICITAR COTIZACIÓN →
           </a>

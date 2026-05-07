@@ -24,7 +24,7 @@ export default function Footer() {
               </div>
               <span
                 className="font-headline font-bold text-[#F5F5F5]"
-                style={{ fontSize: "0.75rem", letterSpacing: "0.18em" }}
+                style={{ fontSize: "0.9375rem", letterSpacing: "0.18em" }}
               >
                 FRACTAL STUDIO MX
               </span>
@@ -38,7 +38,7 @@ export default function Footer() {
           <div>
             <h3
               className="font-mono uppercase mb-5"
-              style={{ fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.5)" }}
+              style={{ fontSize: "0.75rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.5)" }}
             >
               Navegación
             </h3>
@@ -64,7 +64,7 @@ export default function Footer() {
           <div>
             <h3
               className="font-mono uppercase mb-5"
-              style={{ fontSize: "0.6rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.5)" }}
+              style={{ fontSize: "0.75rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.5)" }}
             >
               Contacto
             </h3>
@@ -99,7 +99,7 @@ export default function Footer() {
           <p
             aria-hidden="true"
             className="font-mono"
-            style={{ fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.5)" }}
+            style={{ fontSize: "0.725rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.5)" }}
           >
             © {new Date().getFullYear()} Fractal Studio MX. Todos los derechos reservados.
           </p>
@@ -115,7 +115,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={`${label} de Fractal Studio MX`}
                 className="font-mono uppercase transition-colors duration-200 hover:text-[#3BEA3B]"
-                style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "#888" }}
+                style={{ fontSize: "0.725rem", letterSpacing: "0.12em", color: "#888" }}
               >
                 {label}
               </a>

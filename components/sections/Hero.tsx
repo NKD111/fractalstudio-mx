@@ -223,7 +223,7 @@ export default function Hero() {
         {/* HUD label */}
         <div className="flex items-center gap-3 mb-8" aria-hidden="true" style={fade(0)}>
           <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-          <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.45)" }}>
+          <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.45)" }}>
             CDMX // ESTUDIO CREATIVO
           </span>
         </div>
@@ -250,12 +250,12 @@ export default function Hero() {
               borderLeft:  "2px solid rgba(59,234,59,0.45)",
               paddingLeft: 14,
             }}>
-              <em style={{ fontSize: "clamp(0.95rem,1.2vw,1.1rem)", color: "rgba(245,245,245,0.52)", fontStyle: "italic" }}>
+              <em style={{ fontSize: "clamp(1.2rem,1.5vw,1.4rem)", color: "rgba(245,245,245,0.52)", fontStyle: "italic" }}>
                 "Nacimos para crear"
               </em>
               <span className="font-mono" style={{
                 display:       "block",
-                fontSize:      "0.62rem",
+                fontSize:      "0.775rem",
                 letterSpacing: "0.16em",
                 color:         "rgba(59,234,59,0.65)",
                 marginTop:     5,
@@ -266,10 +266,10 @@ export default function Hero() {
           </div>
 
           <div style={fade(580)}>
-            <p className="font-mono uppercase mb-5" style={{ fontSize: "0.68rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
+            <p className="font-mono uppercase mb-5" style={{ fontSize: "0.85rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
               Diseño&nbsp;&nbsp;·&nbsp;&nbsp;Fotografía&nbsp;&nbsp;·&nbsp;&nbsp;Video&nbsp;&nbsp;·&nbsp;&nbsp;Branding
             </p>
-            <p className="font-body leading-relaxed max-w-md" style={{ fontSize: "clamp(0.9rem,1.1vw,1.05rem)", color: "#999" }}>
+            <p className="font-body leading-relaxed max-w-md" style={{ fontSize: "clamp(1.1rem,1.35vw,1.3rem)", color: "#999" }}>
               Creamos experiencias visuales que conectan marcas con personas.
               Desde la conceptualización hasta la entrega final.
             </p>
@@ -288,7 +288,7 @@ export default function Hero() {
               background:    "#3BEA3B",
               color:         "#080808",
               padding:       "0.85rem 1.8rem",
-              fontSize:      "0.72rem",
+              fontSize:      "0.9rem",
               letterSpacing: "0.12em",
               boxShadow:     "0 4px 24px rgba(59,234,59,0.25)",
             }}
@@ -309,7 +309,7 @@ export default function Hero() {
               border:        "1px solid rgba(59,234,59,0.28)",
               color:         "rgba(59,234,59,0.75)",
               padding:       "0.85rem 1.8rem",
-              fontSize:      "0.72rem",
+              fontSize:      "0.9rem",
               letterSpacing: "0.12em",
             }}
             onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -343,7 +343,7 @@ export default function Hero() {
               </div>
               <div
                 className="font-mono uppercase mt-1"
-                style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "#888" }}
+                style={{ fontSize: "0.725rem", letterSpacing: "0.12em", color: "#888" }}
               >
                 {s.label}
               </div>
@@ -354,7 +354,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden>
-        <span className="font-mono" style={{ fontSize: "0.52rem", letterSpacing: "0.2em", color: "rgba(245,245,245,0.18)", textTransform: "uppercase" }}>
+        <span className="font-mono" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "rgba(245,245,245,0.18)", textTransform: "uppercase" }}>
           Scroll
         </span>
         <div className="w-px h-8 scroll-line-indicator" style={{

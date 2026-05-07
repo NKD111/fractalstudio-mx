@@ -158,7 +158,7 @@ function PortfolioCell({ item, index, visible }: {
         <span style={{
           display:       "inline-block",
           fontFamily:    "var(--font-jetbrains-mono,monospace)",
-          fontSize:      "0.5rem",
+          fontSize:      "0.625rem",
           letterSpacing: "0.16em",
           color:         "#3BEA3B",
           border:        "1px solid rgba(59,234,59,0.25)",
@@ -169,14 +169,14 @@ function PortfolioCell({ item, index, visible }: {
         </span>
         <div
           className="font-headline font-bold text-[#F5F5F5] leading-tight"
-          style={{ fontSize: "clamp(0.85rem,1.5vw,1rem)" }}
+          style={{ fontSize: "clamp(1.05rem,1.85vw,1.25rem)" }}
         >
           {item.label}
         </div>
         <div
           style={{
             fontFamily:    "var(--font-jetbrains-mono,monospace)",
-            fontSize:      "0.5rem",
+            fontSize:      "0.625rem",
             letterSpacing: "0.1em",
             color:         "rgba(245,245,245,0.4)",
             marginTop:     4,
@@ -235,7 +235,7 @@ export default function Portfolio() {
           <div>
             <div className="flex items-center gap-3 mb-4" aria-hidden="true">
               <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-              <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+              <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
                 PORTAFOLIO // 02
               </span>
             </div>
@@ -267,7 +267,7 @@ export default function Portfolio() {
           <p
             aria-hidden="true"
             className="font-mono uppercase"
-            style={{ fontSize: "0.56rem", letterSpacing: "0.14em", color: "rgba(245,245,245,0.5)" }}
+            style={{ fontSize: "0.7rem", letterSpacing: "0.14em", color: "rgba(245,245,245,0.5)" }}
           >
             Solicita más ejemplos de trabajo por WhatsApp
           </p>
@@ -276,7 +276,7 @@ export default function Portfolio() {
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono transition-colors duration-200 hover:text-[#3BEA3B] inline-flex items-center gap-2"
-            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
+            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
           >
             VER MÁS TRABAJOS →
           </a>

@@ -92,7 +92,7 @@ export default function LoadingScreen() {
       {/* Label */}
       <p style={{
         fontFamily:    "var(--font-jetbrains-mono, monospace)",
-        fontSize:      "0.54rem",
+        fontSize:      "0.675rem",
         letterSpacing: "0.22em",
         color:         "rgba(245,245,245,0.2)",
         textTransform: "uppercase",

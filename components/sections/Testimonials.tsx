@@ -70,7 +70,7 @@ export default function Testimonials() {
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
               CLIENTES // 04
             </span>
           </div>
@@ -141,16 +141,16 @@ export default function Testimonials() {
                 }}>
                   <span
                     className="font-mono"
-                    style={{ fontSize: "0.6rem", letterSpacing: "0.06em", color: "#3BEA3B" }}
+                    style={{ fontSize: "0.75rem", letterSpacing: "0.06em", color: "#3BEA3B" }}
                   >
                     {t.init}
                   </span>
                 </div>
                 <div>
-                  <div className="font-body font-semibold" style={{ fontSize: "0.85rem", color: "#F5F5F5" }}>
+                  <div className="font-body font-semibold" style={{ fontSize: "1.0625rem", color: "#F5F5F5" }}>
                     {t.name}
                   </div>
-                  <div className="font-mono" style={{ fontSize: "0.54rem", letterSpacing: "0.08em", color: "#888", marginTop: 2 }}>
+                  <div className="font-mono" style={{ fontSize: "0.675rem", letterSpacing: "0.08em", color: "#888", marginTop: 2 }}>
                     {t.title} · {t.company}
                   </div>
                 </div>
@@ -172,7 +172,7 @@ export default function Testimonials() {
         >
           <p
             className="font-mono uppercase mb-5"
-            style={{ fontSize: "0.52rem", letterSpacing: "0.2em", color: "rgba(245,245,245,0.16)" }}
+            style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "rgba(245,245,245,0.16)" }}
           >
             Marcas que confían en nosotros
           </p>
@@ -201,7 +201,7 @@ export default function Testimonials() {
                 >
                   <span
                     className="font-mono"
-                    style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.18)" }}
+                    style={{ fontSize: "0.725rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.18)" }}
                   >
                     {tag}
                   </span>

@@ -21,6 +21,11 @@ const config: Config = {
         mono: ["var(--font-jetbrains-mono)", "monospace"],
         body: ["var(--font-dm-sans)", "sans-serif"],
       },
+      fontSize: {
+        /* +25% on the two small utility sizes used throughout */
+        sm:   ["1.1rem",   { lineHeight: "1.625" }],
+        base: ["1.15rem",  { lineHeight: "1.75"  }],
+      },
       keyframes: {
         "fade-up": {
           "0%":   { opacity: "0", transform: "translateY(24px)" },

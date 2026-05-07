@@ -66,7 +66,7 @@ export default function Contact() {
     padding:       "0.8rem 1rem",
     color:         "#F5F5F5",
     fontFamily:    "var(--font-dm-sans)",
-    fontSize:      "0.88rem",
+    fontSize:      "1.1rem",
     width:         "100%",
     outline:       "none",
     transition:    "border-color 200ms",
@@ -74,7 +74,7 @@ export default function Contact() {
 
   const labelStyle = {
     fontFamily:    "var(--font-jetbrains-mono)",
-    fontSize:      "0.58rem",
+    fontSize:      "0.725rem",
     letterSpacing: "0.15em",
     color:         "rgba(245,245,245,0.35)",
     textTransform: "uppercase" as const,
@@ -107,7 +107,7 @@ export default function Contact() {
         >
           <div className="flex items-center gap-3 mb-4" aria-hidden="true">
             <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
               CONTACTO // 05
             </span>
           </div>
@@ -193,7 +193,7 @@ export default function Contact() {
                     background:    "#3BEA3B",
                     color:         "#080808",
                     padding:       "1rem",
-                    fontSize:      "0.72rem",
+                    fontSize:      "0.9rem",
                     letterSpacing: "0.14em",
                     width:         "100%",
                     cursor:        "pointer",
@@ -236,7 +236,7 @@ export default function Contact() {
                   <span style={{ color: "rgba(245,245,245,0.3)", transition: "color 300ms" }} className="group-hover:text-[#3BEA3B]"><Icon /></span>
                 </div>
                 <div>
-                  <div className="font-mono uppercase mb-1" style={{ fontSize: "0.56rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.28)" }}>
+                  <div className="font-mono uppercase mb-1" style={{ fontSize: "0.7rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.28)" }}>
                     {label}
                   </div>
                   <div className="font-body text-sm transition-colors duration-200 group-hover:text-[#F5F5F5]" style={{ color: "rgba(245,245,245,0.72)" }}>
@@ -256,7 +256,7 @@ export default function Contact() {
                 background:    "rgba(59,234,59,0.05)",
                 border:        "1px solid rgba(59,234,59,0.2)",
                 color:         "#3BEA3B",
-                fontSize:      "0.68rem",
+                fontSize:      "0.85rem",
                 letterSpacing: "0.14em",
               }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,234,59,0.09)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.4)"; }}

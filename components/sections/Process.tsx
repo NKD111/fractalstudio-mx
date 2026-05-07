@@ -69,7 +69,7 @@ export default function Process() {
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.6rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
               PROCESO // 03
             </span>
           </div>
@@ -133,7 +133,7 @@ export default function Process() {
                   </div>
                   <span
                     className="font-mono"
-                    style={{ fontSize: "0.56rem", letterSpacing: "0.2em", color: "rgba(59,234,59,0.28)" }}
+                    style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "rgba(59,234,59,0.28)" }}
                   >
                     {step.num}
                   </span>
@@ -167,7 +167,7 @@ export default function Process() {
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono transition-colors duration-200 hover:text-[#3BEA3B]"
-            style={{ fontSize: "0.68rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
+            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
           >
             ¿LISTO PARA EMPEZAR? HABLEMOS →
           </a>
