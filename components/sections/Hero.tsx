@@ -340,14 +340,6 @@ export default function Hero() {
         }} />
       </div>
 
-      <style>{`
-        @keyframes scanLine {
-          0%   { transform: translateX(-4px); opacity: 0; }
-          5%   { opacity: 1; }
-          95%  { opacity: 0.5; }
-          100% { transform: translateX(100vw); opacity: 0; }
-        }
-      `}</style>
     </section>
   );
 }
