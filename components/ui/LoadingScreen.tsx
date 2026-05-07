@@ -7,8 +7,8 @@ export default function LoadingScreen() {
   const [phase, setPhase] = useState<"in" | "hold" | "out" | "done">("in");
 
   useEffect(() => {
-    /* Animate progress 0→100 in ~1.1s */
-    const DURATION = 1100;
+    /* Animate progress 0→100 in ~380ms — fast enough for elite feel, LCP-friendly */
+    const DURATION = 380;
     let start: number | null = null;
     let raf: number;
 
@@ -19,11 +19,11 @@ export default function LoadingScreen() {
       if (p < 100) {
         raf = requestAnimationFrame(step);
       } else {
-        /* Brief hold then slide out */
+        /* Minimal hold then slide out */
         setTimeout(() => {
           setPhase("out");
-          setTimeout(() => setPhase("done"), 650);
-        }, 80);
+          setTimeout(() => setPhase("done"), 360);
+        }, 30);
       }
     };
 
@@ -47,7 +47,7 @@ export default function LoadingScreen() {
         alignItems: "center",
         justifyContent: "center",
         transform:  phase === "out" ? "translateY(-100%)" : "translateY(0)",
-        transition: "transform 0.65s cubic-bezier(0.76, 0, 0.24, 1)",
+        transition: "transform 0.36s cubic-bezier(0.76, 0, 0.24, 1)",
         willChange: "transform",
       }}
     >

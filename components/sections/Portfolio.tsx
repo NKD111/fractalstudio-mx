@@ -98,6 +98,8 @@ function PortfolioCell({ item, index, visible }: {
           src={item.src}
           alt={item.label}
           aria-hidden
+          loading={index === 0 ? "eager" : "lazy"}
+          decoding="async"
           onError={() => setImgErr(true)}
           style={{
             position:   "absolute",

@@ -1,16 +1,37 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+
+/* Inline SVG icons — eliminates lucide-react from bundle (~30KB saved) */
+const PhoneIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 012 3.18a2 2 0 012-2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+  </svg>
+);
+const MailIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 8.586 6.414a2 2 0 002.828 0L22 7"/>
+  </svg>
+);
+const MapPinIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/>
+  </svg>
+);
+const MessageCircleIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+  </svg>
+);
 
 const WA_LINK =
   "https://wa.me/525562123864?text=Hola%2C%20me%20gustar%C3%ADa%20cotizar%20un%20proyecto%20con%20Fractal%20Studio%20MX.";
 
 const INFO = [
-  { Icon: Phone,         label: "Teléfono",   value: "+52 55 6212 3864",          href: "tel:+525562123864" },
-  { Icon: Mail,          label: "Email",      value: "hola@fractalstudio.com.mx", href: "mailto:hola@fractalstudio.com.mx" },
-  { Icon: MapPin,        label: "Ubicación",  value: "Ciudad de México, CDMX",    href: "https://maps.google.com/?q=Ciudad+de+Mexico" },
-  { Icon: MessageCircle, label: "WhatsApp",   value: "+52 55 6212 3864",          href: WA_LINK },
+  { Icon: PhoneIcon,         label: "Teléfono",   value: "+52 55 6212 3864",          href: "tel:+525562123864" },
+  { Icon: MailIcon,          label: "Email",      value: "hola@fractalstudio.com.mx", href: "mailto:hola@fractalstudio.com.mx" },
+  { Icon: MapPinIcon,        label: "Ubicación",  value: "Ciudad de México, CDMX",    href: "https://maps.google.com/?q=Ciudad+de+Mexico" },
+  { Icon: MessageCircleIcon, label: "WhatsApp",   value: "+52 55 6212 3864",          href: WA_LINK },
 ];
 
 export default function Contact() {
@@ -212,7 +233,7 @@ export default function Contact() {
                   className="w-9 h-9 flex items-center justify-center flex-shrink-0 transition-all duration-300"
                   style={{ border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <Icon size={15} aria-hidden style={{ color: "rgba(245,245,245,0.3)", transition: "color 300ms" }} className="group-hover:text-[#3BEA3B]" />
+                  <span style={{ color: "rgba(245,245,245,0.3)", transition: "color 300ms" }} className="group-hover:text-[#3BEA3B]"><Icon /></span>
                 </div>
                 <div>
                   <div className="font-mono uppercase mb-1" style={{ fontSize: "0.56rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.28)" }}>
