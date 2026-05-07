@@ -156,9 +156,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       suppressHydrationWarning
     >
       <head>
-        {/* Favicon */}
+        {/* Favicon — app/favicon.ico (16/32/48/256px) served automatically by Next.js */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/logo.png" type="image/png" sizes="512x512" />
-        <link rel="alternate icon" href="/favicon.svg" type="image/svg+xml" />
 
         {/* Preconnects — next/font ya sirve fuentes desde /_next/static, solo necesitamos analytics */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
