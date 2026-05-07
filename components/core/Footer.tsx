@@ -97,7 +97,7 @@ export default function Footer() {
           <p
             aria-hidden="true"
             className="font-mono"
-            style={{ fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.35)" }}
+            style={{ fontSize: "0.58rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.5)" }}
           >
             © {new Date().getFullYear()} Fractal Studio MX. Todos los derechos reservados.
           </p>

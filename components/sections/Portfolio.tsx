@@ -267,7 +267,7 @@ export default function Portfolio() {
           <p
             aria-hidden="true"
             className="font-mono uppercase"
-            style={{ fontSize: "0.56rem", letterSpacing: "0.14em", color: "rgba(245,245,245,0.14)" }}
+            style={{ fontSize: "0.56rem", letterSpacing: "0.14em", color: "rgba(245,245,245,0.5)" }}
           >
             Solicita más ejemplos de trabajo por WhatsApp
           </p>
