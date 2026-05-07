@@ -247,7 +247,7 @@ export default function Portfolio() {
               <span className="text-[#3BEA3B]">TRABAJO.</span>
             </h2>
           </div>
-          <p className="font-body text-sm leading-relaxed max-w-xs" style={{ color: "#555" }}>
+          <p className="font-body text-sm leading-relaxed max-w-xs" style={{ color: "#888" }}>
             Proyectos reales para marcas que confían en nuestra visión creativa.
           </p>
         </div>

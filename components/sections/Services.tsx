@@ -1,26 +1,51 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Camera, Video, Pencil, Layers } from "lucide-react";
+
+/* Inline SVG icons — eliminates lucide-react from bundle */
+const CameraIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+    <circle cx="12" cy="13" r="4"/>
+  </svg>
+);
+const VideoIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <polygon points="23 7 16 12 23 17 23 7"/>
+    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+  </svg>
+);
+const PencilIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+  </svg>
+);
+const LayersIcon = () => (
+  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
+    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+    <polyline points="2 17 12 22 22 17"/>
+    <polyline points="2 12 12 17 22 12"/>
+  </svg>
+);
 
 const SERVICES = [
   {
-    num: "01", Icon: Camera, title: "Fotografía Comercial",
+    num: "01", Icon: CameraIcon, title: "Fotografía Comercial",
     description: "Imágenes que venden. Desde producto hasta lifestyle — capturamos la esencia de tu marca con precisión profesional y visión artística.",
     tags: ["Producto", "Editorial", "Corporativo", "Lifestyle"],
   },
   {
-    num: "02", Icon: Video, title: "Producción de Video",
+    num: "02", Icon: VideoIcon, title: "Producción de Video",
     description: "Contenido audiovisual que conecta. Spots comerciales, reels y documentales que generan impacto real y convierten audiencias en clientes.",
     tags: ["Spots", "Reels", "Documentales", "Motion Graphics"],
   },
   {
-    num: "03", Icon: Pencil, title: "Diseño Gráfico",
+    num: "03", Icon: PencilIcon, title: "Diseño Gráfico",
     description: "Piezas que comunican con claridad y estilo. Materiales digitales y print que refuerzan tu identidad en cada punto de contacto.",
     tags: ["Print", "Digital", "Social Media", "Packaging"],
   },
   {
-    num: "04", Icon: Layers, title: "Branding & Identidad",
+    num: "04", Icon: LayersIcon, title: "Branding & Identidad",
     description: "Construimos marcas que perduran. Estrategia, naming, logotipo y sistema visual cohesivo que diferencia tu negocio en el mercado.",
     tags: ["Logotipo", "Manual de Marca", "Naming", "Estrategia"],
   },
@@ -72,12 +97,12 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0]; index: n
           className="w-10 h-10 flex items-center justify-center transition-all duration-300"
           style={{ border: "1px solid rgba(255,255,255,0.07)" }}
         >
-          <Icon
-            size={17}
-            aria-hidden
+          <span
             className="transition-colors duration-300 group-hover:text-[#3BEA3B]"
             style={{ color: "rgba(245,245,245,0.3)" }}
-          />
+          >
+            <Icon />
+          </span>
         </div>
       </div>
 
@@ -90,7 +115,7 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0]; index: n
       </h3>
 
       {/* Description */}
-      <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#666" }}>
+      <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#888" }}>
         {service.description}
       </p>
 

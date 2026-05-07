@@ -146,7 +146,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <p className="font-headline font-bold text-xl text-[#F5F5F5]">Mensaje enviado</p>
-                <p className="font-body text-sm" style={{ color: "#666" }}>Te contactaremos en menos de 24 horas hábiles.</p>
+                <p className="font-body text-sm" style={{ color: "#888" }}>Te contactaremos en menos de 24 horas hábiles.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">

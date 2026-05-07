@@ -18,6 +18,20 @@
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7"
   },
+  "browserslist": {
+    "production": [
+      "chrome >= 90",
+      "safari >= 14",
+      "firefox >= 88",
+      "edge >= 90",
+      "not dead"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",

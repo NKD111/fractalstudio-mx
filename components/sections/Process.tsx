@@ -145,7 +145,7 @@ export default function Process() {
                 >
                   {step.title}
                 </h3>
-                <p className="font-body text-sm leading-relaxed" style={{ color: "#666" }}>
+                <p className="font-body text-sm leading-relaxed" style={{ color: "#888" }}>
                   {step.desc}
                 </p>
               </div>

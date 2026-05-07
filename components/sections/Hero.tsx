@@ -208,9 +208,11 @@ export default function Hero() {
         background: "radial-gradient(ellipse,rgba(59,234,59,0.04) 0%,transparent 70%)",
       }} />
 
-      {/* Scan line */}
+      {/* Scan line — uses transform (composited) instead of left */}
       <div aria-hidden className="absolute top-0 bottom-0 pointer-events-none z-10" style={{
+        left:       0,
         width:      2,
+        willChange: "transform",
         background: "linear-gradient(to bottom,transparent 0%,rgba(59,234,59,0.85) 35%,#3BEA3B 50%,rgba(59,234,59,0.85) 65%,transparent 100%)",
         boxShadow:  "0 0 18px #3BEA3B,0 0 50px rgba(59,234,59,0.25)",
         animation:  "scanLine 4.5s ease-in-out infinite",
@@ -245,7 +247,7 @@ export default function Hero() {
             <p className="font-mono uppercase mb-5" style={{ fontSize: "0.68rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
               Diseño&nbsp;&nbsp;·&nbsp;&nbsp;Fotografía&nbsp;&nbsp;·&nbsp;&nbsp;Video&nbsp;&nbsp;·&nbsp;&nbsp;Branding
             </p>
-            <p className="font-body leading-relaxed max-w-md" style={{ fontSize: "clamp(0.9rem,1.1vw,1.05rem)", color: "#777" }}>
+            <p className="font-body leading-relaxed max-w-md" style={{ fontSize: "clamp(0.9rem,1.1vw,1.05rem)", color: "#999" }}>
               Creamos experiencias visuales que conectan marcas con personas.
               Desde la conceptualización hasta la entrega final.
             </p>
@@ -319,7 +321,7 @@ export default function Hero() {
               </div>
               <div
                 className="font-mono uppercase mt-1"
-                style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "#555" }}
+                style={{ fontSize: "0.58rem", letterSpacing: "0.12em", color: "#888" }}
               >
                 {s.label}
               </div>
@@ -340,10 +342,10 @@ export default function Hero() {
 
       <style>{`
         @keyframes scanLine {
-          0%   { left: -4px; opacity: 0; }
+          0%   { transform: translateX(-4px); opacity: 0; }
           5%   { opacity: 1; }
           95%  { opacity: 0.5; }
-          100% { left: calc(100% + 4px); opacity: 0; }
+          100% { transform: translateX(100vw); opacity: 0; }
         }
       `}</style>
     </section>

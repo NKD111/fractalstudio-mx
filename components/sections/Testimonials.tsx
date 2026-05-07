@@ -150,7 +150,7 @@ export default function Testimonials() {
                   <div className="font-body font-semibold" style={{ fontSize: "0.85rem", color: "#F5F5F5" }}>
                     {t.name}
                   </div>
-                  <div className="font-mono" style={{ fontSize: "0.54rem", letterSpacing: "0.08em", color: "#555", marginTop: 2 }}>
+                  <div className="font-mono" style={{ fontSize: "0.54rem", letterSpacing: "0.08em", color: "#888", marginTop: 2 }}>
                     {t.title} · {t.company}
                   </div>
                 </div>
