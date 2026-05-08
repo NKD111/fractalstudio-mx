@@ -6,7 +6,6 @@ import Portfolio     from "@/components/sections/Portfolio";
 import Process       from "@/components/sections/Process";
 import Testimonials  from "@/components/sections/Testimonials";
 import Contact       from "@/components/sections/Contact";
-import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import CustomCursor  from "@/components/ui/CustomCursor";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 
@@ -33,7 +32,6 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
-      <WhatsAppFloat />
     </>
   );
 }
