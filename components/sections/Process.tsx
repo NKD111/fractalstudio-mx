@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import RevealTitle from "@/components/ui/RevealTitle";
 
 const STEPS = [
   {
@@ -73,13 +74,7 @@ export default function Process() {
               PROCESO // 03
             </span>
           </div>
-          <h2
-            className="font-headline font-extrabold text-[#F5F5F5] leading-[0.88] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(2.5rem,6vw,5rem)" }}
-          >
-            CÓMO<br />
-            <span className="text-[#3BEA3B]">TRABAJAMOS.</span>
-          </h2>
+          <RevealTitle lines={[{ text: "CÓMO" }, { text: "TRABAJAMOS.", accent: true }]} />
         </div>
 
         {/* Steps grid */}

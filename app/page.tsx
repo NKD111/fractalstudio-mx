@@ -8,6 +8,7 @@ import Testimonials  from "@/components/sections/Testimonials";
 import Contact       from "@/components/sections/Contact";
 import CustomCursor  from "@/components/ui/CustomCursor";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import LivingFractal from "@/components/core/LivingFractal";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       {/* ── Overlays (render order matters) ── */}
       <LoadingScreen />
       <CustomCursor />
+      <LivingFractal />
 
       {/* ── Layout ── */}
       <Navbar />

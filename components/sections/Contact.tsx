@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import RevealTitle from "@/components/ui/RevealTitle";
 
 /* Inline SVG icons — eliminates lucide-react from bundle (~30KB saved) */
 const PhoneIcon = () => (
@@ -111,13 +112,7 @@ export default function Contact() {
               CONTACTO // 05
             </span>
           </div>
-          <h2
-            className="font-headline font-extrabold text-[#F5F5F5] leading-[0.88] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
-          >
-            HABLEMOS<br />
-            <span className="text-[#3BEA3B]">DE TU PROYECTO.</span>
-          </h2>
+          <RevealTitle lines={[{ text: "HABLEMOS" }, { text: "DE TU PROYECTO.", accent: true }]} />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

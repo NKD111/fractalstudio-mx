@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import RevealTitle from "@/components/ui/RevealTitle";
 
 const ITEMS = [
   {
@@ -239,13 +240,7 @@ export default function Portfolio() {
                 PORTAFOLIO // 02
               </span>
             </div>
-            <h2
-              className="font-headline font-extrabold text-[#F5F5F5] leading-[0.88] tracking-[-0.03em]"
-              style={{ fontSize: "clamp(2.5rem,6vw,5rem)" }}
-            >
-              NUESTRO<br />
-              <span className="text-[#3BEA3B]">TRABAJO.</span>
-            </h2>
+            <RevealTitle lines={[{ text: "NUESTRO" }, { text: "TRABAJO.", accent: true }]} />
           </div>
           <p className="font-body text-sm leading-relaxed max-w-xs" style={{ color: "#888" }}>
             Proyectos reales para marcas que confían en nuestra visión creativa.

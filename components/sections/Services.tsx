@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import RevealTitle from "@/components/ui/RevealTitle";
 
 /* Inline SVG icons — eliminates lucide-react from bundle */
 const CameraIcon = () => (
@@ -51,91 +52,126 @@ const SERVICES = [
   },
 ];
 
-function ServiceCard({ service, index }: { service: typeof SERVICES[0]; index: number }) {
-  const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.08 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
+/* ── Card del deck — sticky, se apilan como expedientes ─────────────────── */
+function StackCard({
+  service,
+  numRef,
+}: {
+  service: typeof SERVICES[0];
+  numRef: (el: HTMLSpanElement | null) => void;
+}) {
   const { Icon } = service;
+  const [hover, setHover] = useState(false);
 
   return (
     <div
-      ref={ref}
-      className="group relative p-8 transition-all duration-300"
+      className="group relative overflow-hidden"
       style={{
-        border:    "1px solid rgba(255,255,255,0.05)",
-        opacity:   visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(32px)",
-        transition: `opacity 0.6s ease ${index * 100}ms, transform 0.6s ease ${index * 100}ms, border-color 300ms, background 300ms`,
+        background:   "#0A0A0A",
+        border:       `1px solid ${hover ? "rgba(59,234,59,0.22)" : "rgba(255,255,255,0.07)"}`,
+        minHeight:    "clamp(380px, 56vh, 540px)",
+        transition:   "border-color 350ms ease",
+        display:      "flex",
+        flexDirection: "column",
       }}
-      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.18)"; (e.currentTarget as HTMLElement).style.background = "rgba(59,234,59,0.015)"; }}
-      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.05)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      {/* Top accent line on hover */}
+      {/* Número fantasma gigante — parallax independiente */}
+      <span
+        ref={numRef}
+        aria-hidden
+        className="font-headline font-extrabold absolute pointer-events-none select-none"
+        style={{
+          fontSize:        "clamp(8rem, 24vw, 19rem)",
+          lineHeight:      1,
+          right:           "-0.04em",
+          top:             "0.05em",
+          color:           "transparent",
+          WebkitTextStroke: `1px ${hover ? "rgba(59,234,59,0.28)" : "rgba(59,234,59,0.11)"}`,
+          transition:      "-webkit-text-stroke-color 400ms ease",
+          willChange:      "transform",
+        }}
+      >
+        {service.num}
+      </span>
+
+      {/* Accent line superior */}
       <div
-        className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500 opacity-0 group-hover:opacity-100"
-        style={{ background: "linear-gradient(90deg, transparent, rgba(59,234,59,0.35) 50%, transparent)" }}
+        className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500"
+        style={{
+          opacity:    hover ? 1 : 0,
+          background: "linear-gradient(90deg, transparent, rgba(59,234,59,0.4) 50%, transparent)",
+        }}
       />
 
-      {/* Number + Icon */}
-      <div className="flex items-center justify-between mb-7">
+      {/* Strip header — visible cuando la card está apilada */}
+      <div
+        className="flex items-center gap-4 px-8 md:px-12"
+        style={{
+          height:       64,
+          flexShrink:   0,
+          borderBottom: "1px solid rgba(255,255,255,0.05)",
+        }}
+      >
         <span
-          className="font-mono transition-colors duration-200 group-hover:text-[rgba(59,234,59,0.6)]"
-          style={{ fontSize: "0.75rem", letterSpacing: "0.2em", color: "rgba(59,234,59,0.3)" }}
+          className="font-mono"
+          style={{ fontSize: "0.8rem", letterSpacing: "0.2em", color: hover ? "rgba(59,234,59,0.8)" : "rgba(59,234,59,0.4)", transition: "color 300ms" }}
         >
           {service.num}
         </span>
-        <div
-          className="w-10 h-10 flex items-center justify-center transition-all duration-300"
-          style={{ border: "1px solid rgba(255,255,255,0.07)" }}
+        <span className="block w-6 h-px" style={{ background: "rgba(59,234,59,0.25)" }} />
+        <span
+          className="font-mono uppercase truncate"
+          style={{ fontSize: "0.75rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.45)" }}
         >
-          <span
-            className="transition-colors duration-300 group-hover:text-[#3BEA3B]"
-            style={{ color: "rgba(245,245,245,0.3)" }}
-          >
-            <Icon />
-          </span>
+          {service.title}
+        </span>
+        <div
+          className="ml-auto w-9 h-9 flex items-center justify-center flex-shrink-0 transition-all duration-300"
+          style={{
+            border: `1px solid ${hover ? "rgba(59,234,59,0.35)" : "rgba(255,255,255,0.08)"}`,
+            color:  hover ? "#3BEA3B" : "rgba(245,245,245,0.3)",
+          }}
+        >
+          <Icon />
         </div>
       </div>
 
-      {/* Title */}
-      <h3
-        className="font-headline font-bold leading-tight tracking-[-0.02em] mb-3 text-[#F5F5F5]"
-        style={{ fontSize: "1.15rem" }}
-      >
-        {service.title}
-      </h3>
+      {/* Cuerpo */}
+      <div className="relative z-[1] flex flex-col justify-end flex-1 px-8 md:px-12 py-10 md:py-12">
+        <h3
+          className="font-headline font-bold leading-[0.95] tracking-[-0.025em] mb-5 text-[#F5F5F5]"
+          style={{ fontSize: "clamp(1.8rem, 4vw, 3.2rem)", maxWidth: "12ch" }}
+        >
+          {service.title}
+        </h3>
 
-      {/* Description */}
-      <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "#888" }}>
-        {service.description}
-      </p>
+        <p
+          className="font-body leading-relaxed mb-8"
+          style={{ fontSize: "clamp(0.95rem, 1.1vw, 1.05rem)", color: "#999", maxWidth: "46ch" }}
+        >
+          {service.description}
+        </p>
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2">
-        {service.tags.map((tag) => (
-          <span
-            key={tag}
-            className="font-mono uppercase"
-            style={{
-              fontSize:      "0.7rem",
-              letterSpacing: "0.1em",
-              color:         "rgba(245,245,245,0.22)",
-              border:        "1px solid rgba(255,255,255,0.06)",
-              padding:       "2px 8px",
-            }}
-          >
-            {tag}
-          </span>
-        ))}
+        <div className="flex flex-wrap gap-2">
+          {service.tags.map((tag, ti) => (
+            <span
+              key={tag}
+              className="font-mono uppercase transition-colors duration-300"
+              style={{
+                fontSize:      "0.7rem",
+                letterSpacing: "0.1em",
+                color:         hover ? "rgba(59,234,59,0.55)" : "rgba(245,245,245,0.25)",
+                border:        `1px solid ${hover ? "rgba(59,234,59,0.18)" : "rgba(255,255,255,0.07)"}`,
+                padding:       "3px 10px",
+                transitionDelay: `${ti * 40}ms`,
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -143,19 +179,55 @@ function ServiceCard({ service, index }: { service: typeof SERVICES[0]; index: n
 
 export default function Services() {
   const [visible, setVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const headRef = useRef<HTMLDivElement>(null);
+  const numRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
       { threshold: 0.1 }
     );
-    if (ref.current) obs.observe(ref.current);
+    if (headRef.current) obs.observe(headRef.current);
     return () => obs.disconnect();
   }, []);
 
+  /* Parallax de los números fantasma — un solo rAF para las 4 cards */
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) return;
+
+    let raf = 0;
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const vh = window.innerHeight;
+      for (const el of numRefs.current) {
+        if (!el) continue;
+        const card = el.parentElement;
+        if (!card) continue;
+        const r = card.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) continue;
+        /* progreso de la card a través del viewport → desplazamiento contrario */
+        const progress = (r.top + r.height * 0.5 - vh * 0.5) / vh;
+        el.style.transform = `translateY(${progress * 90}px)`;
+      }
+    };
+
+    const onScroll = () => {
+      if (!ticking) { ticking = true; raf = requestAnimationFrame(update); }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
-    <section id="servicios" className="py-24 md:py-32 bg-[#080808] relative overflow-hidden">
+    <section id="servicios" className="py-24 md:py-32 bg-[#080808] relative">
       {/* Ambient */}
       <div
         aria-hidden className="absolute bottom-0 right-0 pointer-events-none"
@@ -169,7 +241,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Header */}
         <div
-          ref={ref}
+          ref={headRef}
           className="mb-14"
           style={{
             opacity:    visible ? 1 : 0,
@@ -183,26 +255,31 @@ export default function Services() {
               SERVICIOS // 01
             </span>
           </div>
-          <h2
-            className="font-headline font-extrabold text-[#F5F5F5] leading-[0.88] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)" }}
-          >
-            LO QUE<br />
-            <span className="text-[#3BEA3B]">HACEMOS.</span>
-          </h2>
+          <RevealTitle lines={[{ text: "LO QUE" }, { text: "HACEMOS.", accent: true }]} />
         </div>
 
-        {/* 2×2 grid with gap-px effect */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[rgba(255,255,255,0.07)]">
+        {/* Deck sticky — las cards se apilan como expedientes al scrollear */}
+        <div className="relative">
           {SERVICES.map((service, i) => (
-            <div key={service.num} className="bg-[#080808]">
-              <ServiceCard service={service} index={i} />
+            <div
+              key={service.num}
+              style={{
+                position: "sticky",
+                top:      `calc(84px + ${i * 64}px)`,
+                zIndex:   i + 1,
+                marginBottom: i < SERVICES.length - 1 ? "2.5rem" : 0,
+              }}
+            >
+              <StackCard
+                service={service}
+                numRef={(el) => { numRefs.current[i] = el; }}
+              />
             </div>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex justify-end">
+        <div className="mt-12 flex justify-end">
           <a
             href="https://wa.me/525562123864?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n."
             target="_blank"

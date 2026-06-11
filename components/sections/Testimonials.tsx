@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import RevealTitle from "@/components/ui/RevealTitle";
 
 const TESTIMONIALS = [
   {
@@ -74,13 +75,7 @@ export default function Testimonials() {
               CLIENTES // 04
             </span>
           </div>
-          <h2
-            className="font-headline font-extrabold text-[#F5F5F5] leading-[0.88] tracking-[-0.03em]"
-            style={{ fontSize: "clamp(2.5rem,6vw,5rem)" }}
-          >
-            LO QUE DICEN<br />
-            <span className="text-[#3BEA3B]">NUESTROS CLIENTES.</span>
-          </h2>
+          <RevealTitle lines={[{ text: "LO QUE DICEN" }, { text: "NUESTROS CLIENTES.", accent: true }]} />
         </div>
 
         {/* Cards */}
