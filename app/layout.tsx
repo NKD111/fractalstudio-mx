@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Syne, JetBrains_Mono, DM_Sans } from "next/font/google";
+import { Playfair_Display, Fraunces, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -10,23 +10,27 @@ const GA_ID        = "G-YHBC00E9WE";
 const GTM_ID       = "GTM-XXXXXXX";
 const META_PIXEL   = "1948542752447075";
 
-/* ─── Fonts ─────────────────────────────────────────────────────────────── */
-const syne = Syne({
-  variable: "--font-syne",
+/* ─── Fonts (Broadsheet editorial) ──────────────────────────────────────────
+   Editorial New  → Playfair Display (voz display literaria, peso 400/500)
+   PP Mondwest    → Fraunces (voz display arquitectónica, optical, peso 300/400)
+   TWK Lausanne   → Inter (UI + body, pesos 300/400/500/600)            ────── */
+const editorial = Playfair_Display({
+  variable: "--font-editorial",
   subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const architectural = Fraunces({
+  variable: "--font-architectural",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const ui = Inter({
+  variable: "--font-ui",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   display: "swap",
@@ -152,7 +156,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="es-MX"
-      className={`${syne.variable} ${jetbrainsMono.variable} ${dmSans.variable} dark`}
+      className={`${editorial.variable} ${architectural.variable} ${ui.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -171,12 +175,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
 
-      <body className="min-h-dvh antialiased bg-[#080808] text-[#F5F5F5] overflow-x-hidden">
+      <body className="min-h-dvh antialiased font-ui bg-[#FAFFFA] text-[#121613] overflow-x-hidden">
 
         {/* ── Skip to content (accesibilidad) ── */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#C3DD2E] focus:text-[#080808] focus:font-mono focus:text-sm focus:font-semibold focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#C3DD2E] focus:text-[#121613] focus:font-ui focus:text-sm focus:font-semibold focus:outline-none"
         >
           Saltar al contenido principal
         </a>

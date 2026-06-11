@@ -4,33 +4,42 @@ import { useEffect, useRef, useState } from "react";
 import RevealTitle from "@/components/ui/RevealTitle";
 
 const TESTIMONIALS = [
-  {
-    quote:   "Fractal Studio transformó por completo nuestra identidad. El proceso fue claro, los tiempos impecables y los resultados superaron todo lo que esperábamos.",
-    name:    "Carlos Mendoza",
-    title:   "Director Creativo",
-    company: "Estudio M",
-    init:    "CM",
-    color:   "rgba(195,221,46,0.12)",
-  },
-  {
-    quote:   "La sesión de fotografía de producto elevó nuestra presencia digital. Las ventas en línea crecieron 40% tras renovar nuestras imágenes con ellos.",
-    name:    "Ana Reyes",
-    title:   "Fundadora",
-    company: "Marca Propia",
-    init:    "AR",
-    color:   "rgba(195,221,46,0.08)",
-  },
-  {
-    quote:   "El spot de video fue exactamente lo que necesitábamos — impacto visual, concepto sólido y entrega a tiempo. Los volvería a contratar sin pensarlo.",
-    name:    "Roberto Silva",
-    title:   "CMO",
-    company: "Grupo Innovar",
-    init:    "RS",
-    color:   "rgba(195,221,46,0.06)",
-  },
+  { quote: "Fractal Studio transformó por completo nuestra identidad. El proceso fue claro, los tiempos impecables y los resultados superaron todo lo que esperábamos.", name: "Carlos Mendoza", title: "Director Creativo", company: "Estudio M" },
+  { quote: "La sesión de fotografía de producto elevó nuestra presencia digital. Las ventas en línea crecieron 40% tras renovar nuestras imágenes con ellos.", name: "Ana Reyes", title: "Fundadora", company: "Marca Propia" },
+  { quote: "El spot de video fue exactamente lo que necesitábamos — impacto visual, concepto sólido y entrega a tiempo. Los volvería a contratar sin pensarlo.", name: "Roberto Silva", title: "CMO", company: "Grupo Innovar" },
 ];
 
-const CLIENT_TAGS = ["ESTUDIO M", "MARCA PROPIA", "GRUPO INNOVAR", "NEXO CDMX", "VIRAL ROOTS", "BREND CO", "COLECTIVO AR", "SOLTURA MX", "ALTO NIVEL", "DF BRANDS"];
+const CLIENT_TAGS = ["Estudio M", "Marca Propia", "Grupo Innovar", "Nexo CDMX", "Viral Roots", "Brend Co", "Colectivo AR", "Soltura MX", "Alto Nivel", "DF Brands"];
+
+function Quote({ t, index, visible }: { t: typeof TESTIMONIALS[0]; index: number; visible: boolean }) {
+  return (
+    <blockquote
+      style={{
+        margin: 0, padding: "56px 0", borderTop: "1px solid var(--mist)",
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(28px)",
+        transition: `opacity 0.7s ease ${index * 120}ms, transform 0.7s cubic-bezier(0.22,1,0.36,1) ${index * 120}ms`,
+      }}
+      className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10"
+    >
+      <div className="md:col-span-3">
+        <span aria-hidden className="font-display" style={{ fontSize: "5rem", lineHeight: 0.7, color: "var(--voltage)" }}>&ldquo;</span>
+      </div>
+      <div className="md:col-span-9">
+        <p className="font-display" style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.35rem)", fontWeight: 400, lineHeight: 1.15, letterSpacing: "-0.02em", color: "var(--ink)", margin: 0 }}>
+          {t.quote}
+        </p>
+        <footer className="flex items-center gap-3" style={{ marginTop: 28 }}>
+          <span aria-hidden style={{ width: 32, height: 1, background: "var(--ink)", display: "block" }} />
+          <span className="font-ui" style={{ fontSize: 14, fontWeight: 500, color: "var(--ink)" }}>{t.name}</span>
+          <span className="font-ui" style={{ fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--sage)" }}>
+            {t.title} · {t.company}
+          </span>
+        </footer>
+      </div>
+    </blockquote>
+  );
+}
 
 export default function Testimonials() {
   const [visible, setVisible] = useState(false);
@@ -39,168 +48,42 @@ export default function Testimonials() {
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
-      { threshold: 0.08 }
+      { threshold: 0.06 }
     );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
   return (
-    <section id="testimonios" className="py-24 md:py-32 bg-[#080808] relative overflow-hidden">
+    <section id="testimonios" style={{ background: "var(--linen)" }}>
+      <div className="mx-auto" style={{ maxWidth: 1440, padding: "100px 50px" }}>
 
-      {/* Ambient glow top-right */}
-      <div aria-hidden style={{
-        position: "absolute", top: 0, right: 0,
-        width: "35vw", height: "35vw", maxWidth: 450,
-        borderRadius: "50%",
-        background: "radial-gradient(ellipse, rgba(195,221,46,0.04) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-
-        {/* Header */}
-        <div
-          ref={ref}
-          className="mb-14"
-          style={{
-            opacity:    visible ? 1 : 0,
-            transform:  visible ? "translateY(0)" : "translateY(28px)",
-            transition: "opacity 0.65s ease, transform 0.65s ease",
-          }}
-        >
-          <div className="flex items-center gap-3 mb-5" aria-hidden="true">
-            <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.4)" }}>
-              CLIENTES // 04
-            </span>
-          </div>
-          <RevealTitle lines={[{ text: "LO QUE DICEN" }, { text: "NUESTROS CLIENTES.", accent: true }]} />
+        <div ref={ref} className="flex flex-col md:flex-row md:items-end md:justify-between gap-6" style={{ marginBottom: 40 }}>
+          <RevealTitle lines={[{ text: "Lo que dicen" }, { text: "nuestros clientes.", accent: true }]} />
+          <p className="font-ui" style={{ fontSize: 11, letterSpacing: "0.11px", textTransform: "uppercase", color: "var(--sage)", fontWeight: 350 }}>
+            Clientes — 04
+          </p>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-20">
+        <div style={{ borderBottom: "1px solid var(--mist)" }}>
           {TESTIMONIALS.map((t, i) => (
-            <div
-              key={t.name}
-              style={{
-                border:     "1px solid rgba(255,255,255,0.05)",
-                padding:    32,
-                background: "rgba(255,255,255,0.01)",
-                position:   "relative",
-                opacity:    visible ? 1 : 0,
-                transform:  visible ? "translateY(0)" : "translateY(28px)",
-                transition: `opacity 0.65s ease ${150 + i * 130}ms, transform 0.65s cubic-bezier(0.2,0,0,1) ${150 + i * 130}ms`,
-              }}
-            >
-              {/* Top accent line */}
-              <div style={{
-                position:   "absolute",
-                top:        0,
-                left:       0,
-                right:      0,
-                height:     1,
-                background: `linear-gradient(90deg, transparent, ${t.color} 50%, transparent)`,
-              }} />
-
-              {/* Quote mark */}
-              <div style={{
-                fontFamily:  "Georgia, serif",
-                fontSize:    "3.5rem",
-                lineHeight:  1,
-                color:       "rgba(195,221,46,0.18)",
-                marginBottom: 12,
-                userSelect:  "none",
-              }}>
-                &ldquo;
-              </div>
-
-              <p
-                className="font-body text-sm leading-relaxed mb-6"
-                style={{ color: "#888" }}
-              >
-                {t.quote}
-              </p>
-
-              <div className="flex items-center gap-3">
-                <div style={{
-                  width:          40,
-                  height:         40,
-                  borderRadius:   "50%",
-                  background:     "rgba(195,221,46,0.06)",
-                  border:         "1px solid rgba(195,221,46,0.14)",
-                  display:        "flex",
-                  alignItems:     "center",
-                  justifyContent: "center",
-                  flexShrink:     0,
-                }}>
-                  <span
-                    className="font-mono"
-                    style={{ fontSize: "0.75rem", letterSpacing: "0.06em", color: "#C3DD2E" }}
-                  >
-                    {t.init}
-                  </span>
-                </div>
-                <div>
-                  <div className="font-body font-semibold" style={{ fontSize: "1.0625rem", color: "#F5F5F5" }}>
-                    {t.name}
-                  </div>
-                  <div className="font-mono" style={{ fontSize: "0.675rem", letterSpacing: "0.08em", color: "#888", marginTop: 2 }}>
-                    {t.title} · {t.company}
-                  </div>
-                </div>
-              </div>
-            </div>
+            <Quote key={t.name} t={t} index={i} visible={visible} />
           ))}
         </div>
 
-        {/* Divider */}
-        <div style={{ borderTop: "1px solid rgba(255,255,255,0.04)", marginBottom: 40 }} />
-
-        {/* Marquee */}
-        <div
-          aria-hidden="true"
-          style={{
-            opacity:    visible ? 1 : 0,
-            transition: "opacity 0.65s ease 700ms",
-          }}
-        >
-          <p
-            className="font-mono uppercase mb-5"
-            style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "rgba(245,245,245,0.16)" }}
-          >
+        {/* Client marquee */}
+        <div aria-hidden style={{ marginTop: 70, opacity: visible ? 1 : 0, transition: "opacity 0.7s ease 600ms" }}>
+          <p className="font-ui" style={{ fontSize: 11, letterSpacing: "0.11px", textTransform: "uppercase", color: "var(--sage)", marginBottom: 28, fontWeight: 350 }}>
             Marcas que confían en nosotros
           </p>
-
           <div style={{ overflow: "hidden", position: "relative" }}>
-            {/* Fade masks */}
-            <div aria-hidden style={{
-              position: "absolute", left: 0, top: 0, bottom: 0, width: 80, zIndex: 1,
-              background: "linear-gradient(90deg, #080808, transparent)",
-            }} />
-            <div aria-hidden style={{
-              position: "absolute", right: 0, top: 0, bottom: 0, width: 80, zIndex: 1,
-              background: "linear-gradient(270deg, #080808, transparent)",
-            }} />
-
-            <div className="marquee-track" style={{ display: "flex", gap: 16, width: "max-content" }}>
+            <div aria-hidden style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 100, zIndex: 1, background: "linear-gradient(90deg, var(--linen), transparent)" }} />
+            <div aria-hidden style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: 100, zIndex: 1, background: "linear-gradient(270deg, var(--linen), transparent)" }} />
+            <div className="marquee-track" style={{ display: "flex", gap: 48, width: "max-content" }}>
               {[...CLIENT_TAGS, ...CLIENT_TAGS, ...CLIENT_TAGS].map((tag, i) => (
-                <div
-                  key={i}
-                  style={{
-                    padding:       "8px 20px",
-                    border:        "1px solid rgba(255,255,255,0.05)",
-                    flexShrink:    0,
-                    whiteSpace:    "nowrap",
-                  }}
-                >
-                  <span
-                    className="font-mono"
-                    style={{ fontSize: "0.725rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.18)" }}
-                  >
-                    {tag}
-                  </span>
-                </div>
+                <span key={i} className="font-display" style={{ fontSize: "1.6rem", fontWeight: 400, color: "var(--mist)", whiteSpace: "nowrap", flexShrink: 0 }}>
+                  {tag}
+                </span>
               ))}
             </div>
           </div>

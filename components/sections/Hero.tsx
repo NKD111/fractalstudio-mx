@@ -2,147 +2,68 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/* ── Magnetic Button wrapper ──────────────────────────────────────────────── */
-function Magnetic({
-  children,
-  strength = 0.28,
-  className = "",
-  style = {},
-  ...rest
-}: {
-  children: React.ReactNode;
-  strength?: number;
-  className?: string;
-  style?: React.CSSProperties;
-  [k: string]: unknown;
-}) {
-  const el = useRef<HTMLAnchorElement>(null);
+const WA_LINK =
+  "https://wa.me/525562123864?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Fractal%20Studio%20MX.";
 
-  const onMove = (e: React.MouseEvent) => {
-    const r = el.current!.getBoundingClientRect();
-    const x = (e.clientX - r.left - r.width  / 2) * strength;
-    const y = (e.clientY - r.top  - r.height / 2) * strength;
-    el.current!.style.transform = `translate(${x}px,${y}px)`;
-  };
-  const onLeave = () => {
-    if (el.current) el.current.style.transform = "translate(0,0)";
-  };
+const STATS = [
+  { prefix: "+", target: 120, suffix: "", label: "Proyectos entregados" },
+  { prefix: "+", target: 50,  suffix: "", label: "Clientes satisfechos" },
+  { prefix: "",  target: 5,   suffix: "+", label: "Años de experiencia" },
+];
 
-  return (
-    <a
-      ref={el}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className={className}
-      style={{ transition: "transform 400ms cubic-bezier(0.2,0,0,1)", display: "inline-flex", ...style }}
-      {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-    >
-      {children}
-    </a>
-  );
-}
-
-/* ── Split-text character reveal ──────────────────────────────────────────── */
-function SplitWord({
-  word,
-  color,
-  baseDelay,
-}: {
-  word: string;
-  color?: string;
-  baseDelay: number;
-}) {
-  const [vis, setVis] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setVis(true), 60);
-    return () => clearTimeout(t);
-  }, []);
-
-  return (
-    <span
-      className="block"
-      style={{ color: color || "#F5F5F5", overflow: "hidden", whiteSpace: "nowrap" }}
-      aria-hidden
-    >
-      {word.split("").map((ch, i) => (
-        <span
-          key={i}
-          style={{
-            display:    "inline-block",
-            opacity:    vis ? 1 : 0,
-            transform:  vis ? "translateY(0)" : "translateY(110%)",
-            transition: `opacity 0.5s ease ${baseDelay + i * 28}ms, transform 0.65s cubic-bezier(0.2,0,0,1) ${baseDelay + i * 28}ms`,
-          }}
-        >
-          {ch === " " ? " " : ch}
-        </span>
-      ))}
-    </span>
-  );
-}
-
-/* ── Animated counter ─────────────────────────────────────────────────────── */
-function Counter({
-  target,
-  prefix = "",
-  suffix = "",
-  active,
-  duration = 1600,
-}: {
-  target: number;
-  prefix?: string;
-  suffix?: string;
-  active: boolean;
-  duration?: number;
+/* Animated counter — easeOutExpo */
+function Counter({ target, prefix = "", suffix = "", active, duration = 1700 }: {
+  target: number; prefix?: string; suffix?: string; active: boolean; duration?: number;
 }) {
   const [val, setVal] = useState(0);
   const started = useRef(false);
-
   useEffect(() => {
     if (!active || started.current) return;
     started.current = true;
-
     let start: number | null = null;
     const tick = (ts: number) => {
       if (!start) start = ts;
-      const elapsed = ts - start;
-      const t = Math.min(elapsed / duration, 1);
-      // easeOutExpo
+      const t = Math.min((ts - start) / duration, 1);
       const eased = t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
       setVal(Math.round(eased * target));
       if (t < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }, [active, target, duration]);
+  return <span>{prefix}{val}{suffix}</span>;
+}
 
+/* Display line con reveal por máscara */
+function Line({ children, delay, italic = false }: { children: React.ReactNode; delay: number; italic?: boolean }) {
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) { setVis(true); return; }
+    const t = setTimeout(() => setVis(true), 60);
+    return () => clearTimeout(t);
+  }, []);
   return (
-    <span>
-      {prefix}
-      {val}
-      {suffix}
+    <span className="block" style={{ overflow: "hidden", paddingBottom: "0.06em", marginBottom: "-0.06em" }}>
+      <span
+        className="block"
+        style={{
+          fontStyle:  italic ? "italic" : "normal",
+          transform:  vis ? "translateY(0)" : "translateY(106%)",
+          transition: `transform 0.95s cubic-bezier(0.22,1,0.36,1) ${delay}ms`,
+          willChange: "transform",
+        }}
+      >
+        {children}
+      </span>
     </span>
   );
 }
 
-/* ── WA Link ──────────────────────────────────────────────────────────────── */
-const WA_LINK =
-  "https://wa.me/525562123864?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Fractal%20Studio%20MX.";
-
-const STATS = [
-  { prefix: "+", target: 120, suffix: "",  label: "Proyectos entregados" },
-  { prefix: "+", target: 50,  suffix: "",  label: "Clientes satisfechos"  },
-  { prefix: "",  target: 5,   suffix: "+", label: "Años de experiencia"   },
-];
-
-/* ── Hero ─────────────────────────────────────────────────────────────────── */
 export default function Hero() {
   const [statsVisible, setStatsVisible] = useState(false);
-  const statsRef      = useRef<HTMLDivElement>(null);
-  const headlineRef   = useRef<HTMLDivElement>(null);
-  const subtitleRef   = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [ready, setReady] = useState(false);
 
-  /* Stats counter trigger */
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setStatsVisible(true); obs.disconnect(); } },
@@ -152,216 +73,108 @@ export default function Hero() {
     return () => obs.disconnect();
   }, []);
 
-  /* Parallax on scroll */
   useEffect(() => {
-    const handleScroll = () => {
-      const y = window.scrollY;
-      if (headlineRef.current)
-        headlineRef.current.style.transform = `translateY(${y * 0.22}px)`;
-      if (subtitleRef.current)
-        subtitleRef.current.style.transform = `translateY(${y * 0.12}px)`;
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  /* Fade-in for non-headline elements */
-  const [ready, setReady] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setReady(true), 80);
+    const t = setTimeout(() => setReady(true), 120);
     return () => clearTimeout(t);
   }, []);
 
   const fade = (delay: number): React.CSSProperties => ({
     opacity:    ready ? 1 : 0,
-    transform:  ready ? "translateY(0)" : "translateY(20px)",
-    transition: `opacity 0.7s ease ${delay}ms, transform 0.7s ease ${delay}ms`,
+    transform:  ready ? "translateY(0)" : "translateY(16px)",
+    transition: `opacity 0.8s ease ${delay}ms, transform 0.8s ease ${delay}ms`,
   });
 
   return (
-    <section
-      id="inicio"
-      aria-label="Inicio"
-      className="relative min-h-dvh flex flex-col justify-center overflow-hidden bg-[#080808]"
-    >
-      {/* Grid bg */}
-      <div aria-hidden className="absolute inset-0 pointer-events-none" style={{
-        opacity:         0.042,
-        backgroundImage: "linear-gradient(rgba(195,221,46,1) 1px,transparent 1px),linear-gradient(90deg,rgba(195,221,46,1) 1px,transparent 1px)",
-        backgroundSize:  "64px 64px",
-      }} />
+    <section id="inicio" aria-label="Inicio" className="relative" style={{ background: "var(--linen)" }}>
+      <div className="mx-auto" style={{ maxWidth: 1440, padding: "190px 50px 120px" }}>
 
-      {/* Radial glow */}
-      <div aria-hidden className="absolute pointer-events-none" style={{
-        top: "40%", left: "20%",
-        width: "55vw", height: "55vw", maxWidth: 720,
-        borderRadius: "50%",
-        transform: "translate(-30%,-50%)",
-        background: "radial-gradient(ellipse,rgba(195,221,46,0.07) 0%,transparent 68%)",
-      }} />
-
-      {/* Second subtle glow bottom-right */}
-      <div aria-hidden className="absolute pointer-events-none" style={{
-        bottom: "10%", right: "5%",
-        width: "30vw", height: "30vw", maxWidth: 400,
-        borderRadius: "50%",
-        background: "radial-gradient(ellipse,rgba(195,221,46,0.04) 0%,transparent 70%)",
-      }} />
-
-      {/* Scan line — uses transform (composited) instead of left */}
-      <div aria-hidden className="absolute top-0 bottom-0 pointer-events-none z-10" style={{
-        left:       0,
-        width:      2,
-        willChange: "transform",
-        background: "linear-gradient(to bottom,transparent 0%,rgba(195,221,46,0.85) 35%,#C3DD2E 50%,rgba(195,221,46,0.85) 65%,transparent 100%)",
-        boxShadow:  "0 0 18px #C3DD2E,0 0 50px rgba(195,221,46,0.25)",
-        animation:  "scanLine 4.5s ease-in-out infinite",
-      }} />
-
-      <div className="relative z-1 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24">
-
-        {/* HUD label */}
-        <div className="flex items-center gap-3 mb-8" aria-hidden="true" style={fade(0)}>
-          <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
-          <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.45)" }}>
-            CDMX // ESTUDIO CREATIVO
+        {/* Eyebrow */}
+        <div className="flex items-center gap-4" style={{ ...fade(0), marginBottom: 50 }}>
+          <span aria-hidden style={{ width: 50, height: 2, background: "var(--voltage)", display: "block" }} />
+          <span className="font-ui" style={{ fontSize: 11, letterSpacing: "0.11px", textTransform: "uppercase", color: "var(--sage)", fontWeight: 350 }}>
+            CDMX — Estudio Creativo · SP—2026
           </span>
         </div>
 
-        {/* Headline — split text + parallax */}
-        <div ref={headlineRef} style={{ willChange: "transform" }}>
-          <h1
-            className="font-headline font-extrabold leading-[0.87] tracking-[-0.04em] mb-8"
-            style={{ fontSize: "clamp(2rem,9vw,8.5rem)" }}
-          >
-            <span className="sr-only">Fractal Studio MX</span>
-            <SplitWord word="FRACTAL" baseDelay={80}  />
-            <SplitWord word="STUDIO"  baseDelay={220} />
-            <SplitWord word="MX."     baseDelay={360} color="#C3DD2E" />
+        {/* Hero display + image tile */}
+        <div className="relative">
+          <h1 className="font-display" style={{
+            color:         "var(--ink)",
+            fontWeight:    400,
+            fontSize:      "clamp(3.5rem, 13vw, 11.5rem)",
+            lineHeight:    0.9,
+            letterSpacing: "-0.03em",
+            margin:        0,
+          }}>
+            <span className="sr-only">Fractal Studio MX — Nacimos para crear experiencias visuales</span>
+            <span aria-hidden>
+              <Line delay={80}>Nacimos</Line>
+              <Line delay={200} italic>para crear</Line>
+              <Line delay={320}>experiencias</Line>
+              <span className="block" style={{ display: "flex", alignItems: "baseline", gap: "0.3em", flexWrap: "wrap" }}>
+                <Line delay={440}>visuales.</Line>
+              </span>
+            </span>
           </h1>
+
+          {/* B&N image tile tucked top-right, overlapping */}
+          <div
+            aria-hidden
+            className="hidden lg:block absolute overflow-hidden editorial-img"
+            style={{ top: "1%", right: 0, width: 300, height: 380, borderRadius: 14, ...fade(700) }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/portfolio/foto-comercial.svg" alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <span className="font-arch" style={{
+              position: "absolute", left: 14, bottom: 12, fontSize: 16, fontStyle: "italic",
+              color: "var(--linen)", textShadow: "0 1px 8px rgba(0,0,0,0.6)",
+            }}>
+              Fig. 01 — dirección de arte
+            </span>
+          </div>
         </div>
 
-        {/* Subtitle */}
-        <div ref={subtitleRef} style={{ willChange: "transform" }}>
-
-          {/* Motto */}
-          <div style={{ ...fade(450), marginBottom: "1.5rem" }}>
-            <p className="font-body" style={{
-              borderLeft:  "2px solid rgba(195,221,46,0.45)",
-              paddingLeft: 14,
-            }}>
-              <em style={{ fontSize: "clamp(1.2rem,1.5vw,1.4rem)", color: "rgba(245,245,245,0.52)", fontStyle: "italic" }}>
-                &ldquo;Nacimos para crear&rdquo;
-              </em>
-              <span className="font-mono" style={{
-                display:       "block",
-                fontSize:      "0.775rem",
-                letterSpacing: "0.16em",
-                color:         "rgba(195,221,46,0.65)",
-                marginTop:     5,
-              }}>
-                — Fractal Studio
-              </span>
-            </p>
-          </div>
-
-          <div style={fade(580)}>
-            <p className="font-mono uppercase mb-5" style={{ fontSize: "0.85rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
-              Diseño&nbsp;&nbsp;·&nbsp;&nbsp;Fotografía&nbsp;&nbsp;·&nbsp;&nbsp;Video&nbsp;&nbsp;·&nbsp;&nbsp;Branding
-            </p>
-            <p className="font-body leading-relaxed max-w-md" style={{ fontSize: "clamp(1.1rem,1.35vw,1.3rem)", color: "#999" }}>
+        {/* Supporting paragraph + tags */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8" style={{ marginTop: 60 }}>
+          <div className="lg:col-span-6" style={fade(560)}>
+            <p className="font-ui" style={{ fontSize: 18, lineHeight: 1.4, letterSpacing: "-0.36px", color: "var(--ink)", maxWidth: "32ch" }}>
               Creamos experiencias visuales que conectan marcas con personas.
               Desde la conceptualización hasta la entrega final.
             </p>
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-2" style={{ marginTop: 24 }}>
+              {["Diseño", "Fotografía", "Video", "Branding"].map((t) => (
+                <span key={t} className="font-ui" style={{ fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--sage)", fontWeight: 400 }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* CTAs */}
+          <div className="lg:col-span-6 flex items-center gap-7 lg:justify-end" style={fade(660)}>
+            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="voltage-cta font-ui" aria-label="Iniciar conversación en WhatsApp">
+              Iniciar proyecto →
+            </a>
+            <a href="#servicios" className="font-ui editorial-navlink" style={{ fontSize: 14, fontWeight: 350, color: "var(--ink)", textDecoration: "none" }}>
+              Ver servicios
+            </a>
           </div>
         </div>
 
-        {/* CTAs — magnetic */}
-        <div className="flex flex-wrap items-center gap-4 mt-10" style={fade(680)}>
-          <Magnetic
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Iniciar conversación en WhatsApp"
-            className="items-center gap-3 font-mono font-semibold active:scale-95"
-            style={{
-              background:    "#C3DD2E",
-              color:         "#080808",
-              padding:       "0.85rem 1.8rem",
-              fontSize:      "0.9rem",
-              letterSpacing: "0.12em",
-              boxShadow:     "0 4px 24px rgba(195,221,46,0.25)",
-            }}
-            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 40px rgba(195,221,46,0.5)")}
-            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(195,221,46,0.25)")}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.556 4.117 1.528 5.845L.057 23.667a.5.5 0 00.61.61l5.822-1.471A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.91 0-3.697-.504-5.238-1.384l-.376-.215-3.893.984.984-3.893-.215-.376A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
-            </svg>
-            INICIAR PROYECTO
-          </Magnetic>
-
-          <Magnetic
-            href="#servicios"
-            className="items-center gap-2 font-mono"
-            style={{
-              border:        "1px solid rgba(195,221,46,0.28)",
-              color:         "rgba(195,221,46,0.75)",
-              padding:       "0.85rem 1.8rem",
-              fontSize:      "0.9rem",
-              letterSpacing: "0.12em",
-            }}
-            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.6)";
-              (e.currentTarget as HTMLElement).style.color = "#C3DD2E";
-            }}
-            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.28)";
-              (e.currentTarget as HTMLElement).style.color = "rgba(195,221,46,0.75)";
-            }}
-          >
-            VER SERVICIOS →
-          </Magnetic>
-        </div>
-
-        {/* Stats with counter animation */}
-        <div
-          ref={statsRef}
-          className="flex flex-wrap gap-10 mt-16 pt-8"
-          style={{ ...fade(850), borderTop: "1px solid rgba(255,255,255,0.06)" }}
-        >
+        {/* Stats — serif numerals + small-caps labels */}
+        <div ref={statsRef} className="grid grid-cols-3 gap-8" style={{ ...fade(820), marginTop: 120, maxWidth: 720 }}>
           {STATS.map((s) => (
             <div key={s.label}>
-              <div className="font-headline font-bold text-[#F5F5F5]" style={{ fontSize: "1.7rem" }}>
-                <Counter
-                  prefix={s.prefix}
-                  target={s.target}
-                  suffix={s.suffix}
-                  active={statsVisible}
-                />
+              <div className="font-display" style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", fontWeight: 400, color: "var(--ink)", lineHeight: 1, letterSpacing: "-0.02em" }}>
+                <Counter prefix={s.prefix} target={s.target} suffix={s.suffix} active={statsVisible} />
               </div>
-              <div
-                className="font-mono uppercase mt-1"
-                style={{ fontSize: "0.725rem", letterSpacing: "0.12em", color: "#888" }}
-              >
+              <div className="font-ui" style={{ fontSize: 11, letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--sage)", marginTop: 10, fontWeight: 400 }}>
                 {s.label}
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden>
-        <span className="font-mono" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "rgba(245,245,245,0.18)", textTransform: "uppercase" }}>
-          Scroll
-        </span>
-        <div className="w-px h-8 scroll-line-indicator" style={{
-          background: "linear-gradient(to bottom, rgba(195,221,46,0.35), transparent)",
-        }} />
-      </div>
-
     </section>
   );
 }

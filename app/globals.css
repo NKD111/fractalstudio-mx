@@ -2,39 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   FRACTAL STUDIO — BROADSHEET EDITORIAL (fable-lab)
+   Canvas linen casi-blanco, tinta obsidiana, lima como puntuación quirúrgica.
+   El tipo y la imagen mandan; el chrome es casi inexistente.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
 @layer base {
   :root {
-    --background: 0 0% 3.1%;
-    --foreground: 0 0% 96.1%;
+    /* Colores */
+    --linen:        #FAFFFA;  /* canvas / superficies */
+    --ink:          #121613;  /* texto, bordes, frames */
+    --black:        #000000;  /* contraste máximo */
+    --bark:         #232924;  /* superficie oscura secundaria */
+    --sage:         #516254;  /* texto muteado */
+    --mist:         #C8D2C8;  /* hairlines */
+    --voltage:      #C3DD2E;  /* lima Fractal — acento único (rol Voltage) */
+    --voltage-rgb:  195, 221, 46;
+    --moss:         #9DB76A;  /* acento de apoyo (no promover a CTA) */
+    --pollen:       #DCE9C4;  /* apoyo gris-verde */
+
+    --background:   #FAFFFA;
+    --foreground:   #121613;
   }
 
   * { box-sizing: border-box; }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
   body {
-    background-color: #080808;
-    color: #F5F5F5;
+    background-color: var(--linen);
+    color: var(--ink);
     overflow-x: hidden;
   }
 
-  /* Hide native cursor when custom cursor is active (desktop) */
-  .custom-cursor-active,
-  .custom-cursor-active * {
-    cursor: none !important;
-  }
-
   ::selection {
-    background-color: rgba(195,221,46, 0.2);
-    color: #F5F5F5;
+    background-color: var(--voltage);
+    color: var(--ink);
   }
 
   :focus-visible {
-    outline: 1px solid rgba(195,221,46, 0.6);
-    outline-offset: 2px;
+    outline: 2px solid var(--voltage);
+    outline-offset: 3px;
   }
 
-  /* ── Accesibilidad: kill-switch global de animaciones ── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -47,63 +62,73 @@
 
 @layer utilities {
 
-  /* ── Hero scan line — composited (transform only, no layout reflow) ── */
-  @keyframes scanLine {
-    0%   { transform: translateX(-4px); opacity: 0; }
-    5%   {                              opacity: 1; }
-    95%  {                              opacity: 0.6; }
-    100% { transform: translateX(100vw); opacity: 0; }
-  }
+  /* ── Familias tipográficas ─────────────────────────────────────── */
+  .font-display { font-family: var(--font-editorial, Georgia, serif); }     /* Playfair Display — voz literaria */
+  .font-arch    { font-family: var(--font-architectural, Georgia, serif); } /* Fraunces — voz arquitectónica */
+  .font-ui      { font-family: var(--font-ui, ui-sans-serif, system-ui, sans-serif); } /* Inter — UI/body */
 
-  /* ── WhatsApp button ping ─────────────────────────────────────── */
-  @keyframes wa-ping {
-    75%, 100% { transform: scale(2); opacity: 0; }
-  }
-
-  /* ── Fade up entry ────────────────────────────────────────────── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ── Marquee (testimonials + client logos) ────────────────────── */
+  /* ── Marquee de clientes ───────────────────────────────────────── */
   @keyframes marquee {
     0%   { transform: translateX(0); }
     100% { transform: translateX(-33.333%); }
   }
+  .marquee-track { animation: marquee 32s linear infinite; }
+  .marquee-track:hover { animation-play-state: paused; }
 
-  .marquee-track {
-    animation: marquee 22s linear infinite;
+  /* ── Tick de acento (latido lima) ──────────────────────────────── */
+  @keyframes tickGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
   }
 
-  .marquee-track:hover {
-    animation-play-state: paused;
+  /* ── Ghost link / navlink (subrayado on-hover) ─────────────────── */
+  .editorial-navlink {
+    position: relative;
+    transition: opacity 200ms ease;
   }
-
-  /* ── Subtle float animation for decorative elements ───────────── */
-  @keyframes floatY {
-    0%, 100% { transform: translateY(0px);   }
-    50%       { transform: translateY(-6px); }
+  .editorial-navlink::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -3px;
+    width: 100%; height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.22,1,0.36,1);
   }
+  .editorial-navlink:hover::after { transform: scaleX(1); }
 
-  /* ── Green glow pulse ─────────────────────────────────────────── */
-  @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 0px rgba(195,221,46,0);    }
-    50%       { box-shadow: 0 0 20px rgba(195,221,46,0.18); }
+  /* ── Voltage CTA (único botón relleno del sitio) ───────────────── */
+  .voltage-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--voltage);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: rgba(16,94,29,0.45) 1px 8px 20px 0px, rgba(18,146,39,0.25) 1px 8px 20px 0px;
+    transition: transform 220ms cubic-bezier(0.22,1,0.36,1), box-shadow 220ms ease;
   }
-
-  /* ── Scroll indicator line breathe ───────────────────────────── */
-  @keyframes scrollBreathe {
-    0%, 100% { opacity: 0.3; }
-    50%       { opacity: 0.8; }
+  .voltage-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: rgba(16,94,29,0.5) 1px 12px 28px 0px, rgba(18,146,39,0.3) 1px 12px 28px 0px;
   }
+  .voltage-cta:active { transform: translateY(0) scale(0.99); }
 
-  .scroll-line-indicator {
-    animation: scrollBreathe 2s ease-in-out infinite;
+  /* ── Imagen B&N editorial ──────────────────────────────────────── */
+  .editorial-img {
+    filter: grayscale(1) contrast(1.04) brightness(0.98);
+    transition: filter 600ms cubic-bezier(0.2,0,0,1), transform 700ms cubic-bezier(0.2,0,0,1);
   }
-
-  /* ── Font utilities ───────────────────────────────────────────── */
-  .font-headline { font-family: var(--font-syne, sans-serif); }
-  .font-mono     { font-family: var(--font-jetbrains-mono, monospace); }
-  .font-body     { font-family: var(--font-dm-sans, sans-serif); }
+  .editorial-img:hover {
+    filter: grayscale(0.55) contrast(1.05);
+  }
 }
