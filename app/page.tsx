@@ -22,15 +22,15 @@ export default function Home() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(59,234,59,0.14) 30%, rgba(59,234,59,0.14) 70%, transparent)" }} />
+        <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(195,221,46,0.14) 30%, rgba(195,221,46,0.14) 70%, transparent)" }} />
         <Services />
         <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 30%, rgba(255,255,255,0.07) 70%, transparent)" }} />
         <Portfolio />
-        <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(59,234,59,0.14) 30%, rgba(59,234,59,0.14) 70%, transparent)" }} />
+        <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(195,221,46,0.14) 30%, rgba(195,221,46,0.14) 70%, transparent)" }} />
         <Process />
         <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 30%, rgba(255,255,255,0.07) 70%, transparent)" }} />
         <Testimonials />
-        <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(59,234,59,0.14) 30%, rgba(59,234,59,0.14) 70%, transparent)" }} />
+        <div aria-hidden style={{ height: 1, background: "linear-gradient(90deg, transparent, rgba(195,221,46,0.14) 30%, rgba(195,221,46,0.14) 70%, transparent)" }} />
         <Contact />
       </main>
       <Footer />

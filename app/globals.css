@@ -25,12 +25,12 @@
   }
 
   ::selection {
-    background-color: rgba(59, 234, 59, 0.2);
+    background-color: rgba(195,221,46, 0.2);
     color: #F5F5F5;
   }
 
   :focus-visible {
-    outline: 1px solid rgba(59, 234, 59, 0.6);
+    outline: 1px solid rgba(195,221,46, 0.6);
     outline-offset: 2px;
   }
 
@@ -88,8 +88,8 @@
 
   /* ── Green glow pulse ─────────────────────────────────────────── */
   @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 0px rgba(59,234,59,0);    }
-    50%       { box-shadow: 0 0 20px rgba(59,234,59,0.18); }
+    0%, 100% { box-shadow: 0 0 0px rgba(195,221,46,0);    }
+    50%       { box-shadow: 0 0 20px rgba(195,221,46,0.18); }
   }
 
   /* ── Scroll indicator line breathe ───────────────────────────── */

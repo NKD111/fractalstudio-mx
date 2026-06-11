@@ -59,7 +59,7 @@ export default function LoadingScreen() {
         alignItems:   "center",
         justifyContent: "center",
         marginBottom: 28,
-        filter:       `drop-shadow(0 0 ${Math.round(progress * 0.18)}px rgba(59,234,59,0.7))`,
+        filter:       `drop-shadow(0 0 ${Math.round(progress * 0.18)}px rgba(195,221,46,0.7))`,
         transition:   "filter 100ms",
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -93,8 +93,8 @@ export default function LoadingScreen() {
           top:        0,
           height:     "100%",
           width:      `${progress}%`,
-          background: "#3BEA3B",
-          boxShadow:  "0 0 8px rgba(59,234,59,0.6)",
+          background: "#C3DD2E",
+          boxShadow:  "0 0 8px rgba(195,221,46,0.6)",
         }} />
       </div>
 

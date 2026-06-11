@@ -176,7 +176,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* ── Skip to content (accesibilidad) ── */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#3BEA3B] focus:text-[#080808] focus:font-mono focus:text-sm focus:font-semibold focus:outline-none"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#C3DD2E] focus:text-[#080808] focus:font-mono focus:text-sm focus:font-semibold focus:outline-none"
         >
           Saltar al contenido principal
         </a>

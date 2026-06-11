@@ -68,7 +68,7 @@ function StackCard({
       className="group relative overflow-hidden"
       style={{
         background:   "#0A0A0A",
-        border:       `1px solid ${hover ? "rgba(59,234,59,0.22)" : "rgba(255,255,255,0.07)"}`,
+        border:       `1px solid ${hover ? "rgba(195,221,46,0.22)" : "rgba(255,255,255,0.07)"}`,
         minHeight:    "clamp(380px, 56vh, 540px)",
         transition:   "border-color 350ms ease",
         display:      "flex",
@@ -88,7 +88,7 @@ function StackCard({
           right:           "-0.04em",
           top:             "0.05em",
           color:           "transparent",
-          WebkitTextStroke: `1px ${hover ? "rgba(59,234,59,0.28)" : "rgba(59,234,59,0.11)"}`,
+          WebkitTextStroke: `1px ${hover ? "rgba(195,221,46,0.28)" : "rgba(195,221,46,0.11)"}`,
           transition:      "-webkit-text-stroke-color 400ms ease",
           willChange:      "transform",
         }}
@@ -101,7 +101,7 @@ function StackCard({
         className="absolute top-0 left-0 right-0 h-px transition-opacity duration-500"
         style={{
           opacity:    hover ? 1 : 0,
-          background: "linear-gradient(90deg, transparent, rgba(59,234,59,0.4) 50%, transparent)",
+          background: "linear-gradient(90deg, transparent, rgba(195,221,46,0.4) 50%, transparent)",
         }}
       />
 
@@ -116,11 +116,11 @@ function StackCard({
       >
         <span
           className="font-mono"
-          style={{ fontSize: "0.8rem", letterSpacing: "0.2em", color: hover ? "rgba(59,234,59,0.8)" : "rgba(59,234,59,0.4)", transition: "color 300ms" }}
+          style={{ fontSize: "0.8rem", letterSpacing: "0.2em", color: hover ? "rgba(195,221,46,0.8)" : "rgba(195,221,46,0.4)", transition: "color 300ms" }}
         >
           {service.num}
         </span>
-        <span className="block w-6 h-px" style={{ background: "rgba(59,234,59,0.25)" }} />
+        <span className="block w-6 h-px" style={{ background: "rgba(195,221,46,0.25)" }} />
         <span
           className="font-mono uppercase truncate"
           style={{ fontSize: "0.75rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.45)" }}
@@ -130,8 +130,8 @@ function StackCard({
         <div
           className="ml-auto w-9 h-9 flex items-center justify-center flex-shrink-0 transition-all duration-300"
           style={{
-            border: `1px solid ${hover ? "rgba(59,234,59,0.35)" : "rgba(255,255,255,0.08)"}`,
-            color:  hover ? "#3BEA3B" : "rgba(245,245,245,0.3)",
+            border: `1px solid ${hover ? "rgba(195,221,46,0.35)" : "rgba(255,255,255,0.08)"}`,
+            color:  hover ? "#C3DD2E" : "rgba(245,245,245,0.3)",
           }}
         >
           <Icon />
@@ -162,8 +162,8 @@ function StackCard({
               style={{
                 fontSize:      "0.7rem",
                 letterSpacing: "0.1em",
-                color:         hover ? "rgba(59,234,59,0.55)" : "rgba(245,245,245,0.25)",
-                border:        `1px solid ${hover ? "rgba(59,234,59,0.18)" : "rgba(255,255,255,0.07)"}`,
+                color:         hover ? "rgba(195,221,46,0.55)" : "rgba(245,245,245,0.25)",
+                border:        `1px solid ${hover ? "rgba(195,221,46,0.18)" : "rgba(255,255,255,0.07)"}`,
                 padding:       "3px 10px",
                 transitionDelay: `${ti * 40}ms`,
               }}
@@ -234,7 +234,7 @@ export default function Services() {
         style={{
           width: "40vw", height: "40vw", maxWidth: 500,
           borderRadius: "50%",
-          background: "radial-gradient(ellipse, rgba(59,234,59,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(195,221,46,0.04) 0%, transparent 70%)",
         }}
       />
 
@@ -250,8 +250,8 @@ export default function Services() {
           }}
         >
           <div className="flex items-center gap-3 mb-4" aria-hidden="true">
-            <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.4)" }}>
               SERVICIOS // 01
             </span>
           </div>
@@ -284,8 +284,8 @@ export default function Services() {
             href="https://wa.me/525562123864?text=Hola%2C%20me%20interesa%20una%20cotizaci%C3%B3n."
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono transition-colors duration-200 hover:text-[#3BEA3B] inline-flex items-center gap-2"
-            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
+            className="font-mono transition-colors duration-200 hover:text-[#C3DD2E] inline-flex items-center gap-2"
+            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(195,221,46,0.85)" }}
           >
             SOLICITAR COTIZACIÓN →
           </a>

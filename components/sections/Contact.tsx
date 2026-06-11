@@ -91,7 +91,7 @@ export default function Contact() {
         style={{
           width: "40vw", height: "40vw", maxWidth: 500,
           borderRadius: "50%",
-          background: "radial-gradient(ellipse, rgba(59,234,59,0.04) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(195,221,46,0.04) 0%, transparent 70%)",
         }}
       />
 
@@ -107,8 +107,8 @@ export default function Contact() {
           }}
         >
           <div className="flex items-center gap-3 mb-4" aria-hidden="true">
-            <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.4)" }}>
               CONTACTO // 05
             </span>
           </div>
@@ -128,15 +128,15 @@ export default function Contact() {
             {submitted ? (
               <div
                 className="flex flex-col items-start gap-5 p-8"
-                style={{ border: "1px solid rgba(59,234,59,0.2)" }}
+                style={{ border: "1px solid rgba(195,221,46,0.2)" }}
                 role="status"
                 aria-live="polite"
               >
                 <div
                   className="w-9 h-9 flex items-center justify-center"
-                  style={{ background: "rgba(59,234,59,0.08)", border: "1px solid rgba(59,234,59,0.3)" }}
+                  style={{ background: "rgba(195,221,46,0.08)", border: "1px solid rgba(195,221,46,0.3)" }}
                 >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#3BEA3B" strokeWidth="2" aria-hidden>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#C3DD2E" strokeWidth="2" aria-hidden>
                     <path d="M2 8l4 4 8-8" />
                   </svg>
                 </div>
@@ -151,7 +151,7 @@ export default function Contact() {
                     id="nombre" name="nombre" type="text" required
                     placeholder="Tu nombre o empresa"
                     style={{ ...inputStyle }}
-                    onFocus={(e) => (e.target.style.borderColor = "rgba(59,234,59,0.4)")}
+                    onFocus={(e) => (e.target.style.borderColor = "rgba(195,221,46,0.4)")}
                     onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
                     aria-required="true"
                   />
@@ -163,7 +163,7 @@ export default function Contact() {
                     id="email" name="email" type="email" required
                     placeholder="correo@empresa.com"
                     style={{ ...inputStyle }}
-                    onFocus={(e) => (e.target.style.borderColor = "rgba(59,234,59,0.4)")}
+                    onFocus={(e) => (e.target.style.borderColor = "rgba(195,221,46,0.4)")}
                     onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
                     aria-required="true"
                   />
@@ -175,7 +175,7 @@ export default function Contact() {
                     id="mensaje" name="mensaje" required rows={5}
                     placeholder="Cuéntanos sobre tu proyecto, presupuesto y tiempos..."
                     style={{ ...inputStyle, resize: "none" }}
-                    onFocus={(e) => (e.target.style.borderColor = "rgba(59,234,59,0.4)")}
+                    onFocus={(e) => (e.target.style.borderColor = "rgba(195,221,46,0.4)")}
                     onBlur={(e) => (e.target.style.borderColor = "rgba(255,255,255,0.08)")}
                     aria-required="true"
                   />
@@ -185,7 +185,7 @@ export default function Contact() {
                   type="submit"
                   className="font-mono font-semibold transition-all duration-200 active:scale-[0.98]"
                   style={{
-                    background:    "#3BEA3B",
+                    background:    "#C3DD2E",
                     color:         "#080808",
                     padding:       "1rem",
                     fontSize:      "0.9rem",
@@ -194,7 +194,7 @@ export default function Contact() {
                     cursor:        "pointer",
                     border:        "none",
                   }}
-                  onMouseEnter={(e) => ((e.target as HTMLElement).style.boxShadow = "0 0 28px rgba(59,234,59,0.35)")}
+                  onMouseEnter={(e) => ((e.target as HTMLElement).style.boxShadow = "0 0 28px rgba(195,221,46,0.35)")}
                   onMouseLeave={(e) => ((e.target as HTMLElement).style.boxShadow = "none")}
                 >
                   ENVIAR MENSAJE
@@ -221,14 +221,14 @@ export default function Contact() {
                 className="group flex items-start gap-4 p-5 transition-all duration-300"
                 style={{ border: "1px solid rgba(255,255,255,0.06)" }}
                 aria-label={`${label}: ${value}`}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.18)"; (e.currentTarget as HTMLElement).style.background = "rgba(59,234,59,0.015)"; }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.18)"; (e.currentTarget as HTMLElement).style.background = "rgba(195,221,46,0.015)"; }}
                 onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)"; (e.currentTarget as HTMLElement).style.background = "transparent"; }}
               >
                 <div
                   className="w-9 h-9 flex items-center justify-center flex-shrink-0 transition-all duration-300"
                   style={{ border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <span style={{ color: "rgba(245,245,245,0.3)", transition: "color 300ms" }} className="group-hover:text-[#3BEA3B]"><Icon /></span>
+                  <span style={{ color: "rgba(245,245,245,0.3)", transition: "color 300ms" }} className="group-hover:text-[#C3DD2E]"><Icon /></span>
                 </div>
                 <div>
                   <div className="font-mono uppercase mb-1" style={{ fontSize: "0.7rem", letterSpacing: "0.12em", color: "rgba(245,245,245,0.28)" }}>
@@ -248,14 +248,14 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="mt-2 flex items-center justify-center gap-3 py-4 font-mono transition-all duration-200"
               style={{
-                background:    "rgba(59,234,59,0.05)",
-                border:        "1px solid rgba(59,234,59,0.2)",
-                color:         "#3BEA3B",
+                background:    "rgba(195,221,46,0.05)",
+                border:        "1px solid rgba(195,221,46,0.2)",
+                color:         "#C3DD2E",
                 fontSize:      "0.85rem",
                 letterSpacing: "0.14em",
               }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,234,59,0.09)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.4)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(59,234,59,0.05)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.2)"; }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(195,221,46,0.09)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.4)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(195,221,46,0.05)"; (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.2)"; }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>

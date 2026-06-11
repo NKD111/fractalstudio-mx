@@ -48,10 +48,10 @@ export default function CustomCursor() {
       ring.style.height = `${size}px`;
       ring.style.transform = `translate(${rx - size / 2}px,${ry - size / 2}px)`;
       ring.style.borderColor = hovering
-        ? "#3BEA3B"
+        ? "#C3DD2E"
         : "rgba(245,245,245,0.35)";
       ring.style.background = hovering
-        ? "rgba(59,234,59,0.06)"
+        ? "rgba(195,221,46,0.06)"
         : "transparent";
 
       raf = requestAnimationFrame(tick);
@@ -81,7 +81,7 @@ export default function CustomCursor() {
           width:         8,
           height:        8,
           borderRadius:  "50%",
-          background:    "#3BEA3B",
+          background:    "#C3DD2E",
           pointerEvents: "none",
           zIndex:        99999,
           mixBlendMode:  "difference",

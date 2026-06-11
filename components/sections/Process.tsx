@@ -52,7 +52,7 @@ export default function Process() {
         width: "60vw", height: "60vw", maxWidth: 700,
         borderRadius: "50%",
         transform: "translate(-50%,-50%)",
-        background: "radial-gradient(ellipse, rgba(59,234,59,0.03) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse, rgba(195,221,46,0.03) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
 
@@ -69,8 +69,8 @@ export default function Process() {
           }}
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
-            <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.4)" }}>
               PROCESO // 03
             </span>
           </div>
@@ -91,7 +91,7 @@ export default function Process() {
               right:     40,
               height:    1,
               background: visible
-                ? "linear-gradient(90deg, transparent, rgba(59,234,59,0.22) 20%, rgba(59,234,59,0.22) 80%, transparent)"
+                ? "linear-gradient(90deg, transparent, rgba(195,221,46,0.22) 20%, rgba(195,221,46,0.22) 80%, transparent)"
                 : "transparent",
               transition: "background 0.8s ease 0.4s",
             }}
@@ -113,22 +113,22 @@ export default function Process() {
                     width:          48,
                     height:         48,
                     borderRadius:   "50%",
-                    border:         "1px solid rgba(59,234,59,0.18)",
-                    background:     "rgba(59,234,59,0.04)",
+                    border:         "1px solid rgba(195,221,46,0.18)",
+                    background:     "rgba(195,221,46,0.04)",
                     display:        "flex",
                     alignItems:     "center",
                     justifyContent: "center",
                     flexShrink:     0,
-                    boxShadow:      visible ? "0 0 18px rgba(59,234,59,0.08)" : "none",
+                    boxShadow:      visible ? "0 0 18px rgba(195,221,46,0.08)" : "none",
                     transition:     `box-shadow 0.6s ease ${400 + i * 120}ms`,
                   }}>
-                    <span style={{ fontSize: "1.1rem", color: "#3BEA3B", lineHeight: 1 }}>
+                    <span style={{ fontSize: "1.1rem", color: "#C3DD2E", lineHeight: 1 }}>
                       {step.glyph}
                     </span>
                   </div>
                   <span
                     className="font-mono"
-                    style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "rgba(59,234,59,0.28)" }}
+                    style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "rgba(195,221,46,0.28)" }}
                   >
                     {step.num}
                   </span>
@@ -161,8 +161,8 @@ export default function Process() {
             href="https://wa.me/525562123864?text=Hola%2C%20quiero%20iniciar%20un%20proyecto%20con%20Fractal%20Studio%20MX."
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono transition-colors duration-200 hover:text-[#3BEA3B]"
-            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
+            className="font-mono transition-colors duration-200 hover:text-[#C3DD2E]"
+            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(195,221,46,0.85)" }}
           >
             ¿LISTO PARA EMPEZAR? HABLEMOS →
           </a>

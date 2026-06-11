@@ -136,10 +136,10 @@ function PortfolioCell({ item, index, visible }: {
           bottom:       pos.includes("b") ? 10 : "auto",
           left:         pos.includes("l") ? 10 : "auto",
           right:        pos.includes("r") ? 10 : "auto",
-          borderTop:    pos.includes("t") ? `1px solid rgba(59,234,59,${hovered ? 0.35 : 0.14})` : "none",
-          borderBottom: pos.includes("b") ? `1px solid rgba(59,234,59,${hovered ? 0.35 : 0.14})` : "none",
-          borderLeft:   pos.includes("l") ? `1px solid rgba(59,234,59,${hovered ? 0.35 : 0.14})` : "none",
-          borderRight:  pos.includes("r") ? `1px solid rgba(59,234,59,${hovered ? 0.35 : 0.14})` : "none",
+          borderTop:    pos.includes("t") ? `1px solid rgba(195,221,46,${hovered ? 0.35 : 0.14})` : "none",
+          borderBottom: pos.includes("b") ? `1px solid rgba(195,221,46,${hovered ? 0.35 : 0.14})` : "none",
+          borderLeft:   pos.includes("l") ? `1px solid rgba(195,221,46,${hovered ? 0.35 : 0.14})` : "none",
+          borderRight:  pos.includes("r") ? `1px solid rgba(195,221,46,${hovered ? 0.35 : 0.14})` : "none",
           transition: "border-color 300ms",
         }} />
       ))}
@@ -161,8 +161,8 @@ function PortfolioCell({ item, index, visible }: {
           fontFamily:    "var(--font-jetbrains-mono,monospace)",
           fontSize:      "0.625rem",
           letterSpacing: "0.16em",
-          color:         "#3BEA3B",
-          border:        "1px solid rgba(59,234,59,0.25)",
+          color:         "#C3DD2E",
+          border:        "1px solid rgba(195,221,46,0.25)",
           padding:       "2px 7px",
           marginBottom:  8,
         }}>
@@ -197,10 +197,10 @@ function PortfolioCell({ item, index, visible }: {
         left:       0,
         right:      0,
         height:     2,
-        background: "#3BEA3B",
+        background: "#C3DD2E",
         opacity:    hovered ? 0.7 : 0,
         transition: "opacity 300ms",
-        boxShadow:  "0 0 12px rgba(59,234,59,0.5)",
+        boxShadow:  "0 0 12px rgba(195,221,46,0.5)",
       }} />
     </div>
   );
@@ -235,8 +235,8 @@ export default function Portfolio() {
         >
           <div>
             <div className="flex items-center gap-3 mb-4" aria-hidden="true">
-              <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-              <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+              <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
+              <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.4)" }}>
                 PORTAFOLIO // 02
               </span>
             </div>
@@ -270,8 +270,8 @@ export default function Portfolio() {
             href="https://wa.me/525562123864?text=Hola%2C%20quiero%20ver%20m%C3%A1s%20ejemplos%20del%20portafolio%20de%20Fractal%20Studio%20MX."
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono transition-colors duration-200 hover:text-[#3BEA3B] inline-flex items-center gap-2"
-            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(59,234,59,0.85)" }}
+            className="font-mono transition-colors duration-200 hover:text-[#C3DD2E] inline-flex items-center gap-2"
+            style={{ fontSize: "0.85rem", letterSpacing: "0.14em", color: "rgba(195,221,46,0.85)" }}
           >
             VER MÁS TRABAJOS →
           </a>

@@ -46,17 +46,17 @@ export function WhatsAppFloat() {
         aria-label="Chatear por WhatsApp con Fractal Studio MX"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex items-center justify-center w-14 h-14 bg-[#3BEA3B] active:scale-95 transition-all duration-200"
+        className="relative flex items-center justify-center w-14 h-14 bg-[#C3DD2E] active:scale-95 transition-all duration-200"
         style={{
           boxShadow: hovered
-            ? "0 4px 40px rgba(59,234,59,0.6)"
-            : "0 4px 24px rgba(59,234,59,0.35)",
+            ? "0 4px 40px rgba(195,221,46,0.6)"
+            : "0 4px 24px rgba(195,221,46,0.35)",
         }}
       >
         {/* Ping ring */}
         <span
           aria-hidden
-          className="absolute inset-0 bg-[#3BEA3B] opacity-30"
+          className="absolute inset-0 bg-[#C3DD2E] opacity-30"
           style={{ animation: "wa-ping 2s cubic-bezier(0,0,0.2,1) infinite" }}
         />
         <svg width="24" height="24" viewBox="0 0 24 24" fill="black" aria-hidden>

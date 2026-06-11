@@ -59,7 +59,7 @@ export default function Footer() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm transition-colors duration-200 hover:text-[#3BEA3B]"
+                  className="font-body text-sm transition-colors duration-200 hover:text-[#C3DD2E]"
                   style={{ color: "#888" }}
                 >
                   {link.label}
@@ -122,7 +122,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${label} de Fractal Studio MX`}
-                className="font-mono uppercase transition-colors duration-200 hover:text-[#3BEA3B]"
+                className="font-mono uppercase transition-colors duration-200 hover:text-[#C3DD2E]"
                 style={{ fontSize: "0.725rem", letterSpacing: "0.12em", color: "#888" }}
               >
                 {label}

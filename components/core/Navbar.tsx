@@ -38,8 +38,8 @@ export default function Navbar() {
           background:       scrolled ? "rgba(8,8,8,0.92)" : "transparent",
           backdropFilter:   scrolled ? "blur(20px) saturate(160%)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px) saturate(160%)" : "none",
-          borderTop:        "2px solid rgba(59,234,59,0.22)",
-          borderBottom:     `1px solid ${scrolled ? "rgba(59,234,59,0.07)" : "transparent"}`,
+          borderTop:        "2px solid rgba(195,221,46,0.22)",
+          borderBottom:     `1px solid ${scrolled ? "rgba(195,221,46,0.07)" : "transparent"}`,
         }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-full flex items-center justify-between gap-8">
@@ -75,7 +75,7 @@ export default function Navbar() {
           {/* Phone — visible solo desktop grande */}
           <a
             href={PHONE_HREF}
-            className="hidden lg:flex items-center gap-2 transition-colors duration-200 hover:text-[#3BEA3B]"
+            className="hidden lg:flex items-center gap-2 transition-colors duration-200 hover:text-[#C3DD2E]"
             style={{ fontFamily: "var(--font-jetbrains-mono)", fontSize: "0.775rem", letterSpacing: "0.1em", color: "rgba(245,245,245,0.65)" }}
             aria-label={`Llamar al ${PHONE}`}
           >
@@ -104,10 +104,10 @@ export default function Navbar() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 transition-all duration-200 hover:bg-[rgba(59,234,59,0.06)]"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 transition-all duration-200 hover:bg-[rgba(195,221,46,0.06)]"
             style={{
-              border:      "1px solid rgba(59,234,59,0.38)",
-              color:       "#3BEA3B",
+              border:      "1px solid rgba(195,221,46,0.38)",
+              color:       "#C3DD2E",
               fontFamily:  "var(--font-jetbrains-mono)",
               fontSize:    "0.825rem",
               letterSpacing: "0.13em",
@@ -127,7 +127,7 @@ export default function Navbar() {
               <span
                 key={i}
                 aria-hidden
-                className="block bg-[#3BEA3B] transition-all duration-300 origin-center"
+                className="block bg-[#C3DD2E] transition-all duration-300 origin-center"
                 style={{
                   height: 1,
                   width: menuOpen && i === 1 ? 0 : menuOpen ? 20 : i === 1 ? 14 : 20,
@@ -161,10 +161,10 @@ export default function Navbar() {
             bottom: pos.includes("b") ? 24 : "auto",
             left:   pos.includes("l") ? 24 : "auto",
             right:  pos.includes("r") ? 24 : "auto",
-            borderTop:    pos.includes("t") ? "1px solid rgba(59,234,59,0.2)" : "none",
-            borderBottom: pos.includes("b") ? "1px solid rgba(59,234,59,0.2)" : "none",
-            borderLeft:   pos.includes("l") ? "1px solid rgba(59,234,59,0.2)" : "none",
-            borderRight:  pos.includes("r") ? "1px solid rgba(59,234,59,0.2)" : "none",
+            borderTop:    pos.includes("t") ? "1px solid rgba(195,221,46,0.2)" : "none",
+            borderBottom: pos.includes("b") ? "1px solid rgba(195,221,46,0.2)" : "none",
+            borderLeft:   pos.includes("l") ? "1px solid rgba(195,221,46,0.2)" : "none",
+            borderRight:  pos.includes("r") ? "1px solid rgba(195,221,46,0.2)" : "none",
           }} />
         ))}
 
@@ -173,7 +173,7 @@ export default function Navbar() {
             key={item.href}
             href={item.href}
             onClick={() => setMenuOpen(false)}
-            className="font-headline font-bold text-[#F5F5F5] hover:text-[#3BEA3B] transition-colors"
+            className="font-headline font-bold text-[#F5F5F5] hover:text-[#C3DD2E] transition-colors"
             style={{
               fontSize:         "clamp(2rem, 8vw, 3.5rem)",
               letterSpacing:    "-0.02em",
@@ -192,8 +192,8 @@ export default function Navbar() {
           onClick={() => setMenuOpen(false)}
           className="mt-2 px-8 py-3"
           style={{
-            border:       "1px solid rgba(59,234,59,0.4)",
-            color:        "#3BEA3B",
+            border:       "1px solid rgba(195,221,46,0.4)",
+            color:        "#C3DD2E",
             fontFamily:   "var(--font-jetbrains-mono)",
             fontSize:     "0.875rem",
             letterSpacing:"0.14em",

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 export interface RevealLine {
   text:    string;
-  accent?: boolean; // verde #3BEA3B
+  accent?: boolean; // verde #C3DD2E
 }
 
 export default function RevealTitle({
@@ -49,7 +49,7 @@ export default function RevealTitle({
           <span
             className="block"
             style={{
-              color:      line.accent ? "#3BEA3B" : "#F5F5F5",
+              color:      line.accent ? "#C3DD2E" : "#F5F5F5",
               transform:  vis ? "translateY(0) skewY(0deg)" : "translateY(105%) skewY(2.5deg)",
               transition: `transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) ${i * 110}ms`,
               willChange: "transform",

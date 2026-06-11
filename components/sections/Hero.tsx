@@ -187,7 +187,7 @@ export default function Hero() {
       {/* Grid bg */}
       <div aria-hidden className="absolute inset-0 pointer-events-none" style={{
         opacity:         0.042,
-        backgroundImage: "linear-gradient(rgba(59,234,59,1) 1px,transparent 1px),linear-gradient(90deg,rgba(59,234,59,1) 1px,transparent 1px)",
+        backgroundImage: "linear-gradient(rgba(195,221,46,1) 1px,transparent 1px),linear-gradient(90deg,rgba(195,221,46,1) 1px,transparent 1px)",
         backgroundSize:  "64px 64px",
       }} />
 
@@ -197,7 +197,7 @@ export default function Hero() {
         width: "55vw", height: "55vw", maxWidth: 720,
         borderRadius: "50%",
         transform: "translate(-30%,-50%)",
-        background: "radial-gradient(ellipse,rgba(59,234,59,0.07) 0%,transparent 68%)",
+        background: "radial-gradient(ellipse,rgba(195,221,46,0.07) 0%,transparent 68%)",
       }} />
 
       {/* Second subtle glow bottom-right */}
@@ -205,7 +205,7 @@ export default function Hero() {
         bottom: "10%", right: "5%",
         width: "30vw", height: "30vw", maxWidth: 400,
         borderRadius: "50%",
-        background: "radial-gradient(ellipse,rgba(59,234,59,0.04) 0%,transparent 70%)",
+        background: "radial-gradient(ellipse,rgba(195,221,46,0.04) 0%,transparent 70%)",
       }} />
 
       {/* Scan line — uses transform (composited) instead of left */}
@@ -213,8 +213,8 @@ export default function Hero() {
         left:       0,
         width:      2,
         willChange: "transform",
-        background: "linear-gradient(to bottom,transparent 0%,rgba(59,234,59,0.85) 35%,#3BEA3B 50%,rgba(59,234,59,0.85) 65%,transparent 100%)",
-        boxShadow:  "0 0 18px #3BEA3B,0 0 50px rgba(59,234,59,0.25)",
+        background: "linear-gradient(to bottom,transparent 0%,rgba(195,221,46,0.85) 35%,#C3DD2E 50%,rgba(195,221,46,0.85) 65%,transparent 100%)",
+        boxShadow:  "0 0 18px #C3DD2E,0 0 50px rgba(195,221,46,0.25)",
         animation:  "scanLine 4.5s ease-in-out infinite",
       }} />
 
@@ -222,8 +222,8 @@ export default function Hero() {
 
         {/* HUD label */}
         <div className="flex items-center gap-3 mb-8" aria-hidden="true" style={fade(0)}>
-          <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-          <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.45)" }}>
+          <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
+          <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.45)" }}>
             CDMX // ESTUDIO CREATIVO
           </span>
         </div>
@@ -237,7 +237,7 @@ export default function Hero() {
             <span className="sr-only">Fractal Studio MX</span>
             <SplitWord word="FRACTAL" baseDelay={80}  />
             <SplitWord word="STUDIO"  baseDelay={220} />
-            <SplitWord word="MX."     baseDelay={360} color="#3BEA3B" />
+            <SplitWord word="MX."     baseDelay={360} color="#C3DD2E" />
           </h1>
         </div>
 
@@ -247,7 +247,7 @@ export default function Hero() {
           {/* Motto */}
           <div style={{ ...fade(450), marginBottom: "1.5rem" }}>
             <p className="font-body" style={{
-              borderLeft:  "2px solid rgba(59,234,59,0.45)",
+              borderLeft:  "2px solid rgba(195,221,46,0.45)",
               paddingLeft: 14,
             }}>
               <em style={{ fontSize: "clamp(1.2rem,1.5vw,1.4rem)", color: "rgba(245,245,245,0.52)", fontStyle: "italic" }}>
@@ -257,7 +257,7 @@ export default function Hero() {
                 display:       "block",
                 fontSize:      "0.775rem",
                 letterSpacing: "0.16em",
-                color:         "rgba(59,234,59,0.65)",
+                color:         "rgba(195,221,46,0.65)",
                 marginTop:     5,
               }}>
                 — Fractal Studio
@@ -285,15 +285,15 @@ export default function Hero() {
             aria-label="Iniciar conversación en WhatsApp"
             className="items-center gap-3 font-mono font-semibold active:scale-95"
             style={{
-              background:    "#3BEA3B",
+              background:    "#C3DD2E",
               color:         "#080808",
               padding:       "0.85rem 1.8rem",
               fontSize:      "0.9rem",
               letterSpacing: "0.12em",
-              boxShadow:     "0 4px 24px rgba(59,234,59,0.25)",
+              boxShadow:     "0 4px 24px rgba(195,221,46,0.25)",
             }}
-            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 40px rgba(59,234,59,0.5)")}
-            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(59,234,59,0.25)")}
+            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 40px rgba(195,221,46,0.5)")}
+            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(195,221,46,0.25)")}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
@@ -306,19 +306,19 @@ export default function Hero() {
             href="#servicios"
             className="items-center gap-2 font-mono"
             style={{
-              border:        "1px solid rgba(59,234,59,0.28)",
-              color:         "rgba(59,234,59,0.75)",
+              border:        "1px solid rgba(195,221,46,0.28)",
+              color:         "rgba(195,221,46,0.75)",
               padding:       "0.85rem 1.8rem",
               fontSize:      "0.9rem",
               letterSpacing: "0.12em",
             }}
             onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.6)";
-              (e.currentTarget as HTMLElement).style.color = "#3BEA3B";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.6)";
+              (e.currentTarget as HTMLElement).style.color = "#C3DD2E";
             }}
             onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              (e.currentTarget as HTMLElement).style.borderColor = "rgba(59,234,59,0.28)";
-              (e.currentTarget as HTMLElement).style.color = "rgba(59,234,59,0.75)";
+              (e.currentTarget as HTMLElement).style.borderColor = "rgba(195,221,46,0.28)";
+              (e.currentTarget as HTMLElement).style.color = "rgba(195,221,46,0.75)";
             }}
           >
             VER SERVICIOS →
@@ -358,7 +358,7 @@ export default function Hero() {
           Scroll
         </span>
         <div className="w-px h-8 scroll-line-indicator" style={{
-          background: "linear-gradient(to bottom, rgba(59,234,59,0.35), transparent)",
+          background: "linear-gradient(to bottom, rgba(195,221,46,0.35), transparent)",
         }} />
       </div>
 

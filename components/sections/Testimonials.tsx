@@ -10,7 +10,7 @@ const TESTIMONIALS = [
     title:   "Director Creativo",
     company: "Estudio M",
     init:    "CM",
-    color:   "rgba(59,234,59,0.12)",
+    color:   "rgba(195,221,46,0.12)",
   },
   {
     quote:   "La sesión de fotografía de producto elevó nuestra presencia digital. Las ventas en línea crecieron 40% tras renovar nuestras imágenes con ellos.",
@@ -18,7 +18,7 @@ const TESTIMONIALS = [
     title:   "Fundadora",
     company: "Marca Propia",
     init:    "AR",
-    color:   "rgba(59,234,59,0.08)",
+    color:   "rgba(195,221,46,0.08)",
   },
   {
     quote:   "El spot de video fue exactamente lo que necesitábamos — impacto visual, concepto sólido y entrega a tiempo. Los volvería a contratar sin pensarlo.",
@@ -26,7 +26,7 @@ const TESTIMONIALS = [
     title:   "CMO",
     company: "Grupo Innovar",
     init:    "RS",
-    color:   "rgba(59,234,59,0.06)",
+    color:   "rgba(195,221,46,0.06)",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function Testimonials() {
         position: "absolute", top: 0, right: 0,
         width: "35vw", height: "35vw", maxWidth: 450,
         borderRadius: "50%",
-        background: "radial-gradient(ellipse, rgba(59,234,59,0.04) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse, rgba(195,221,46,0.04) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
 
@@ -70,8 +70,8 @@ export default function Testimonials() {
           }}
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
-            <span className="block w-5 h-px bg-[#3BEA3B] opacity-50" />
-            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(59,234,59,0.4)" }}>
+            <span className="block w-5 h-px bg-[#C3DD2E] opacity-50" />
+            <span className="font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(195,221,46,0.4)" }}>
               CLIENTES // 04
             </span>
           </div>
@@ -108,7 +108,7 @@ export default function Testimonials() {
                 fontFamily:  "Georgia, serif",
                 fontSize:    "3.5rem",
                 lineHeight:  1,
-                color:       "rgba(59,234,59,0.18)",
+                color:       "rgba(195,221,46,0.18)",
                 marginBottom: 12,
                 userSelect:  "none",
               }}>
@@ -127,8 +127,8 @@ export default function Testimonials() {
                   width:          40,
                   height:         40,
                   borderRadius:   "50%",
-                  background:     "rgba(59,234,59,0.06)",
-                  border:         "1px solid rgba(59,234,59,0.14)",
+                  background:     "rgba(195,221,46,0.06)",
+                  border:         "1px solid rgba(195,221,46,0.14)",
                   display:        "flex",
                   alignItems:     "center",
                   justifyContent: "center",
@@ -136,7 +136,7 @@ export default function Testimonials() {
                 }}>
                   <span
                     className="font-mono"
-                    style={{ fontSize: "0.75rem", letterSpacing: "0.06em", color: "#3BEA3B" }}
+                    style={{ fontSize: "0.75rem", letterSpacing: "0.06em", color: "#C3DD2E" }}
                   >
                     {t.init}
                   </span>

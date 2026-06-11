@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 /* ═══════════════════════════════════════════════════════════════════════════
    LIVING FRACTAL — entidad generativa persistente.
    Canvas fijo que acompaña el scroll: muta de forma, posición, escala y
-   opacidad según la sección visible. Verde #3BEA3B sobre obsidiana.
+   opacidad según la sección visible. Verde #C3DD2E sobre obsidiana.
    ─ knot      → hero       (trefoil orbitando, grande, respira)
    ─ aperture  → servicios  (anillos contra-rotando, tipo lente)
    ─ spiral    → portafolio (espiral en expansión)
@@ -249,7 +249,7 @@ export default function LivingFractal() {
       for (let i = 1; i < N; i++) {
         ctx.lineTo(cx + px[i] * R, cy + py[i] * R);
       }
-      ctx.strokeStyle = `rgba(59,234,59,${0.10 * cur.opacity})`;
+      ctx.strokeStyle = `rgba(195,221,46,${0.10 * cur.opacity})`;
       ctx.lineWidth = 1;
       ctx.stroke();
 
@@ -263,14 +263,14 @@ export default function LivingFractal() {
 
         ctx.beginPath();
         ctx.arc(x, y, sz, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59,234,59,${a})`;
+        ctx.fillStyle = `rgba(195,221,46,${a})`;
         ctx.fill();
 
         /* halo en una fracción de partículas */
         if (i % 13 === 0) {
           ctx.beginPath();
           ctx.arc(x, y, 5.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(59,234,59,${a * 0.14})`;
+          ctx.fillStyle = `rgba(195,221,46,${a * 0.14})`;
           ctx.fill();
         }
       }
@@ -290,7 +290,7 @@ export default function LivingFractal() {
         const x = cx + pt.x * R, y = cy + pt.y * R;
         if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       }
-      ctx.strokeStyle = "rgba(59,234,59,0.12)";
+      ctx.strokeStyle = "rgba(195,221,46,0.12)";
       ctx.lineWidth = 1;
       ctx.stroke();
       return;
