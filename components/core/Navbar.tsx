@@ -65,7 +65,6 @@ export default function Navbar() {
                 width:        34,
                 height:       34,
                 objectFit:    "contain",
-                mixBlendMode: "screen",
                 flexShrink:   0,
               }}
             />

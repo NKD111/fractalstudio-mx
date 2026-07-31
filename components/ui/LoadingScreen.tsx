@@ -74,7 +74,6 @@ export default function LoadingScreen() {
             width:        96,
             height:       96,
             objectFit:    "contain",
-            mixBlendMode: "screen",
           }}
         />
       </div>

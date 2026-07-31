@@ -26,7 +26,6 @@ export default function Footer() {
                   width:        28,
                   height:       28,
                   objectFit:    "contain",
-                  mixBlendMode: "screen",
                   flexShrink:   0,
                 }}
               />
