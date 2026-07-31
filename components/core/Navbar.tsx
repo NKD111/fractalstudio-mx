@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+// Rutas absolutas ("/#seccion") en vez de anclas sueltas: así el menú también
+// funciona desde páginas que no son el home, como /analiza.
 const NAV_ITEMS = [
-  { href: "#servicios",  label: "SERVICIOS"  },
-  { href: "#portafolio", label: "PORTAFOLIO" },
-  { href: "#contacto",   label: "CONTACTO"   },
+  { href: "/#servicios",  label: "SERVICIOS"  },
+  { href: "/#portafolio", label: "PORTAFOLIO" },
+  { href: "/analiza",     label: "ANALIZA TU SITIO" },
+  { href: "/#contacto",   label: "CONTACTO"   },
 ];
 
 const WA_LINK = "https://wa.me/525562123864?text=Hola%2C%20me%20interesa%20iniciar%20un%20proyecto%20con%20Fractal%20Studio%20MX.";

@@ -10,7 +10,7 @@ const ITEMS = [
     row:   "md:row-span-2",
     tag:   "FOTO",
     label: "Fotografía Comercial",
-    src:   "/portfolio/foto-comercial.svg",
+    src:   "/trabajo/foto-comercial.webp",
     desc:  "Producto · Editorial · Lifestyle",
   },
   {
@@ -19,7 +19,7 @@ const ITEMS = [
     row:   "",
     tag:   "BRAND",
     label: "Branding",
-    src:   "/portfolio/branding.svg",
+    src:   "/trabajo/branding.webp",
     desc:  "Identidad · Sistema Visual",
   },
   {
@@ -28,7 +28,7 @@ const ITEMS = [
     row:   "",
     tag:   "VIDEO",
     label: "Video Spot",
-    src:   "/portfolio/video-spot.svg",
+    src:   "/trabajo/video-spot.webp",
     desc:  "Comercial · Motion",
   },
   {
@@ -37,7 +37,7 @@ const ITEMS = [
     row:   "md:row-span-2",
     tag:   "DISEÑO",
     label: "Diseño Editorial",
-    src:   "/portfolio/editorial.svg",
+    src:   "/trabajo/editorial.webp",
     desc:  "Revista · Print · Digital",
   },
   {
@@ -46,7 +46,7 @@ const ITEMS = [
     row:   "",
     tag:   "FOTO",
     label: "Fotografía de Producto",
-    src:   "/portfolio/producto.svg",
+    src:   "/trabajo/producto.webp",
     desc:  "Macro · Lifestyle · E-commerce",
   },
   {
@@ -55,7 +55,7 @@ const ITEMS = [
     row:   "",
     tag:   "BRAND",
     label: "Identidad de Marca",
-    src:   "/portfolio/identidad.svg",
+    src:   "/trabajo/identidad.webp",
     desc:  "Logotipo · Manual · Naming",
   },
 ];

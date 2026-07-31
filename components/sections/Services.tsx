@@ -31,22 +31,22 @@ const LayersIcon = () => (
 
 const SERVICES = [
   {
-    num: "01", Icon: CameraIcon, title: "Fotografía Comercial",
+    num: "01", img: "/servicios/foto.webp", Icon: CameraIcon, title: "Fotografía Comercial",
     description: "Imágenes que venden. Desde producto hasta lifestyle — capturamos la esencia de tu marca con precisión profesional y visión artística.",
     tags: ["Producto", "Editorial", "Corporativo", "Lifestyle"],
   },
   {
-    num: "02", Icon: VideoIcon, title: "Producción de Video",
+    num: "02", img: "/servicios/video.webp", Icon: VideoIcon, title: "Producción de Video",
     description: "Contenido audiovisual que conecta. Spots comerciales, reels y documentales que generan impacto real y convierten audiencias en clientes.",
     tags: ["Spots", "Reels", "Documentales", "Motion Graphics"],
   },
   {
-    num: "03", Icon: PencilIcon, title: "Diseño Gráfico",
+    num: "03", img: "/servicios/diseno.webp", Icon: PencilIcon, title: "Diseño Gráfico",
     description: "Piezas que comunican con claridad y estilo. Materiales digitales y print que refuerzan tu identidad en cada punto de contacto.",
     tags: ["Print", "Digital", "Social Media", "Packaging"],
   },
   {
-    num: "04", Icon: LayersIcon, title: "Branding & Identidad",
+    num: "04", img: "/servicios/branding.webp", Icon: LayersIcon, title: "Branding & Identidad",
     description: "Construimos marcas que perduran. Estrategia, naming, logotipo y sistema visual cohesivo que diferencia tu negocio en el mercado.",
     tags: ["Logotipo", "Manual de Marca", "Naming", "Estrategia"],
   },
@@ -77,6 +77,31 @@ function StackCard({
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
+      {/* Imagen de fondo — brutalismo generado por nosotros. Va muy apagada y
+          sube al pasar el cursor: da materia sin robarle lectura al texto. */}
+      <div aria-hidden className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={service.img}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover"
+          style={{
+            opacity:    hover ? 0.30 : 0.16,
+            transform:  hover ? "scale(1.05)" : "scale(1)",
+            transition: "opacity 550ms cubic-bezier(0.2,0,0,1), transform 900ms cubic-bezier(0.2,0,0,1)",
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, #0A0A0A 0%, rgba(10,10,10,0.90) 46%, rgba(10,10,10,0.62) 100%)",
+          }}
+        />
+      </div>
+
       {/* Número fantasma gigante — parallax independiente */}
       <span
         ref={numRef}

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Decoded from "@/components/ui/Decoded";
+import CrucesLima from "@/components/ui/CrucesLima";
 
 /* ── Magnetic Button wrapper ──────────────────────────────────────────────── */
 function Magnetic({
@@ -141,6 +143,7 @@ export default function Hero() {
   const statsRef      = useRef<HTMLDivElement>(null);
   const headlineRef   = useRef<HTMLDivElement>(null);
   const subtitleRef   = useRef<HTMLDivElement>(null);
+  const videoRef      = useRef<HTMLVideoElement>(null);
 
   /* Stats counter trigger */
   useEffect(() => {
@@ -160,6 +163,9 @@ export default function Hero() {
         headlineRef.current.style.transform = `translateY(${y * 0.22}px)`;
       if (subtitleRef.current)
         subtitleRef.current.style.transform = `translateY(${y * 0.12}px)`;
+      // El video se aleja más lento que el texto: da profundidad sin marear.
+      if (videoRef.current)
+        videoRef.current.style.transform = `translateY(${y * 0.06}px) scale(${1 + y * 0.00012})`;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -184,6 +190,38 @@ export default function Hero() {
       aria-label="Inicio"
       className="relative min-h-dvh flex flex-col justify-center overflow-hidden bg-[#080808]"
     >
+      {/* Video de fondo — trabajo REAL de clientes, en blanco y negro.
+          Va debajo de todas las capas decorativas y detrás de un velo oscuro:
+          adorna sin competir nunca con el titular. */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/reel/poster.jpg"
+          className="h-full w-full object-cover"
+          style={{ opacity: 0.34, willChange: "transform" }}
+        >
+          <source src="/reel/hero-m.mp4" media="(max-width: 760px)" type="video/mp4" />
+          <source src="/reel/hero.mp4" type="video/mp4" />
+        </video>
+        {/* Velo: más denso a la izquierda, que es donde vive el texto. */}
+        <div className="absolute inset-0" style={{
+          background:
+            "linear-gradient(90deg, rgba(8,8,8,0.94) 0%, rgba(8,8,8,0.86) 42%, rgba(8,8,8,0.62) 100%)",
+        }} />
+        <div className="absolute inset-0" style={{
+          background:
+            "linear-gradient(to bottom, rgba(8,8,8,0.55) 0%, transparent 28%, transparent 62%, rgba(8,8,8,0.92) 100%)",
+        }} />
+      </div>
+
+      {/* Marcas de registro girando */}
+      <CrucesLima />
+
       {/* Grid bg */}
       <div aria-hidden className="absolute inset-0 pointer-events-none" style={{
         opacity:         0.042,
@@ -218,7 +256,9 @@ export default function Hero() {
         animation:  "scanLine 4.5s ease-in-out infinite",
       }} />
 
-      <div className="relative z-1 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24">
+      {/* min-w-0: sin esto, un hijo que no puede cortarse estira al contenedor
+          flex por encima del ancho de la pantalla y saca el hero de cuadro. */}
+      <div className="relative z-1 w-full min-w-0 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-24">
 
         {/* HUD label */}
         <div className="flex items-center gap-3 mb-8" aria-hidden="true" style={fade(0)}>
@@ -235,9 +275,9 @@ export default function Hero() {
             style={{ fontSize: "clamp(2rem,9vw,8.5rem)" }}
           >
             <span className="sr-only">Fractal Studio MX</span>
-            <SplitWord word="FRACTAL" baseDelay={80}  />
-            <SplitWord word="STUDIO"  baseDelay={220} />
-            <SplitWord word="MX."     baseDelay={360} color="#C3DD2E" />
+            <Decoded texto="FRACTAL" retraso={120} />
+            <Decoded texto="STUDIO"  retraso={300} />
+            <Decoded texto="MX."     retraso={480} color="#C3DD2E" />
           </h1>
         </div>
 
@@ -266,9 +306,17 @@ export default function Hero() {
           </div>
 
           <div style={fade(580)}>
-            <p className="font-mono uppercase mb-5" style={{ fontSize: "0.85rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
-              Diseño&nbsp;&nbsp;·&nbsp;&nbsp;Fotografía&nbsp;&nbsp;·&nbsp;&nbsp;Video&nbsp;&nbsp;·&nbsp;&nbsp;Branding
-            </p>
+            {/* Antes iba con espacios duros (&nbsp;) y no podía cortarse: en celular
+                forzaba el contenedor 92px más ancho que la pantalla y recorría todo
+                el hero. Ahora es una lista que envuelve. */}
+            <ul className="font-mono uppercase mb-5 flex flex-wrap items-center gap-x-4 gap-y-1" style={{ fontSize: "0.85rem", letterSpacing: "0.18em", color: "rgba(245,245,245,0.35)" }}>
+              {["Diseño", "Fotografía", "Video", "Branding"].map((s, i) => (
+                <li key={s} className="flex items-center gap-4">
+                  {i > 0 && <span aria-hidden style={{ color: "rgba(195,221,46,0.4)" }}>·</span>}
+                  {s}
+                </li>
+              ))}
+            </ul>
             <p className="font-body leading-relaxed max-w-md" style={{ fontSize: "clamp(1.1rem,1.35vw,1.3rem)", color: "#999" }}>
               Creamos experiencias visuales que conectan marcas con personas.
               Desde la conceptualización hasta la entrega final.
