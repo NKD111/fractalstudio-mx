@@ -112,8 +112,8 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             {[
-              { href: "https://www.instagram.com/fractalstudiomx", label: "Instagram" },
-              { href: "https://www.facebook.com/fractalstudiomx",  label: "Facebook"  },
+              { href: "https://www.instagram.com/fractal_mexico", label: "Instagram" },
+              { href: "https://www.facebook.com/1136794982842832", label: "Facebook"  },
             ].map(({ href, label }) => (
               <a
                 key={label}

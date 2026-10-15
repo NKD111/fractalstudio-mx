@@ -89,7 +89,6 @@ export const metadata: Metadata = {
     card:        "summary_large_image",
     title:       "Fractal Studio MX | Agencia Creativa CDMX",
     description: "Diseño, fotografía, video y branding en CDMX. Potenciamos tu marca.",
-    creator:     "@fractalstudiomx",
     images:      ["/og.jpg"],
   },
 
@@ -142,8 +141,8 @@ const jsonLd = {
     ],
   },
   sameAs: [
-    "https://www.instagram.com/fractalstudiomx",
-    "https://www.facebook.com/fractalstudiomx",
+    "https://www.instagram.com/fractal_mexico",
+    "https://www.facebook.com/1136794982842832",
   ],
 };
 
